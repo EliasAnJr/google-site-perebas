@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Jogador Destaque do Mês - ABRIL/2026</title>
+  <style>
+    :root{
+      --bg1:#0b1020;
+      --bg2:#0f1b3a;
+      --card:rgba(255,255,255,.08);
+      --card2:rgba(255,255,255,.06);
+      --stroke:rgba(255,255,255,.14);
+      --text:rgba(255,255,255,.92);
+      --muted:rgba(255,255,255,.72);
+      --green:#1fe58f;
+      --yellow:#ffd166;
+      --blue:#3aa0ff;
+      --shadow: 0 20px 60px rgba(0,0,0,.45);
+      --radius: 18px;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background:
+        radial-gradient(900px 500px at 20% 10%, rgba(31,229,143,.20), transparent 55%),
+        radial-gradient(800px 500px at 85% 15%, rgba(255,209,102,.18), transparent 55%),
+        radial-gradient(900px 650px at 50% 95%, rgba(58,160,255,.12), transparent 55%),
+        linear-gradient(180deg, var(--bg1), var(--bg2));
+      min-height:100vh;
+      padding:28px 14px 60px;
+    }
+
+    .wrap{max-width:1050px;margin:0 auto;}
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      width:fit-content;
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(255,255,255,.08);
+      border:1px solid var(--stroke);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 30px rgba(0,0,0,.25);
+      font-size:13px;
+      color:var(--muted);
+      margin-bottom:8px;
+    }
+
+    .dot{
+      width:10px;height:10px;border-radius:50%;
+      background: linear-gradient(135deg, var(--yellow), var(--green));
+      box-shadow: 0 0 0 4px rgba(255,209,102,.12);
+    }
+
+    h1{
+      margin:0;
+      font-size:28px;
+      line-height:1.15;
+      letter-spacing:.2px;
+    }
+
+    .subtitle{
+      margin:10px 0 0;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.45;
+      max-width:75ch;
+    }
+
+    .card{
+      margin-top:14px;
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, var(--card), var(--card2));
+      border:1px solid var(--stroke);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+
+    .card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(520px 220px at 20% 0%, rgba(255,209,102,.16), transparent 60%),
+        radial-gradient(520px 220px at 80% 0%, rgba(31,229,143,.10), transparent 60%),
+        radial-gradient(520px 260px at 50% 110%, rgba(58,160,255,.10), transparent 60%);
+      pointer-events:none;
+    }
+
+    .card-head{
+      position:relative;
+      padding:16px 18px 14px;
+      border-bottom:1px solid rgba(255,255,255,.10);
+      background:rgba(0,0,0,.10);
+      backdrop-filter: blur(10px);
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+
+    .meta{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:flex-end;
+    }
+
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:7px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
+      color:var(--muted);
+      font-size:12px;
+      white-space:nowrap;
+    }
+
+    .chip b{color:var(--text); font-weight:800}
+
+    .ico{width:10px;height:10px;border-radius:50%;}
+    .ico.yellow{background:rgba(255,209,102,.95)}
+    .ico.blue{background:rgba(58,160,255,.85)}
+    .ico.green{background:rgba(31,229,143,.85)}
+
+    .card-body{
+      position:relative;
+      padding:18px;
+      display:grid;
+      gap:14px;
+    }
+
+    .status-box{
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.05);
+      padding:18px;
+    }
+
+    .status-title{
+      margin:0;
+      color:var(--muted);
+      font-size:13px;
+      text-transform:uppercase;
+      letter-spacing:.35px;
+    }
+
+    .status-main{
+      margin:8px 0 0;
+      font-size:32px;
+      font-weight:900;
+      letter-spacing:.4px;
+    }
+
+    .status-text{
+      margin:10px 0 0;
+      color:var(--muted);
+      line-height:1.5;
+    }
+
+    .rules{
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.05);
+      padding:16px;
+    }
+
+    .rules h3{
+      margin:0 0 10px;
+      color:var(--muted);
+      font-size:13px;
+      text-transform:uppercase;
+      letter-spacing:.35px;
+    }
+
+    .rules ul{
+      margin:0;
+      padding-left:18px;
+      line-height:1.65;
+      color:rgba(255,255,255,.9);
+    }
+
+    footer{
+      margin-top:18px;
+      color:rgba(255,255,255,.55);
+      font-size:12px;
+      text-align:center;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="badge"><span class="dot"></span> Premiação oficial da Patota</div>
+    <h1>Jogador Destaque do Mês</h1>
+    <p class="subtitle">
+      A eleição do destaque de ABRIL ainda não foi encerrada. O jogador será escolhido quando o ciclo do mês finalizar.
+    </p>
+
+    <article class="card">
+      <div class="card-head">
+        <div>
+          <div style="font-weight:800; font-size:14px; color:rgba(255,255,255,.86);">Status da votação</div>
+          <div style="margin-top:6px; color:var(--muted); font-size:12px;">ABRIL/2026 - Patota Perebas FC</div>
+        </div>
+
+        <div class="meta" aria-label="Resumo">
+          <span class="chip"><span class="ico yellow"></span> <b>Status:</b> Em andamento</span>
+          <span class="chip"><span class="ico blue"></span> <b>Vencedor:</b> A definir</span>
+          <span class="chip"><span class="ico green"></span> <b>Divulgação:</b> Fim do ciclo</span>
+        </div>
+      </div>
+
+      <div class="card-body">
+        <section class="status-box">
+          <h2 class="status-title">Destaque do mês</h2>
+          <div class="status-main">Aguardando encerramento</div>
+          <p class="status-text">
+            O destaque será anunciado após a conclusão dos jogos do ciclo de ABRIL.
+          </p>
+        </section>
+
+        <aside class="rules">
+          <h3>Regras</h3>
+          <ul>
+            <li>A escolha acontece somente após o último jogo do ciclo.</li>
+            <li>Desempenho, presença e impacto coletivo entram na avaliação.</li>
+            <li>O resultado final será publicado nesta página.</li>
+          </ul>
+        </aside>
+      </div>
+    </article>
+
+    <footer>
+      Atualização oficial - ABRIL/2026
+    </footer>
+  </div>
+</body>
+</html>
+

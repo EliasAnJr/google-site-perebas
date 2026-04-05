@@ -1,0 +1,482 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Perebas FC — Eleição Jogador Destaque do Mês</title>
+  <style>
+    :root{
+      --bg1:#0b1020;
+      --bg2:#0f1b3a;
+      --card:rgba(255,255,255,.08);
+      --card2:rgba(255,255,255,.06);
+      --stroke:rgba(255,255,255,.14);
+      --text:rgba(255,255,255,.92);
+      --muted:rgba(255,255,255,.72);
+      --green:#1fe58f;
+      --red:#ff5d6c;
+      --yellow:#ffd166;
+      --blue:#3aa0ff;
+      --shadow: 0 20px 60px rgba(0,0,0,.45);
+      --radius: 18px;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background:
+        radial-gradient(900px 500px at 20% 10%, rgba(31,229,143,.20), transparent 55%),
+        radial-gradient(800px 500px at 85% 15%, rgba(255,93,108,.18), transparent 55%),
+        radial-gradient(900px 650px at 50% 95%, rgba(255,209,102,.14), transparent 55%),
+        linear-gradient(180deg, var(--bg1), var(--bg2));
+      min-height:100vh;
+      padding:28px 14px 60px;
+    }
+
+    .wrap{max-width:1050px;margin:0 auto;}
+
+    header{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:16px;
+      margin-bottom:18px;
+    }
+
+    .title{
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      width:fit-content;
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(255,255,255,.08);
+      border:1px solid var(--stroke);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 30px rgba(0,0,0,.25);
+      font-size:13px;
+      color:var(--muted);
+    }
+    .dot{
+      width:10px;height:10px;border-radius:50%;
+      background: linear-gradient(135deg, var(--yellow), var(--green));
+      box-shadow: 0 0 0 4px rgba(255,209,102,.12);
+    }
+
+    h1{
+      margin:0;
+      font-size:28px;
+      line-height:1.15;
+      letter-spacing:.2px;
+    }
+    .subtitle{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.45;
+      max-width:80ch;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap:14px;
+    }
+
+    .card{
+      grid-column: span 12;
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, var(--card), var(--card2));
+      border:1px solid var(--stroke);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+
+    .card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(520px 220px at 20% 0%, rgba(255,209,102,.14), transparent 60%),
+        radial-gradient(520px 220px at 80% 0%, rgba(31,229,143,.12), transparent 60%),
+        radial-gradient(520px 260px at 50% 110%, rgba(58,160,255,.10), transparent 60%);
+      pointer-events:none;
+    }
+
+    .card-head{
+      position:relative;
+      padding:16px 18px 14px;
+      border-bottom:1px solid rgba(255,255,255,.10);
+      background:rgba(0,0,0,.10);
+      backdrop-filter: blur(10px);
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+
+    .meta{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:flex-end;
+    }
+
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:7px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
+      color:var(--muted);
+      font-size:12px;
+      white-space:nowrap;
+    }
+    .chip b{color:var(--text); font-weight:800}
+    .ico{width:10px;height:10px;border-radius:50%;}
+    .ico.gold{background:rgba(255,209,102,.95)}
+    .ico.red{background:rgba(255,93,108,.85)}
+    .ico.green{background:rgba(31,229,143,.85)}
+    .ico.blue{background:rgba(58,160,255,.85)}
+
+    .card-body{
+      position:relative;
+      padding:18px;
+    }
+
+    .layout{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap:14px;
+      align-items:stretch;
+    }
+
+    .panel{
+      grid-column: span 12;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.05);
+      padding:16px;
+      position:relative;
+      overflow:hidden;
+    }
+    .panel::before{
+      content:"";
+      position:absolute;
+      inset:-60px -80px auto auto;
+      width:320px;height:320px;
+      background: radial-gradient(circle at 30% 30%, rgba(255,209,102,.30), transparent 55%);
+      transform: rotate(20deg);
+      pointer-events:none;
+    }
+
+    .panel h2{
+      margin:0 0 6px;
+      font-size:14px;
+      text-transform:uppercase;
+      letter-spacing:.35px;
+      color:var(--muted);
+    }
+
+    .panel p{
+      margin:0 0 10px;
+      color:rgba(255,255,255,.86);
+      line-height:1.55;
+    }
+
+    .rules{
+      margin:10px 0 0;
+      padding:0;
+      list-style:none;
+      display:grid;
+      gap:10px;
+    }
+
+    .rule{
+      display:flex;
+      align-items:flex-start;
+      gap:10px;
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.04);
+    }
+    .rule .mark{
+      flex:0 0 auto;
+      width:28px;height:28px;
+      border-radius:10px;
+      display:grid;place-items:center;
+      border:1px solid rgba(255,255,255,.16);
+      font-weight:900;
+    }
+    .mark.warn{
+      background:rgba(255,93,108,.10);
+      color:rgba(255,93,108,.95);
+    }
+    .mark.ok{
+      background:rgba(31,229,143,.10);
+      color:rgba(31,229,143,.95);
+    }
+    .mark.info{
+      background:rgba(58,160,255,.10);
+      color:rgba(58,160,255,.95);
+    }
+    .rule strong{display:block;font-size:14px}
+    .rule span{display:block;color:var(--muted);font-size:12px;margin-top:2px}
+
+    @media (min-width: 900px){
+      .panel.left{grid-column: span 5;}
+      .panel.right{grid-column: span 7;}
+    }
+
+    .criteria{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap:10px;
+      margin-top:10px;
+    }
+
+    .criterion{
+      grid-column: span 12;
+      display:flex;
+      gap:10px;
+      padding:12px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.04);
+    }
+
+    .criterion .icon{
+      width:34px;height:34px;
+      border-radius:14px;
+      display:grid;place-items:center;
+      border:1px solid rgba(255,255,255,.16);
+      background:rgba(255,255,255,.06);
+      font-size:16px;
+      flex:0 0 auto;
+    }
+
+    .criterion .text strong{
+      display:block;
+      font-size:14px;
+      color:var(--text);
+    }
+    .criterion .text small{
+      display:block;
+      margin-top:2px;
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.45;
+    }
+
+    @media (min-width: 900px){
+      .criterion{grid-column: span 6;}
+    }
+
+    .footerNote{
+      margin-top:14px;
+      color:rgba(255,255,255,.85);
+      font-weight:700;
+    }
+
+    .hashes{
+      margin-top:12px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+    .hash{
+      font-size:12px;
+      color:rgba(255,255,255,.78);
+      padding:7px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
+      white-space:nowrap;
+    }
+
+    footer{
+      margin-top:18px;
+      color:rgba(255,255,255,.55);
+      font-size:12px;
+      text-align:center;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="title">
+        <h1>🏆 Perebas FC — Eleição Jogador Destaque do Mês</h1>
+        <p class="subtitle">
+          Escolha o jogador que atende os critérios e envie o seu voto. Seja imparcial e ajude a manter a resenha organizada 👊⚽
+        </p>
+      </div>
+    </header>
+
+    <section class="grid">
+      <article class="card">
+        <div class="card-head">
+          <div>
+            <div style="font-weight:800; font-size:16px; color:rgba(255,255,255,.86);">
+              Regras e critérios da votação
+            </div>
+            <div style="margin-top:6px; color:var(--muted); font-size:16px;">
+                Leia atentamente para votar de forma consciente e justa.
+            </div>
+          </div>
+
+          <div class="meta" aria-label="Resumo">
+            <span class="chip"><span class="ico red"></span> <b>Proibido:</b> votar em si mesmo</span>
+            <span class="chip"><span class="ico green"></span> <b>Vota:</b> ≥ 3 jogos</span>
+            <span class="chip"><span class="ico gold"></span> <b>Elegível:</b> 100% presença</span>
+            <span class="chip"><span class="ico blue"></span> <b>Empate:</b> presidência decide</span>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <div class="layout">
+            <section class="panel left">
+              <h2>📢 Instruções rápidas</h2>
+              <p><b>ESCOLHA O JOGADOR</b> que atende os critérios e <b>ENVIE O SEU VOTO</b>.</p>
+
+              <ul class="rules">
+                <li class="rule">
+                  <div class="mark warn">!</div>
+                  <div>
+                    <strong>NÃO VOTE EM SI MESMO</strong>
+                    <span>Seja imparcial no seu voto.</span>
+                  </div>
+                </li>
+
+                <li class="rule">
+                  <div class="mark ok">✓</div>
+                  <div>
+                    <strong>Só vota quem jogou pelo menos 3 jogos</strong>
+                    <span>Participação mínima no mês para votar.</span>
+                  </div>
+                </li>
+
+                <li class="rule">
+                  <div class="mark info">i</div>
+                  <div>
+                    <strong>Em caso de empate, a presidência decide</strong>
+                    <span>Desempate oficial para manter a organização.</span>
+                  </div>
+                </li>
+              </ul>
+
+              <div class="footerNote">Obrigado por votar com responsabilidade 👊⚽</div>
+            </section>
+
+            <section class="panel right">
+              <h2>✅ Critérios de avaliação</h2>
+              <p>
+                A votação considera o <b>desempenho geral</b> (não apenas gols) e a <b>regularidade durante o ciclo</b>.
+              </p>
+
+              <div class="criteria" aria-label="Lista de critérios">
+                <div class="criterion">
+                  <div class="icon">🏁</div>
+                  <div class="text">
+                    <strong>Elegibilidade (obrigatório)</strong>
+                    <small>Para concorrer, o jogador deve estar presente em <b>todos os jogos do mês</b>.</small>
+                  </div>
+                </div>
+
+                <div class="criterion">
+                  <div class="icon">⚖️</div>
+                  <div class="text">
+                    <strong>Imparcialidade</strong>
+                    <small>Avalie com justiça e espírito esportivo.</small>
+                  </div>
+                </div>
+
+                <div class="criterion">
+                  <div class="icon">🧠</div>
+                  <div class="text">
+                    <strong>Regularidade</strong>
+                    <small>Considere o desempenho em <b>todo o ciclo do mês</b>, não apenas em um jogo.</small>
+                  </div>
+                </div>
+
+                <div class="criterion">
+                  <div class="icon">🤝</div>
+                  <div class="text">
+                    <strong>Impacto coletivo no time</strong>
+                    <small>O quanto ajudou o time a jogar melhor.</small>
+                  </div>
+                </div>
+
+                <div class="criterion">
+                  <div class="icon">🛡️</div>
+                  <div class="text">
+                    <strong>Contribuição defensiva</strong>
+                    <small>Ajudou a marcar, recompor e fechar espaços.</small>
+                  </div>
+                </div>
+
+                <div class="criterion">
+                  <div class="icon">🎯</div>
+                  <div class="text">
+                    <strong>Qualidade no passe e construção</strong>
+                    <small>Acerto de passes, tomada de decisão e criação de jogadas.</small>
+                  </div>
+                </div>
+
+                <div class="criterion">
+                  <div class="icon">⚡</div>
+                  <div class="text">
+                    <strong>Participação ofensiva (não apenas gols)</strong>
+                    <small>Geração de chances, assistências, movimentação e presença no ataque.</small>
+                  </div>
+                </div>
+
+                <div class="criterion">
+                  <div class="icon">🏅</div>
+                  <div class="text">
+                    <strong>Foi decisivo nos jogos</strong>
+                    <small>Quando o jogo apertou, apareceu e ajudou a vencer.</small>
+                  </div>
+                </div>
+
+                <div class="criterion">
+                  <div class="icon">🧩</div>
+                  <div class="text">
+                    <strong>Comportamento e espírito de equipe</strong>
+                    <small>Postura, incentivo, calma, liderança e resenha com responsa.</small>
+                  </div>
+                </div>
+              </div>
+
+              <div class="hashes" aria-label="Tags internas">
+                <span class="hash">#PerebasFC</span>
+                <span class="hash">#JogadorDestaque</span>
+                <span class="hash">#ResenhaComResponsa</span>
+                <span class="hash">#PatoteiroRaiz</span>
+              </div>
+            </section>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <footer>
+      Feito para organizar a resenha com responsabilidade 👊⚽ — Perebas FC
+    </footer>
+  </div>
+</body>
+</html>

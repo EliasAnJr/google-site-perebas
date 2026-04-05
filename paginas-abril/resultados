@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Perebas FC - Resultados</title>
+  <style>
+    :root{
+      --bg1:#0b1020;
+      --bg2:#0f1b3a;
+      --card:rgba(255,255,255,.08);
+      --card2:rgba(255,255,255,.04);
+      --stroke:rgba(255,255,255,.14);
+      --text:rgba(255,255,255,.92);
+      --muted:rgba(255,255,255,.72);
+      --orange:#ff8a00;
+      --black:#1a1f2e;
+      --green:#1fe58f;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color:var(--text);
+      background:
+        radial-gradient(900px 500px at 20% 10%, rgba(255,138,0,.16), transparent 55%),
+        radial-gradient(900px 500px at 85% 15%, rgba(58,160,255,.15), transparent 55%),
+        linear-gradient(180deg, var(--bg1), var(--bg2));
+      min-height:100vh;
+      padding:28px 14px 60px;
+    }
+
+    .wrap{max-width:1120px;margin:0 auto;display:grid;gap:14px;}
+
+    .card{
+      border-radius:18px;
+      background:linear-gradient(180deg, var(--card), var(--card2));
+      border:1px solid var(--stroke);
+      padding:18px;
+    }
+
+    h1{margin:0;font-size:28px;line-height:1.15}
+    h2{margin:0;font-size:18px}
+    p{margin:0;color:var(--muted);line-height:1.45}
+
+    .head{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-bottom:14px;
+    }
+
+    .badge{
+      border:1px solid var(--stroke);
+      border-radius:999px;
+      padding:6px 10px;
+      background:rgba(255,255,255,.06);
+      font-size:12px;
+      color:var(--muted);
+      white-space:nowrap;
+    }
+
+    .score{
+      display:grid;
+      grid-template-columns:1fr auto 1fr;
+      align-items:center;
+      gap:12px;
+      padding:12px;
+      border-radius:14px;
+      border:1px solid var(--stroke);
+      background:rgba(0,0,0,.16);
+      margin-bottom:14px;
+    }
+
+    .teamBox{
+      border:1px solid var(--stroke);
+      border-radius:12px;
+      padding:10px;
+      text-align:center;
+      background:rgba(255,255,255,.05);
+    }
+
+    .teamBox.orange{border-color:rgba(255,138,0,.45)}
+    .teamBox.black{border-color:rgba(255,255,255,.3)}
+
+    .teamName{
+      display:block;
+      font-size:12px;
+      color:var(--muted);
+      margin-bottom:6px;
+      text-transform:uppercase;
+      letter-spacing:.4px;
+    }
+
+    .goals{
+      font-size:30px;
+      font-weight:900;
+      line-height:1;
+    }
+
+    .versus{
+      font-size:13px;
+      color:var(--muted);
+      font-weight:700;
+    }
+
+    .winner{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:6px 10px;
+      border-radius:999px;
+      font-size:12px;
+      font-weight:700;
+      border:1px solid rgba(255,215,0,.62);
+      background:rgba(255,215,0,.14);
+      color:#ffe9a3;
+      box-shadow:0 0 0 0 rgba(255,215,0,.35), 0 0 18px rgba(255,193,7,.28);
+      animation:winnerPulse 2.2s ease-in-out infinite;
+      margin-bottom:14px;
+    }
+    .winner .teamEmoji{
+      font-size:13px;
+      line-height:1;
+    }
+
+    @keyframes winnerPulse{
+      0%,100%{
+        transform:scale(1);
+        box-shadow:0 0 0 0 rgba(255,215,0,.35), 0 0 18px rgba(255,193,7,.28);
+      }
+      50%{
+        transform:scale(1.04);
+        box-shadow:0 0 0 4px rgba(255,215,0,.15), 0 0 30px rgba(255,193,7,.48);
+      }
+    }
+
+    .cols{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:12px;
+    }
+
+    .teamCard{
+      border:1px solid var(--stroke);
+      border-radius:14px;
+      padding:12px;
+      background:rgba(255,255,255,.04);
+    }
+
+    .teamTitle{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:8px;
+      margin-bottom:8px;
+    }
+
+    .tag{
+      font-size:11px;
+      font-weight:800;
+      border-radius:999px;
+      border:1px solid var(--stroke);
+      padding:4px 8px;
+      background:rgba(255,255,255,.06);
+      color:var(--muted);
+    }
+
+    ul{
+      list-style:none;
+      margin:0;
+      padding:0;
+      display:grid;
+      gap:7px;
+    }
+
+    li{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:8px;
+      border:1px solid rgba(255,255,255,.11);
+      border-radius:10px;
+      padding:7px 9px;
+      background:rgba(255,255,255,.03);
+      font-size:14px;
+    }
+
+    .pts{
+      font-size:11px;
+      font-weight:800;
+      color:#ddffec;
+      border:1px solid rgba(31,229,143,.45);
+      background:rgba(31,229,143,.14);
+      border-radius:999px;
+      padding:2px 8px;
+      white-space:nowrap;
+    }
+
+    .zero{
+      color:var(--muted);
+      border-color:rgba(255,255,255,.2);
+      background:rgba(255,255,255,.04);
+    }
+
+    .match + .match{
+      margin-top:18px;
+      padding-top:18px;
+      border-top:1px solid rgba(255,255,255,.14);
+    }
+
+    @media (min-width: 860px){
+      .cols{grid-template-columns:1fr 1fr;}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="card">
+      <div class="head">
+        <div>
+          <h1>Resultados</h1>
+          <p>Acompanhe os resultados dos jogos do Perebas FC, com detalhes de cada partida e a pontuação dos jogadores.</p>
+        </div>
+        <span class="badge">ABRIL/2026</span>
+      </div>
+
+      <section class="match">
+        <h2>Jogo do dia 04/04/2026</h2>
+        <div class="score">
+          <div class="teamBox black">
+            <span class="teamName">Time Preto</span>
+            <strong class="goals">8</strong>
+          </div>
+          <div class="versus">x</div>
+          <div class="teamBox orange">
+            <span class="teamName">Time Laranja</span>
+            <strong class="goals">15</strong>
+          </div>
+        </div>
+
+        <div class="winner">Vencedor: Time Laranja <span class="teamEmoji" aria-hidden="true">🟠</span></div>
+
+        <div class="cols">
+          <article class="teamCard">
+            <div class="teamTitle">
+              <strong>Jogadores do Time Preto</strong>
+              <span class="tag">derrota</span>
+            </div>
+            <ul>
+              <li><span>Alex</span><span class="pts zero">0 ponto</span></li>
+              <li><span>Chico</span><span class="pts zero">0 ponto</span></li>
+              <li><span>Daniel</span><span class="pts zero">0 ponto</span></li>
+              <li><span>Domingos</span><span class="pts zero">0 ponto</span></li>
+              <li><span>Elias</span><span class="pts zero">0 ponto</span></li>
+              <li><span>Gabriel</span><span class="pts zero">0 ponto</span></li>
+              <li><span>Kistt</span><span class="pts zero">0 ponto</span></li>
+            </ul>
+          </article>
+
+          <article class="teamCard">
+            <div class="teamTitle">
+              <strong>Jogadores do Time Laranja</strong>
+              <span class="tag">+3 por jogador</span>
+            </div>
+            <ul>
+              <li><span>Darci</span><span class="pts">+3 pontos</span></li>
+              <li><span>Derval</span><span class="pts">+3 pontos</span></li>
+              <li><span>Henrique</span><span class="pts">+3 pontos</span></li>
+              <li><span>Jean</span><span class="pts">+3 pontos</span></li>
+              <li><span>Leone</span><span class="pts">+3 pontos</span></li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+    </section>
+  </div>
+</body>
+</html>

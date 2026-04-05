@@ -1,0 +1,700 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Copa Perebas FC - Classificacao Individual</title>
+  <style>
+    :root{
+      --bg1:#0b1020;
+      --bg2:#0f1b3a;
+      --card:rgba(255,255,255,.08);
+      --card2:rgba(255,255,255,.06);
+      --stroke:rgba(255,255,255,.14);
+      --text:rgba(255,255,255,.92);
+      --muted:rgba(255,255,255,.72);
+
+      --green:#1fe58f;
+      --red:#ff5d6c;
+      --yellow:#ffd166;
+      --blue:#3aa0ff;
+      --orange:#ff8a00;
+
+      --shadow: 0 20px 60px rgba(0,0,0,.45);
+      --radius: 18px;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background:
+        radial-gradient(900px 500px at 20% 10%, rgba(31,229,143,.18), transparent 55%),
+        radial-gradient(800px 500px at 85% 15%, rgba(255,93,108,.16), transparent 55%),
+        radial-gradient(900px 650px at 50% 95%, rgba(255,209,102,.12), transparent 55%),
+        linear-gradient(180deg, var(--bg1), var(--bg2));
+      min-height:100vh;
+      padding:28px 14px 60px;
+    }
+
+    .wrap{max-width:1120px;margin:0 auto;}
+
+    header{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:16px;
+      margin-bottom:18px;
+      flex-wrap:wrap;
+    }
+
+    .title{
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+      max-width:78ch;
+    }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      width:fit-content;
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(255,255,255,.08);
+      border:1px solid var(--stroke);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 30px rgba(0,0,0,.25);
+      font-size:13px;
+      color:var(--muted);
+    }
+    .dot{
+      width:10px;height:10px;border-radius:50%;
+      background: linear-gradient(135deg, var(--yellow), var(--green));
+      box-shadow: 0 0 0 4px rgba(255,209,102,.12);
+    }
+
+    h1{
+      margin:0;
+      font-size:28px;
+      line-height:1.15;
+      letter-spacing:.2px;
+    }
+    .subtitle{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.45;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap:14px;
+    }
+
+    .card{
+      grid-column: span 12;
+      border-radius: 22px;
+      background: linear-gradient(180deg, var(--card), var(--card2));
+      border:1px solid var(--stroke);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+
+    .card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(520px 220px at 20% 0%, rgba(255,209,102,.12), transparent 60%),
+        radial-gradient(520px 220px at 80% 0%, rgba(31,229,143,.10), transparent 60%),
+        radial-gradient(520px 260px at 50% 110%, rgba(58,160,255,.08), transparent 60%);
+      pointer-events:none;
+    }
+
+    .card-inner{
+      position:relative;
+      padding:16px 16px 14px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+
+    .card-top{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .label{
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    .icon{
+      width:44px;height:44px;
+      border-radius:16px;
+      display:grid;
+      place-items:center;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
+      box-shadow: 0 10px 30px rgba(0,0,0,.20);
+      font-size:18px;
+    }
+
+    .label h2{
+      margin:0;
+      font-size:14px;
+      text-transform:uppercase;
+      letter-spacing:.35px;
+      color:var(--muted);
+    }
+
+    .label .titleText{
+      margin-top:3px;
+      font-size:18px;
+      font-weight:900;
+      letter-spacing:.3px;
+    }
+
+    .chips{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:flex-end;
+    }
+
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:7px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
+      color:var(--muted);
+      font-size:12px;
+      white-space:nowrap;
+    }
+    .chip b{color:var(--text); font-weight:800}
+
+    .dotMini{
+      width:10px;
+      height:10px;
+      border-radius:50%;
+    }
+    .dotMini.green{background:rgba(31,229,143,.9)}
+    .dotMini.blue{background:rgba(58,160,255,.9)}
+    .dotMini.yellow{background:rgba(255,209,102,.95)}
+    .dotMini.orange{background:rgba(255,138,0,.95)}
+    .dotMini.black{
+      background:rgba(15,18,26,.96);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.38);
+    }
+
+    .content{
+      border-top:1px solid rgba(255,255,255,.10);
+      padding-top:10px;
+      display:grid;
+      gap:10px;
+      color:rgba(255,255,255,.88);
+      line-height:1.5;
+    }
+
+    .table-wrap{
+      overflow-x:auto;
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:14px;
+      background:rgba(255,255,255,.03);
+    }
+
+    table{
+      width:100%;
+      border-collapse:collapse;
+      min-width:760px;
+    }
+
+    thead th{
+      text-align:left;
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.3px;
+      color:var(--muted);
+      padding:10px 10px;
+      background:rgba(0,0,0,.16);
+      border-bottom:1px solid rgba(255,255,255,.12);
+      white-space:nowrap;
+    }
+
+    tbody td{
+      padding:10px 10px;
+      border-bottom:1px solid rgba(255,255,255,.08);
+      font-size:14px;
+      white-space:nowrap;
+    }
+
+    tbody tr:hover{
+      background:rgba(255,255,255,.04);
+    }
+
+    tbody tr.podium{
+      background:rgba(255,209,102,.10);
+    }
+
+    .rank{
+      display:inline-grid;
+      place-items:center;
+      width:26px;
+      height:26px;
+      border-radius:8px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
+      font-weight:800;
+      font-size:12px;
+    }
+    .rank.top{
+      border-color: rgba(255,209,102,.55);
+      background:rgba(255,209,102,.16);
+      color:#ffe6a6;
+    }
+
+    .team{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      border-radius:999px;
+      padding:4px 8px;
+      border:1px solid rgba(255,255,255,.16);
+      font-size:12px;
+      font-weight:700;
+    }
+    .team.orange{
+      background:rgba(255,138,0,.18);
+      border-color:rgba(255,138,0,.42);
+    }
+    .team.black{
+      background:rgba(14,18,28,.55);
+      border-color:rgba(255,255,255,.26);
+    }
+
+    .score{
+      font-weight:900;
+      font-size:16px;
+      letter-spacing:.2px;
+    }
+
+    .bonus{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-width:34px;
+      padding:3px 8px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      font-size:12px;
+      font-weight:800;
+      color:var(--muted);
+      background:rgba(255,255,255,.06);
+    }
+    .bonus.on{
+      color:#d9ffe8;
+      border-color:rgba(31,229,143,.5);
+      background:rgba(31,229,143,.15);
+    }
+
+    .rule-list,
+    .presence-list,
+    .team-list{
+      list-style:none;
+      margin:0;
+      padding:0;
+      display:grid;
+      gap:8px;
+    }
+
+    .rule-list li,
+    .presence-list li,
+    .team-list li{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:10px;
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:12px;
+      background:rgba(255,255,255,.04);
+      padding:9px 10px;
+      font-size:14px;
+    }
+
+    .small{
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.45;
+    }
+
+    @media (min-width: 860px){
+      .card.span8{grid-column: span 8;}
+      .card.span4{grid-column: span 4;}
+      .card.span6{grid-column: span 6;}
+    }
+
+    footer{
+      margin-top:18px;
+      color:rgba(255,255,255,.55);
+      font-size:12px;
+      text-align:center;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="title">
+        <div class="badge"><span class="dot"></span> Perebas FC • Classificação 2026</div>
+        <h1>Classificação Individual</h1>
+        <p class="subtitle">
+          Ranking por jogador com base nos resultados (+3 vitoria, +1 empate, 0 derrota), com bonus de +1 para 100% de presenca.
+        </p>
+      </div>
+    </header>
+
+    <main>
+      <section class="grid">
+        <article class="card span8">
+          <div class="card-inner">
+            <div class="card-top">
+              <div class="label">
+                <div class="icon">🏆</div>
+                <div>
+                  <h2>Tabela Principal</h2>
+                  <div class="titleText">Ranking dos Jogadores</div>
+                </div>
+              </div>
+              <div class="chips">
+                <span class="chip"><span class="dotMini blue"></span> <b>Rodadas:</b> 9</span>
+                <span class="chip"><span class="dotMini green"></span> <b>Jogadores:</b> 18</span>
+                <span class="chip"><span class="dotMini yellow"></span> <b>Bonus:</b> +1 presenca</span>
+              </div>
+            </div>
+
+            <div class="content">
+              <div class="table-wrap" aria-label="Classificacao individual">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Pos</th>
+                      <th>Jogador</th>
+                      <th>Pontos</th>
+                      <th>Jogos</th>
+                      <th>V</th>
+                      <th>E</th>
+                      <th>D</th>
+                      <th>Aus&ecirc;ncia</th>
+                      <th>Bonus 100%</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="podium">
+                      <td><span class="rank top">1</span></td>
+                      <td>Jean</td>
+                      <td class="score">21</td>
+                      <td>9</td>
+                      <td>6</td>
+                      <td>1</td>
+                      <td>2</td>
+                      <td>0</td>
+                      <td><span class="bonus on">+2</span></td>
+                    </tr>
+                    <tr class="podium">
+                      <td><span class="rank top">2</span></td>
+                      <td>Cleberson</td>
+                      <td class="score">18</td>
+                      <td>8</td>
+                      <td>5</td>
+                      <td>1</td>
+                      <td>2</td>
+                      <td>1</td>
+                      <td><span class="bonus on">+2</span></td>
+                    </tr>
+                    <tr class="podium">
+                      <td><span class="rank top">3</span></td>
+                      <td>Leone</td>
+                      <td class="score">18</td>
+                      <td>9</td>
+                      <td>5</td>
+                      <td>1</td>
+                      <td>3</td>
+                      <td>0</td>
+                      <td><span class="bonus on">+2</span></td>
+                    </tr>
+                    <tr>
+                      <td><span class="rank">4</span></td>
+                      <td>Everton</td>
+                      <td class="score">17</td>
+                      <td>7</td>
+                      <td>5</td>
+                      <td>1</td>
+                      <td>1</td>
+                      <td>2</td>
+                      <td><span class="bonus on">+1</span></td>
+                    </tr>
+                    <tr>
+                      <td><span class="rank">5</span></td>
+                      <td>Chico</td>
+                      <td class="score">17</td>
+                      <td>8</td>
+                      <td>5</td>
+                      <td>1</td>
+                      <td>2</td>
+                      <td>1</td>
+                      <td><span class="bonus on">+1</span></td>
+                    </tr>
+                    <tr>
+                      <td><span class="rank">6</span></td>
+                      <td>Elias</td>
+                      <td class="score">15</td>
+                      <td>9</td>
+                      <td>4</td>
+                      <td>1</td>
+                      <td>4</td>
+                      <td>0</td>
+                      <td><span class="bonus on">+2</span></td>
+                    </tr>
+                    <tr>
+                      <td><span class="rank">7</span></td>
+                      <td>Kistt</td>
+                      <td class="score">11</td>
+                      <td>8</td>
+                      <td>3</td>
+                      <td>1</td>
+                      <td>4</td>
+                      <td>1</td>
+                      <td><span class="bonus on">+1</span></td>
+                    </tr>
+                    <tr>
+                      <td><span class="rank">8</span></td>
+                      <td>Darci</td>
+                      <td class="score">10</td>
+                      <td>6</td>
+                      <td>3</td>
+                      <td>1</td>
+                      <td>2</td>
+                      <td>3</td>
+                      <td><span class="bonus">0</span></td>
+                    </tr>
+                    <tr>
+                      <td><span class="rank">9</span></td>
+                      <td>Rogerio</td>
+                      <td class="score">9</td>
+                      <td>4</td>
+                      <td>3</td>
+                      <td>0</td>
+                      <td>1</td>
+                      <td>5</td>
+                      <td><span class="bonus">0</span></td>
+                    </tr>
+                    <tr>
+                      <td><span class="rank">10</span></td>
+                      <td>Derval</td>
+                      <td class="score">9</td>
+                      <td>4</td>
+                      <td>3</td>
+                      <td>0</td>
+                      <td>1</td>
+                      <td>5</td>
+                      <td><span class="bonus">0</span></td>
+                    </tr>
+                    <tr>
+                      <td><span class="rank">11</span></td>
+                      <td>Daniel</td>
+                      <td class="score">8</td>
+                      <td>8</td>
+                      <td>2</td>
+                      <td>1</td>
+                      <td>5</td>
+                      <td>1</td>
+                      <td><span class="bonus on">+1</span></td>
+                    </tr>
+                    <tr>
+                      <td><span class="rank">12</span></td>
+                      <td>Henrique</td>
+                      <td class="score">8</td>
+                      <td>8</td>
+                      <td>2</td>
+                      <td>1</td>
+                      <td>5</td>
+                      <td>1</td>
+                      <td><span class="bonus on">+1</span></td>
+                    </tr>
+                    <tr>
+                      <td><span class="rank">13</span></td>
+                      <td>Alemao</td>
+                      <td class="score">7</td>
+                      <td>4</td>
+                      <td>2</td>
+                      <td>1</td>
+                      <td>1</td>
+                      <td>5</td>
+                      <td><span class="bonus">0</span></td>
+                    </tr>
+                    <tr>
+                      <td><span class="rank">14</span></td>
+                      <td>Tacio</td>
+                      <td class="score">5</td>
+                      <td>6</td>
+                      <td>1</td>
+                      <td>1</td>
+                      <td>4</td>
+                      <td>3</td>
+                      <td><span class="bonus on">+1</span></td>
+                    </tr>
+                    <tr>
+                      <td><span class="rank">15</span></td>
+                      <td>Pavesi</td>
+                      <td class="score">3</td>
+                      <td>2</td>
+                      <td>1</td>
+                      <td>0</td>
+                      <td>1</td>
+                      <td>7</td>
+                      <td><span class="bonus">0</span></td>
+                    </tr>
+                    <tr>
+                      <td><span class="rank">16</span></td>
+                      <td>Domingos</td>
+                      <td class="score">3</td>
+                      <td>4</td>
+                      <td>1</td>
+                      <td>0</td>
+                      <td>3</td>
+                      <td>5</td>
+                      <td><span class="bonus">0</span></td>
+                    </tr>
+                    <tr>
+                      <td><span class="rank">17</span></td>
+                      <td>Alex</td>
+                      <td class="score">0</td>
+                      <td>5</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>5</td>
+                      <td>4</td>
+                      <td><span class="bonus">0</span></td>
+                    </tr>
+                    <tr>
+                      <td><span class="rank">18</span></td>
+                      <td>Gabriel</td>
+                      <td class="score">0</td>
+                      <td>5</td>
+                      <td>0</td>
+                      <td>0</td>
+                      <td>5</td>
+                      <td>4</td>
+                      <td><span class="bonus">0</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card span4">
+          <div class="card-inner">
+            <div class="card-top">
+              <div class="label">
+                <div class="icon">📌</div>
+                <div>
+                  <h2>Regras Aplicadas</h2>
+
+                </div>
+              </div>
+            </div>
+
+            <div class="content">
+              <ul class="rule-list">
+                <li><span>Vitoria</span><strong>+3 pontos</strong></li>
+                <li><span>Empate</span><strong>+1 ponto</strong></li>
+                <li><span>Derrota</span><strong>0 ponto</strong></li>
+                <li><span>Jogador faltou porém seu time venceu</span><strong>não recebe 3 pontos</strong></li>
+                <li><span>100% de presença nos jogos do mês</span><strong>+1 ponto</strong></li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <article class="card span12">
+          <div class="card-inner">
+            <div class="card-top">
+              <div class="label">
+                <div class="icon">⚽</div>
+                <div>
+                  <h2>Desempenho dos Times</h2>
+                </div>
+              </div>
+              <div class="chips">
+                <span class="chip"><span class="dotMini orange"></span> <b>Laranja:</b> 4V 1E 4D</span>
+                <span class="chip"><span class="dotMini black"></span> <b>Preto:</b> 4V 1E 4D</span>
+              </div>
+            </div>
+
+            <div class="content">
+              <div class="table-wrap" aria-label="Classificacao dos times">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Pos</th>
+                      <th>Time</th>
+                      <th>J</th>
+                      <th>Pontos</th>
+                      <th>V</th>
+                      <th>E</th>
+                      <th>D</th>
+                      <th>Aproveitamento</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="podium">
+                      <td><span class="rank top">1</span></td>
+                      <td><span class="team orange"><span class="dotMini orange"></span>Laranja</span></td>
+                      <td>9</td>
+                      <td class="score">13</td>
+                      <td>4</td>
+                      <td>1</td>
+                      <td>4</td>
+                      <td>48.1%</td>
+                    </tr>
+                    <tr>
+                      <td><span class="rank">2</span></td>
+                      <td><span class="team black"><span class="dotMini black"></span>Preto</span></td>
+                      <td>9</td>
+                      <td class="score">13</td>
+                      <td>4</td>
+                      <td>1</td>
+                      <td>4</td>
+                      <td>48.1%</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer>
+      Feito para acompanhar a classificacao individual dos jogadores.
+      <div class="update-stamp">Ultima atualizacao automatica: jogo de 04/04/2026.</div>
+    </footer>
+  </div>
+</body>
+</html>

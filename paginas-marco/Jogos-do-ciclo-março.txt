@@ -1,0 +1,270 @@
+LISTA COM TODOS JOGADORES DA PATOTA:
+
+Everton
+Rogério
+Cleberson
+Derval
+Jean
+Kistt
+Chico
+Domingos
+Daniel 
+Gabriel
+Tácio
+Elias
+Darci
+Leone
+Alemão
+Henrique
+Pavesi
+Alex
+
+------------------------
+
+TIMES FIXO MÊS DE MARÇO
+
+TIME PRETO
+JEAN
+EVERTON
+CHICO
+ELIAS
+LEONE
+CLEBERSON
+DERVAL
+ROGÉRIO
+DOMINGOS
+
+
+TIME LARANJA
+HENRIQUE
+ALEMÃO
+DANIEL
+TÁCIO
+KISTT
+DARCI 
+ALEX
+PAVESI
+GABRIEL
+
+------------------------
+
+
+JOGOS E DATAS: 
+
+Jogo do dia 07/03/2026
+
+Presentes:
+1 - Everton
+2 - Rogério
+3 - Cleberson
+4 - Jean
+5 - Kistt
+6 - Chico
+7 - Daniel
+8 - Gabriel
+9 - Tácio
+10 - Elias
+11 - Leone
+12 - Henrique
+13 - Alex
+
+Ausentes:
+1 - Derval
+2 - Domingos
+3 - Darci
+4 - Alemão
+5 - Pavesi
+
+
+--------------------
+RESULTADO do dia 07/03/2026:
+
+TIME PRETO: 9 GOLS
+TIME LARANJA: 7 GOLS
+TIME VENCEDOR = TIME PRETO
+
+-------------------
+
+JOGADORES DO TIME PRETO NO Jogo do dia 07/03/2026
+Everton + 3 PONTOS
+Rogério + 3 PONTOS
+Cleberson  + 3 PONTOS
+Jean    + 3 PONTOS
+Chico   + 3 PONTOS
+Elias	+ 3 PONTOS
+Leone	+ 3 PONTOS
+
+
+JOGADORES DO TIME LARANJA NO Jogo do dia 07/03/2026
+Alex
+Kistt
+Gabriel
+Tácio
+Henrique
+Daniel
+
+#######################################################
+
+
+Jogo do dia 14/03/2026
+
+Presentes:
+1 - Everton
+2 - Cleberson
+3 - Jean
+4 - Chico
+5 - Domingos
+6 - Daniel
+7 - Tácio
+8 - Elias
+9 - Leone
+10 - Henrique
+11 - Alex
+
+Ausentes:
+1 - Rogério
+2 - Derval
+3 - Kistt
+4 - Gabriel
+5 - Darci
+6 - Alemão
+7 - Pavesi
+
+
+--------------------
+RESULTADO do dia 14/03/2026:
+
+TIME PRETO: 10 GOLS
+TIME LARANJA: 6 GOLS
+TIME VENCEDOR = TIME PRETO
+
+-------------------
+
+JOGADORES DO TIME PRETO NO Jogo do dia 14/03/2026
+Everton  + 3 PONTOS
+Domingos + 3 PONTOS
+Cleberson  + 3 PONTOS
+Jean    + 3 PONTOS
+Chico   + 3 PONTOS
+Elias	+ 3 PONTOS
+Leone	+ 3 PONTOS
+
+
+JOGADORES DO TIME LARANJA NO Jogo do dia 14/03/2026
+Tácio
+Henrique
+Alex
+Daniel
+
+#######################################################
+
+Jogo do dia 21/03/2026
+
+Presentes:
+1 - Everton
+2 - Cleberson
+3 - Jean
+4 - Kistt
+5 - Chico
+6 - Daniel
+7 - Gabriel
+8 - Tácio
+9 - Elias
+10 - Darci
+11 - Leone
+12 - Henrique
+13 - Pavesi
+14 - Alex
+
+Ausentes:
+1 - Rogério
+2 - Derval
+3 - Domingos
+4 - Alemão
+
+
+--------------------
+RESULTADO do dia 21/03/2026:
+
+TIME PRETO: 9 GOLS
+TIME LARANJA: 7 GOLS
+TIME VENCEDOR = TIME PRETO
+
+-------------------
+
+JOGADORES DO TIME PRETO NO Jogo do dia 21/03/2026
+Everton  + 3 PONTOS
+Cleberson  + 3 PONTOS
+Jean    + 3 PONTOS
+Chico   + 3 PONTOS
+Elias	+ 3 PONTOS
+Leone	+ 3 PONTOS
+
+
+JOGADORES DO TIME LARANJA NO Jogo do dia 21/03/2026
+Tácio
+Kistt
+Henrique
+Gabriel
+Pavesi
+Alex
+Daniel
+Darci
+
+#######################################################
+
+Jogo do dia 28/03/2026
+
+Presentes:
+1 - Everton
+2 - Rogério
+3 - Cleberson
+4 - Jean
+5 - Kistt
+6 - Chico
+7 - Domingos
+8 - Daniel
+9 - Tácio
+10 - Elias
+11 - Darci
+12 - Leone
+13 - Alemão
+14 - Henrique
+15 - Pavesi
+
+Ausentes:
+1 - Derval
+2 - Gabriel
+3 - Alex
+
+--------------------
+RESULTADO do dia 28/03/2026:
+
+TIME PRETO: 10 GOLS
+TIME LARANJA: 11 GOLS
+TIME VENCEDOR = TIME LARANJA
+
+-------------------
+
+JOGADORES DO TIME PRETO NO Jogo do dia 28/03/2026
+Everton
+Rogério
+Domingos  
+Cleberson
+Jean
+Chico
+Elias
+Leone	
+
+
+JOGADORES DO TIME LARANJA NO Jogo do dia 28/03/2026
+Alemão      + 3 PONTOS
+Tácio       + 3 PONTOS
+Kistt       + 3 PONTOS
+Henrique    + 3 PONTOS
+Pavesi      + 3 PONTOS
+Daniel      + 3 PONTOS
+Darci       + 3 PONTOS
+
+----------------------
+CICLO FINALIZADO

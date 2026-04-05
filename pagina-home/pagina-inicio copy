@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Perebas FC — Home</title>
+  <style>
+    :root{
+      --bg1:#0b1020;
+      --bg2:#0f1b3a;
+      --card:rgba(255,255,255,.08);
+      --card2:rgba(255,255,255,.06);
+      --stroke:rgba(255,255,255,.14);
+      --text:rgba(255,255,255,.92);
+      --muted:rgba(255,255,255,.72);
+
+      --green:#1fe58f;
+      --red:#ff5d6c;
+      --yellow:#ffd166;
+      --blue:#3aa0ff;
+      --orange:#ff8a00;
+
+      --shadow: 0 20px 60px rgba(0,0,0,.45);
+      --radius: 18px;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background:
+        radial-gradient(900px 500px at 20% 10%, rgba(31,229,143,.18), transparent 55%),
+        radial-gradient(800px 500px at 85% 15%, rgba(255,93,108,.16), transparent 55%),
+        radial-gradient(900px 650px at 50% 95%, rgba(255,209,102,.12), transparent 55%),
+        linear-gradient(180deg, var(--bg1), var(--bg2));
+      min-height:100vh;
+      padding:28px 14px 60px;
+    }
+
+    .wrap{max-width:1100px;margin:0 auto;}
+
+    header{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:16px;
+      margin-bottom:18px;
+      flex-wrap:wrap;
+    }
+
+    .title{
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+      max-width:75ch;
+    }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      width:fit-content;
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(255,255,255,.08);
+      border:1px solid var(--stroke);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 30px rgba(0,0,0,.25);
+      font-size:13px;
+      color:var(--muted);
+    }
+    .dot{
+      width:10px;height:10px;border-radius:50%;
+      background: linear-gradient(135deg, var(--yellow), var(--green));
+      box-shadow: 0 0 0 4px rgba(255,209,102,.12);
+    }
+
+    h1{
+      margin:0;
+      font-size:28px;
+      line-height:1.15;
+      letter-spacing:.2px;
+    }
+    .subtitle{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.45;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap:14px;
+    }
+
+    .card{
+      grid-column: span 12;
+      border-radius: 22px;
+      background: linear-gradient(180deg, var(--card), var(--card2));
+      border:1px solid var(--stroke);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+
+    .card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(520px 220px at 20% 0%, rgba(255,209,102,.12), transparent 60%),
+        radial-gradient(520px 220px at 80% 0%, rgba(31,229,143,.10), transparent 60%),
+        radial-gradient(520px 260px at 50% 110%, rgba(58,160,255,.08), transparent 60%);
+      pointer-events:none;
+    }
+
+    .card-inner{
+      position:relative;
+      padding:16px 16px 14px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+
+    .card-top{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .label{
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    .icon{
+      width:44px;height:44px;
+      border-radius:16px;
+      display:grid;
+      place-items:center;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
+      box-shadow: 0 10px 30px rgba(0,0,0,.20);
+      font-size:18px;
+    }
+
+    .label h2{
+      margin:0;
+      font-size:14px;
+      text-transform:uppercase;
+      letter-spacing:.35px;
+      color:var(--muted);
+    }
+
+    .label .titleText{
+      margin-top:3px;
+      font-size:18px;
+      font-weight:900;
+      letter-spacing:.3px;
+    }
+
+    .chips{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:flex-end;
+    }
+
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:7px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
+      color:var(--muted);
+      font-size:12px;
+      white-space:nowrap;
+    }
+    .chip b{color:var(--text); font-weight:800}
+    .dotMini{width:10px;height:10px;border-radius:50%;}
+    .dotMini.green{background:rgba(31,229,143,.9)}
+    .dotMini.blue{background:rgba(58,160,255,.9)}
+    .dotMini.yellow{background:rgba(255,209,102,.95)}
+    .dotMini.orange{background:rgba(255,138,0,.95)}
+    .dotMini.red{background:rgba(255,93,108,.9)}
+    .dotMini.black{
+      background:rgba(15,18,26,.96);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.38);
+    }
+
+    .content{
+      border-top:1px solid rgba(255,255,255,.10);
+      padding-top:10px;
+      display:grid;
+      gap:8px;
+      color:rgba(255,255,255,.88);
+      line-height:1.5;
+    }
+
+    .row{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .row .k{color:var(--muted); font-size:12px; text-transform:uppercase; letter-spacing:.35px;}
+    .row .v{font-weight:750;}
+
+    .small{
+      color:var(--muted);
+      font-size:12px;
+    }
+
+    .cta{
+      margin-top:2px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
+      color:var(--text);
+      text-decoration:none;
+      font-weight:850;
+      font-size:13px;
+      font-family:inherit;
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+      user-select:none;
+      cursor:pointer;
+      appearance:none;
+    }
+    .btn:hover{transform: translateY(-1px); background:rgba(255,255,255,.09)}
+    .btn:active{transform: translateY(0px)}
+    .btn:focus-visible{
+      outline:2px solid rgba(31,229,143,.95);
+      outline-offset:2px;
+      border-color: rgba(31,229,143,.8);
+      box-shadow: 0 0 0 4px rgba(31,229,143,.22);
+    }
+    .btn .arrow{opacity:.8}
+
+    @media (min-width: 860px){
+      .card.span6{grid-column: span 6;}
+      .card.span4{grid-column: span 4;}
+      .card.span8{grid-column: span 8;}
+    }
+
+    footer{
+      margin-top:18px;
+      color:rgba(255,255,255,.55);
+      font-size:12px;
+      text-align:center;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="title">
+        <div class="badge"><span class="dot"></span> Perebas FC • Home</div>
+        <h1>Resumo da Patota</h1>
+        <p class="subtitle">
+          Horário, local, times, premiação e regras de votação.
+        </p>
+      </div>
+    </header>
+
+    <main>
+    <section class="grid">
+
+      <!-- Card: Jogos -->
+      <article class="card span6">
+        <div class="card-inner">
+          <div class="card-top">
+            <div class="label">
+              <div class="icon">📅</div>
+              <div>
+                <h2>Jogos</h2>
+                <div class="titleText">Todos os sábados</div>
+              </div>
+            </div>
+            <div class="chips">
+              <span class="chip"><span class="dotMini yellow"></span> <b>Horário:</b> 09:00</span>
+              <span class="chip"><span class="dotMini green"></span> <b>Membros:</b>18</span>
+            </div>
+          </div>
+
+          <div class="content">
+            <div class="row">
+              <div class="k">Frequência</div>
+              <div class="v">1x por semana (sábado)</div>
+            </div>
+            <div class="row">
+              <div class="k">Início</div>
+              <div class="v">09:00 horas</div>
+            </div>
+            <div class="small">Chegar 15 min antes pra aquecer e não atrasar o jogo 👊⚽</div>
+          </div>
+
+        </div>
+      </article>
+
+      <!-- Card: Local -->
+      <article class="card span6">
+        <div class="card-inner">
+          <div class="card-top">
+            <div class="label">
+              <div class="icon">📍</div>
+              <div>
+                <h2>Local</h2>
+                <div class="titleText">Casa Do Futebol</div>
+              </div>
+            </div>
+            <div class="chips">
+              <span class="chip"><span class="dotMini blue"></span> <b>Bairro:</b> Velha</span>
+            </div>
+          </div>
+
+          <div class="content">
+            <div class="row">
+              <div class="k">Endereço</div>
+              <div class="v">R. Gen. Osório, 205</div>
+            </div>
+            <div class="row">
+              <div class="k">Cidade</div>
+              <div class="v">Blumenau/SC</div>
+            </div>
+          </div>
+
+        </div>
+      </article>
+
+      <!-- Card: Times -->
+      <article id="times" class="card span8">
+        <div class="card-inner">
+          <div class="card-top">
+            <div class="label">
+              <div class="icon">⚽</div>
+              <div>
+                <h2>Times</h2>
+              </div>
+            </div>
+            <div class="chips">
+              <span class="chip"><span class="dotMini orange"></span> <b>Laranja</b></span>
+              <span class="chip"><span class="dotMini black"></span> <b>Preto</b></span>
+            </div>
+          </div>
+
+          <div class="content">
+            <div class="row">
+              <div class="v">Confira a escalação dos times fixos na página de Times - Mês📋</div>
+            </div>
+            <div class="small">Manter a base do mês e fortalecer o entrosamento entre os jogadores.</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Card: Jogador do Mês -->
+      <article id="jogadorDoMes" class="card span4">
+        <div class="card-inner">
+          <div class="card-top">
+            <div class="label">
+              <div class="icon">🏆</div>
+              <div>
+                <h2>Jogador Destaque</h2>
+                <div class="titleText">Do mês</div>
+              </div>
+            </div>
+            <div class="chips">
+            </div>
+          </div>
+
+          <div class="content">
+            <div class="row">
+              <div class="v">O Jogador do Mês é escolhido por votação entre os jogadores, considerando 100% de presenças nos jogos do mês, desempenho, espírito esportivo e contribuição para a equipe.</div>
+            </div>
+            <div class="small">Para mais detalhes, consulte a página do Jogador Destaque do Mês.</div>
+        </div>
+      </article>
+
+      <!-- Card: Regras da Votação -->
+      <article id="regras" class="card span12">
+        <div class="card-inner">
+          <div class="card-top">
+            <div class="label">
+              <div class="icon">📊</div>
+              <div>
+                <h2>Regras da Votação</h2>
+                <div class="titleText">Jogador Destaque do Mês</div>
+              </div>
+            </div>
+            <div class="chips">
+              <span class="chip"><span class="dotMini yellow"></span> <b>Elegível:</b> 100% nos jogos do Mês</span>
+              <span class="chip"><span class="dotMini green"></span> <b>Apto para Votar:</b> ≥ 3 jogos</span>
+              <span class="chip"><span class="dotMini blue"></span> <b>Empate:</b> Decisão da presidência</span>
+            </div>
+          </div>
+
+          <div class="content">
+            <div class="row">
+              <div class="v">Escolha 1 jogador, Avalie com justiça e espírito esportivo.</div>
+            </div>
+          </div>
+          <div class="cta">
+            <button class="btn" type="button" onclick="window.open('https://sites.google.com/view/patotaperebasfc/inicio/regras-votacao', '_top');">
+              <span>Abrir regras completas</span> <span class="arrow">→</span>
+            </button>
+          </div>
+        </div>
+      </article>
+
+    </section>
+    </main>
+
+    <footer>
+      Feito para organizar a resenha do Perebas FC com responsabilidade 👊⚽
+    </footer>
+  </div>
+</body>
+</html>

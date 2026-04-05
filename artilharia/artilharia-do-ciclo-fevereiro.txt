@@ -1,0 +1,228 @@
+LISTA COM TODOS JOGADORES DA PATOTA:
+
+Alex
+Alemão
+Chico
+Cleberson
+Daniel
+Darci
+Derval
+Domingos
+Elias
+Everton
+Gabriel
+Henrique
+Jean
+Kistt
+Leone
+Pavesi
+Rogério
+Tácio
+
+ARTILHARIA DO CICLO - MES DE FEVEREIRO
+
+Jogo do dia 07/02/2026
+
+Presentes:
+1 - Elias 
+2 - Kistt
+3 - Jean
+4 - Leone
+5 - Tácio 
+6 - Cleberson
+7 - Alemão 
+8 - Chico
+9 - Henrique
+10 - Everton 
+11 - Rogério 
+12 - Derval
+13 - Gabriel 
+14 - Darci 
+
+Ausentes:
+1 - Domingos
+2 - Daniel
+3 - Pavesi
+4 - Alex
+
+PLACAR OFICIAL:
+TIME PRETO: 7 GOLS
+TIME LARANJA: 15 GOLS
+
+GOLS TIME PRETO:
+1- Elias: 2
+2- Gabriel: 2
+3- Leone: 2
+4- Tácio: 1
+
+GOLS TIME LARANJA:
+1- Cleberson: 2
+2- Chico: 1
+3- Derval: 5
+4- Jean: 1
+5- Kistt: 3
+6- Rogério: 3
+7- Everton: 0
+
+CONFERENCIA:
+SOMA TIME PRETO: 7
+SOMA TIME LARANJA: 15
+STATUS: OK
+
+#######################################################
+
+Jogo do dia 14/02/2026
+
+Presentes:
+1 - Elias 
+2 - Daniel 
+3 - Leone
+4 - Domingos 
+5 - Jean
+6 - Derval
+7 - Kistt
+8 - Cleberson
+9 - Alemão
+10 - Darci
+
+
+Ausentes:
+1 - Henrique 
+2 - Alex
+3 - Rogério
+4 - Everton 
+5 - chico
+6 - Gabriel
+7 - Tácio 
+8 - Pavesi
+
+PLACAR OFICIAL:
+TIME PRETO: 10 GOLS
+TIME LARANJA: 7 GOLS
+
+GOLS TIME PRETO:
+1- Alemão: 1
+2- Darci: 1
+3- Elias: 3
+
+
+GOLS TIME LARANJA:
+1- Cleberson: 3
+2- Daniel: 2
+3- Derval: 1
+4- Domingos: 1
+
+
+CONFERENCIA:
+SOMA TIME PRETO: 10
+SOMA TIME LARANJA: 7
+STATUS: OK
+
+#######################################################
+
+Jogo do dia 21/02/2026
+
+Presentes:
+1 - Elias
+2 - Cleberson
+3 - Leone
+4 - Everton 
+5 - Kistt
+6 - Jean
+7 - Daniel 
+8 - Henrique
+9 - Derval
+10 - Alex
+11 - Rogério 
+12 - Chico
+13 - Gabriel 
+
+
+Ausentes:
+1-Tácio
+2-Domingos
+3-Pavesi
+4-Alemão
+5-Darci
+
+
+PLACAR OFICIAL:
+TIME PRETO: 9 GOLS
+TIME LARANJA: 12 GOLS
+
+GOLS TIME PRETO:
+1- Alemão: 0
+2- Alex: 1
+3- Elias: 0
+4- Henrique: 3
+5- Kistt: 3
+6- Leone: 2
+
+
+GOLS TIME LARANJA:
+1- Cleberson: 1
+2- Chico: 4
+3- Daniel: 1
+4- Derval: 4
+5- Domingos: 0
+6- Rogério: 2
+
+CONFERENCIA:
+SOMA TIME PRETO: 9
+SOMA TIME LARANJA: 12
+STATUS: OK
+
+#######################################################
+
+Jogo do dia 28/02/2026
+
+Presentes:
+1 - Tácio
+2 - Henrique
+3 - Jean
+4 - Kistt
+5 - Elias
+6 - Chico
+7 - Alemão 
+8 - Everton 
+9 - Daniel
+10 - Leone
+11 - Cleberson
+12 - Darci 
+
+
+Ausentes:
+1 - Alex
+2 - Derval
+3 - Pavesi
+4 - Domingos
+5 - Rogério
+6 - Gabriel
+
+PLACAR OFICIAL:
+TIME PRETO: 6 GOLS
+TIME LARANJA: 6 GOLS
+
+GOLS TIME PRETO:
+1- Alemão: 0
+2- Alex: 0
+3- Darci: 1
+4- Elias: 0
+5- Henrique: 1
+6- Leone: 1
+7- Tácio: 3
+
+
+GOLS TIME LARANJA:
+1- Cleberson: 1
+2- Chico: 0
+3- Daniel: 1
+4- Derval: 0
+5- Domingos: 0
+6- Jean: 2
+7- Kistt: 2
+
+CONFERENCIA:
+SOMA TIME PRETO: 6
+SOMA TIME LARANJA: 6
+STATUS: OK

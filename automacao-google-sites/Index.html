@@ -1,0 +1,570 @@
+<? var data = model; ?>
+<? var teamOrange = null; ?>
+<? var teamBlack = null; ?>
+<? for (var i = 0; i < data.teams.length; i++) { ?>
+  <? if (data.teams[i].team === 'Laranja') { teamOrange = data.teams[i]; } ?>
+  <? if (data.teams[i].team === 'Preto') { teamBlack = data.teams[i]; } ?>
+<? } ?>
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Perebas FC - Classificacao e Resultados</title>
+  <style>
+    :root{
+      --bg1:#0b1020;
+      --bg2:#0f1b3a;
+      --card:rgba(255,255,255,.08);
+      --card2:rgba(255,255,255,.04);
+      --stroke:rgba(255,255,255,.14);
+      --text:rgba(255,255,255,.92);
+      --muted:rgba(255,255,255,.72);
+      --orange:#ff8a00;
+      --blue:#3aa0ff;
+      --green:#1fe58f;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color:var(--text);
+      background:
+        radial-gradient(900px 500px at 20% 10%, rgba(255,138,0,.16), transparent 55%),
+        radial-gradient(900px 500px at 85% 15%, rgba(58,160,255,.15), transparent 55%),
+        linear-gradient(180deg, var(--bg1), var(--bg2));
+      min-height:100vh;
+      padding:24px 14px 56px;
+    }
+
+    .wrap{max-width:1120px;margin:0 auto;display:grid;gap:14px;}
+
+    .card{
+      border-radius:20px;
+      background:linear-gradient(180deg, var(--card), var(--card2));
+      border:1px solid var(--stroke);
+      box-shadow:0 20px 60px rgba(0,0,0,.45);
+      overflow:hidden;
+    }
+
+    .card-inner{padding:16px;}
+
+    .top{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-bottom:10px;
+    }
+
+    h1{margin:0;font-size:27px;line-height:1.1}
+    h2{margin:0;font-size:18px}
+    p{margin:0;color:var(--muted);line-height:1.45}
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      border:1px solid var(--stroke);
+      border-radius:999px;
+      padding:7px 10px;
+      background:rgba(255,255,255,.06);
+      font-size:12px;
+      color:var(--muted);
+      white-space:nowrap;
+    }
+
+    .chips{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      margin-top:10px;
+    }
+
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      border:1px solid var(--stroke);
+      border-radius:999px;
+      padding:6px 10px;
+      background:rgba(255,255,255,.06);
+      color:var(--muted);
+      font-size:12px;
+    }
+
+    .content{
+      border-top:1px solid rgba(255,255,255,.1);
+      margin-top:10px;
+      padding-top:12px;
+      display:grid;
+      gap:12px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:12px;
+    }
+
+    .table-wrap{
+      overflow-x:auto;
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:14px;
+      background:rgba(255,255,255,.03);
+    }
+
+    table{
+      width:100%;
+      min-width:720px;
+      border-collapse:collapse;
+    }
+
+    thead th{
+      text-align:left;
+      padding:10px;
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.3px;
+      color:var(--muted);
+      border-bottom:1px solid rgba(255,255,255,.12);
+      background:rgba(0,0,0,.16);
+      white-space:nowrap;
+    }
+
+    tbody td{
+      padding:10px;
+      border-bottom:1px solid rgba(255,255,255,.08);
+      white-space:nowrap;
+      font-size:14px;
+    }
+
+    tbody tr:hover{background:rgba(255,255,255,.04)}
+    tbody tr.podium{background:rgba(255,209,102,.1)}
+
+    .rank{
+      display:inline-grid;
+      place-items:center;
+      width:26px;
+      height:26px;
+      border-radius:8px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
+      font-weight:800;
+      font-size:12px;
+    }
+
+    .rank.top{
+      border-color:rgba(255,209,102,.55);
+      background:rgba(255,209,102,.16);
+      color:#ffe6a6;
+    }
+
+    .score{font-weight:900;font-size:16px}
+    .bonus{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-width:34px;
+      padding:3px 8px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      font-size:12px;
+      font-weight:800;
+      color:var(--muted);
+      background:rgba(255,255,255,.06);
+    }
+    .bonus.on{
+      color:#d9ffe8;
+      border-color:rgba(31,229,143,.5);
+      background:rgba(31,229,143,.15);
+    }
+
+    .warnings{
+      list-style:none;
+      margin:0;
+      padding:0;
+      display:grid;
+      gap:8px;
+    }
+    .warnings li{
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:12px;
+      background:rgba(255,93,108,.08);
+      padding:8px 10px;
+      font-size:13px;
+    }
+
+    .match + .match{
+      margin-top:16px;
+      padding-top:16px;
+      border-top:1px solid rgba(255,255,255,.14);
+    }
+
+    .scoreline{
+      display:grid;
+      grid-template-columns:1fr auto 1fr;
+      align-items:center;
+      gap:10px;
+      padding:12px;
+      border-radius:14px;
+      border:1px solid var(--stroke);
+      background:rgba(0,0,0,.16);
+      margin-top:8px;
+    }
+
+    .teamBox{
+      border:1px solid var(--stroke);
+      border-radius:12px;
+      padding:10px;
+      text-align:center;
+      background:rgba(255,255,255,.05);
+    }
+
+    .teamName{
+      display:block;
+      font-size:12px;
+      color:var(--muted);
+      margin-bottom:6px;
+      text-transform:uppercase;
+      letter-spacing:.3px;
+    }
+
+    .goals{
+      font-size:30px;
+      font-weight:900;
+      line-height:1;
+    }
+
+    .winner{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:6px 10px;
+      border-radius:999px;
+      font-size:12px;
+      font-weight:700;
+      border:1px solid rgba(255,215,0,.62);
+      background:rgba(255,215,0,.14);
+      color:#ffe9a3;
+      box-shadow:0 0 0 0 rgba(255,215,0,.35), 0 0 18px rgba(255,193,7,.28);
+      animation:winnerPulse 2.2s ease-in-out infinite;
+      margin-top:10px;
+      margin-bottom:10px;
+    }
+
+    .winner.draw{
+      border-color:rgba(255,255,255,.3);
+      background:rgba(255,255,255,.08);
+      color:var(--text);
+      box-shadow:none;
+      animation:none;
+    }
+
+    .winner .teamEmoji{font-size:13px;line-height:1}
+
+    @keyframes winnerPulse{
+      0%,100%{
+        transform:scale(1);
+        box-shadow:0 0 0 0 rgba(255,215,0,.35), 0 0 18px rgba(255,193,7,.28);
+      }
+      50%{
+        transform:scale(1.04);
+        box-shadow:0 0 0 4px rgba(255,215,0,.15), 0 0 30px rgba(255,193,7,.48);
+      }
+    }
+
+    .cols{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:10px;
+    }
+
+    .teamCard{
+      border:1px solid var(--stroke);
+      border-radius:14px;
+      padding:12px;
+      background:rgba(255,255,255,.04);
+    }
+
+    .teamCardTop{
+      display:flex;
+      justify-content:space-between;
+      gap:8px;
+      align-items:center;
+      margin-bottom:8px;
+    }
+
+    .tag{
+      font-size:11px;
+      font-weight:800;
+      border-radius:999px;
+      border:1px solid var(--stroke);
+      padding:4px 8px;
+      background:rgba(255,255,255,.06);
+      color:var(--muted);
+      white-space:nowrap;
+    }
+
+    .players{
+      list-style:none;
+      margin:0;
+      padding:0;
+      display:grid;
+      gap:7px;
+    }
+
+    .players li{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:8px;
+      border:1px solid rgba(255,255,255,.11);
+      border-radius:10px;
+      padding:7px 9px;
+      background:rgba(255,255,255,.03);
+      font-size:14px;
+    }
+
+    .pts{
+      font-size:11px;
+      font-weight:800;
+      color:#ddffec;
+      border:1px solid rgba(31,229,143,.45);
+      background:rgba(31,229,143,.14);
+      border-radius:999px;
+      padding:2px 8px;
+      white-space:nowrap;
+    }
+
+    .pts.zero{
+      color:var(--muted);
+      border-color:rgba(255,255,255,.2);
+      background:rgba(255,255,255,.04);
+    }
+
+    .small{
+      color:rgba(255,255,255,.55);
+      font-size:12px;
+    }
+
+    .empty{
+      border:1px dashed rgba(255,255,255,.3);
+      border-radius:12px;
+      padding:10px;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    @media (min-width: 860px){
+      .grid.two{grid-template-columns:2fr 1fr;}
+      .cols{grid-template-columns:1fr 1fr;}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="card">
+      <div class="card-inner">
+        <div class="top">
+          <div>
+            <h1>Perebas FC - Classificacao e Resultados</h1>
+            <p>Periodo: <?= data.periodLabel ?></p>
+          </div>
+          <span class="badge">Atualizado em <?= data.generatedAt ?></span>
+        </div>
+
+        <div class="chips">
+          <span class="chip">Rodadas: <strong><?= data.gamesCount ?></strong></span>
+          <span class="chip">Jogadores: <strong><?= data.playersCount ?></strong></span>
+          <span class="chip">Regra bonus: <strong>+1 (100% presenca)</strong></span>
+        </div>
+      </div>
+    </section>
+
+    <? if (data.warnings.length) { ?>
+    <section class="card">
+      <div class="card-inner">
+        <h2>Alertas de validacao</h2>
+        <div class="content">
+          <ul class="warnings">
+            <? for (var w = 0; w < data.warnings.length; w++) { ?>
+            <li><?= data.warnings[w] ?></li>
+            <? } ?>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <? } ?>
+
+    <section class="grid two">
+      <article class="card">
+        <div class="card-inner">
+          <h2>Classificacao Individual</h2>
+          <div class="content">
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Pos</th>
+                    <th>Jogador</th>
+                    <th>Pontos</th>
+                    <th>V</th>
+                    <th>E</th>
+                    <th>D</th>
+                    <th>Presenca</th>
+                    <th>Bonus 100%</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <? for (var r = 0; r < data.ranking.length; r++) { var row = data.ranking[r]; ?>
+                  <tr<? if (row.position <= 3) { ?> class="podium"<? } ?>>
+                    <td><span class="rank<? if (row.position <= 3) { ?> top<? } ?>"><?= row.position ?></span></td>
+                    <td><?= row.name ?></td>
+                    <td class="score"><?= row.points ?></td>
+                    <td><?= row.wins ?></td>
+                    <td><?= row.draws ?></td>
+                    <td><?= row.losses ?></td>
+                    <td><?= row.presence ?>/<?= data.gamesCount ?></td>
+                    <td><span class="bonus<? if (row.bonus) { ?> on<? } ?>"><?= row.bonus ? '+1' : '0' ?></span></td>
+                  </tr>
+                  <? } ?>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-inner">
+          <h2>Desempenho dos Times</h2>
+          <div class="chips">
+            <span class="chip">Laranja: <strong><?= teamOrange ? (teamOrange.wins + 'V ' + teamOrange.draws + 'E ' + teamOrange.losses + 'D') : '0V 0E 0D' ?></strong></span>
+            <span class="chip">Preto: <strong><?= teamBlack ? (teamBlack.wins + 'V ' + teamBlack.draws + 'E ' + teamBlack.losses + 'D') : '0V 0E 0D' ?></strong></span>
+          </div>
+          <div class="content">
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Pos</th>
+                    <th>Time</th>
+                    <th>J</th>
+                    <th>P</th>
+                    <th>V</th>
+                    <th>E</th>
+                    <th>D</th>
+                    <th>GF</th>
+                    <th>GA</th>
+                    <th>SG</th>
+                    <th>Aproveitamento</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <? for (var t = 0; t < data.teams.length; t++) { var rowTeam = data.teams[t]; ?>
+                  <tr<? if (rowTeam.position === 1) { ?> class="podium"<? } ?>>
+                    <td><span class="rank<? if (rowTeam.position === 1) { ?> top<? } ?>"><?= rowTeam.position ?></span></td>
+                    <td><?= rowTeam.team ?></td>
+                    <td><?= rowTeam.played ?></td>
+                    <td class="score"><?= rowTeam.points ?></td>
+                    <td><?= rowTeam.wins ?></td>
+                    <td><?= rowTeam.draws ?></td>
+                    <td><?= rowTeam.losses ?></td>
+                    <td><?= rowTeam.gf ?></td>
+                    <td><?= rowTeam.ga ?></td>
+                    <td><?= rowTeam.goalDiff ?></td>
+                    <td><?= rowTeam.aproveitamento ?>%</td>
+                  </tr>
+                  <? } ?>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="card">
+      <div class="card-inner">
+        <h2>Resultados por Jogo</h2>
+        <div class="content">
+          <? if (!data.games.length) { ?>
+          <p class="empty">Nenhum jogo encontrado para <?= data.periodLabel ?>.</p>
+          <? } ?>
+
+          <? for (var g = 0; g < data.games.length; g++) { var game = data.games[g]; ?>
+          <section class="match">
+            <h2>Jogo do dia <?= game.displayDate ?></h2>
+
+            <div class="scoreline">
+              <div class="teamBox">
+                <span class="teamName">Time Preto</span>
+                <strong class="goals"><?= game.goalsBlack ?></strong>
+              </div>
+              <div>x</div>
+              <div class="teamBox">
+                <span class="teamName">Time Laranja</span>
+                <strong class="goals"><?= game.goalsOrange ?></strong>
+              </div>
+            </div>
+
+            <div class="winner<? if (!game.winnerTeam) { ?> draw<? } ?>">
+              <? if (game.winnerTeam === 'Laranja') { ?>
+                Vencedor: Time Laranja <span class="teamEmoji" aria-hidden="true">🟠</span>
+              <? } else if (game.winnerTeam === 'Preto') { ?>
+                Vencedor: Time Preto <span class="teamEmoji" aria-hidden="true">⚫</span>
+              <? } else { ?>
+                Empate: nao houve time vencedor
+              <? } ?>
+            </div>
+
+            <div class="cols">
+              <article class="teamCard">
+                <div class="teamCardTop">
+                  <strong>Jogadores do Time Laranja</strong>
+                  <span class="tag"><?= game.winnerTeam === 'Laranja' ? '+3 por jogador' : (!game.winnerTeam ? '+1 por jogador' : 'derrota') ?></span>
+                </div>
+                <? if (!game.playersOrange.length) { ?>
+                <p class="small">Nenhum jogador presente do time laranja.</p>
+                <? } else { ?>
+                <ul class="players">
+                  <? for (var po = 0; po < game.playersOrange.length; po++) { var pOrange = game.playersOrange[po]; ?>
+                  <li>
+                    <span><?= pOrange.name ?></span>
+                    <span class="pts<? if (pOrange.points === 0) { ?> zero<? } ?>">+<?= pOrange.points ?> ponto<? if (pOrange.points !== 1) { ?>s<? } ?></span>
+                  </li>
+                  <? } ?>
+                </ul>
+                <? } ?>
+              </article>
+
+              <article class="teamCard">
+                <div class="teamCardTop">
+                  <strong>Jogadores do Time Preto</strong>
+                  <span class="tag"><?= game.winnerTeam === 'Preto' ? '+3 por jogador' : (!game.winnerTeam ? '+1 por jogador' : 'derrota') ?></span>
+                </div>
+                <? if (!game.playersBlack.length) { ?>
+                <p class="small">Nenhum jogador presente do time preto.</p>
+                <? } else { ?>
+                <ul class="players">
+                  <? for (var pb = 0; pb < game.playersBlack.length; pb++) { var pBlack = game.playersBlack[pb]; ?>
+                  <li>
+                    <span><?= pBlack.name ?></span>
+                    <span class="pts<? if (pBlack.points === 0) { ?> zero<? } ?>">+<?= pBlack.points ?> ponto<? if (pBlack.points !== 1) { ?>s<? } ?></span>
+                  </li>
+                  <? } ?>
+                </ul>
+                <? } ?>
+              </article>
+            </div>
+          </section>
+          <? } ?>
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+</html>

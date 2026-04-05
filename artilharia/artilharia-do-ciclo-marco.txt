@@ -1,0 +1,253 @@
+LISTA COM TODOS JOGADORES DA PATOTA:
+
+Alex
+Alemão
+Chico
+Cleberson
+Daniel
+Darci
+Derval
+Domingos
+Elias
+Everton
+Gabriel
+Henrique
+Jean
+Kistt
+Leone
+Pavesi
+Rogério
+Tácio
+
+ARTILHARIA DO CICLO - MES DE MARÇO
+
+Jogo do dia 07/03/2026
+
+Presentes:
+1- Kistt
+2- Henrique
+3- Jean
+4- Alex
+5- Everton 
+6- Tácio
+7- Chico 
+8- Leone 
+9- Cleberson
+11- Elias
+12- Daniel 
+13- Gabriel
+14- Rogério 
+
+Ausentes:
+1- Pavesi 
+2- Derval
+3- Domingos
+4- Darci
+
+PLACAR OFICIAL:
+TIME PRETO: 9 GOLS
+TIME LARANJA: 5 GOLS
+
+GOLS TIME PRETO:
+1- Cleberson: 1
+2- Chico: 2
+3- Derval: 0
+4- Domingos: 0
+5- Elias: 1
+6- Everton: 0
+7- Jean: 2
+8- Leone: 3
+9- Rogério: 0
+
+GOLS TIME LARANJA:
+1- Alex: 2
+2- Alemão: 0
+3- Daniel: 0
+4- Darci: 0
+5- Gabriel: 0
+6- Henrique: 2
+7- Kistt: 0
+8- Pavesi: 0
+9- Tácio: 1
+
+
+CONFERENCIA:
+SOMA TIME PRETO: 9
+SOMA TIME LARANJA: 5
+STATUS: OK
+
+#######################################################
+
+Jogo do dia 14/03/2026
+
+Presentes:
+1 - Elias 
+2 - Henrique
+3 - Jean 
+4 - Chico
+5 - Leone
+6 - Domingos
+7 - Daniel 
+8 - Cleberson 
+9 - Everton 
+10 - Tácio
+11 - Alex
+
+Ausentes:
+1 - Kistt
+2 - Pavesi 
+3 - Rogério 
+4 - Alemão 
+5 - Gabriel
+6 - Derval
+7 - Darci
+
+PLACAR OFICIAL:
+TIME PRETO: 10 GOLS
+TIME LARANJA: 6 GOLS
+
+GOLS TIME PRETO:
+1- Cleberson: 0
+2- Chico: 3
+3- Derval: 0
+4- Domingos: 1
+5- Elias: 0
+6- Everton: 2
+7- Jean: 0
+8- Leone: 3
+9- Rogério: 0
+
+GOLS TIME LARANJA:
+1- Alex: 2
+2- Alemão: 0
+3- Daniel: 1
+4- Darci: 0
+5- Gabriel: 0
+6- Henrique: 1
+7- Kistt: 0
+8- Pavesi: 0
+9- Tácio: 1
+
+
+CONFERENCIA:
+SOMA TIME PRETO: 10
+SOMA TIME LARANJA: 6
+STATUS: OK
+
+#######################################################
+
+Jogo do dia 21/03/2026
+
+Presentes:
+1 - Leone
+2 - Kistt
+3 - Jean
+4 - Tácio 
+5 - Henrique
+6 - Pavesi  
+7 - Alex
+8 - Daniel 
+9 - Gabriel 
+10 - Elias 
+11 - Chico
+12 - Darci
+13-  Cleberson 
+14- Everton 
+
+Ausentes:
+1 - Domingos 
+2 - Derval
+3 - Rogério 
+4 - Alemão
+
+PLACAR OFICIAL:
+TIME PRETO: 9 GOLS
+TIME LARANJA: 7 GOLS
+
+GOLS TIME PRETO:
+1- Cleberson: 1
+2- Chico: 3
+3- Derval: 0
+4- Domingos: 0
+5- Elias: 0
+6- Everton: 0
+7- Jean: 1
+8- Leone: 3
+9- Rogério: 0
+
+GOLS TIME LARANJA:
+1- Alex: 0
+2- Alemão: 0
+3- Daniel: 1
+4- Darci: 1
+5- Gabriel: 1
+6- Henrique: 1
+7- Kistt: 1
+8- Pavesi: 2
+9- Tácio: 0
+
+
+CONFERENCIA:
+SOMA TIME PRETO: 9
+SOMA TIME LARANJA: 7
+STATUS: OK
+
+#######################################################
+
+Jogo do dia 28/03/2026
+
+Presentes:
+
+1- Kistt
+2- Leone
+3- Alemão 
+4- Jean
+5- Tácio
+6- Cleberson 
+7- Daniel 
+8- Rogério 
+9- Everton 
+10- Henrique
+11- Pavesi
+12- Elias
+13- Domingos 
+14- Chico
+15- Darci
+
+Ausentes:
+
+1- Derval 
+2- Gabriel 
+3- Alex
+
+PLACAR OFICIAL:
+TIME PRETO: 10 GOLS
+TIME LARANJA: 11 GOLS
+
+GOLS TIME PRETO:
+1- Cleberson: 3
+2- Chico: 1
+3- Derval: 0
+4- Domingos: 1
+5- Elias: 0
+6- Everton: 2
+7- Jean: 2
+8- Leone: 1
+9- Rogério: 0
+
+GOLS TIME LARANJA:
+1- Alex: 0
+2- Alemão: 0
+3- Daniel: 2
+4- Darci: 1
+5- Gabriel: 0
+6- Henrique: 3
+7- Kistt: 0
+8- Pavesi: 5
+9- Tácio: 0
+
+
+CONFERENCIA:
+SOMA TIME PRETO: 10
+SOMA TIME LARANJA: 11
+STATUS: OK

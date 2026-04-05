@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Times Fixos - Março/2026</title>
+  <style>
+    :root{
+      --bg1:#0b1020;
+      --bg2:#0f1b3a;
+      --card:rgba(255,255,255,.08);
+      --card2:rgba(255,255,255,.06);
+      --stroke:rgba(255,255,255,.14);
+      --text:rgba(255,255,255,.92);
+      --muted:rgba(255,255,255,.72);
+      --green:#1fe58f;
+      --red:#ff5d6c;
+      --yellow:#ffd166;
+      --blue:#3aa0ff;
+      --shadow: 0 20px 60px rgba(0,0,0,.45);
+      --radius: 18px;
+
+      --orange:#ff8a00;
+      --orangeSoft: rgba(255,138,0,.14);
+      --blackSoft: rgba(0,0,0,.18);
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background:
+        radial-gradient(900px 500px at 20% 10%, rgba(31,229,143,.16), transparent 55%),
+        radial-gradient(800px 500px at 85% 15%, rgba(255,93,108,.14), transparent 55%),
+        radial-gradient(900px 650px at 50% 95%, rgba(255,209,102,.12), transparent 55%),
+        linear-gradient(180deg, var(--bg1), var(--bg2));
+      min-height:100vh;
+      padding:28px 14px 60px;
+    }
+
+    .wrap{max-width:1050px;margin:0 auto;}
+
+    header{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:16px;
+      margin-bottom:18px;
+    }
+
+    .title{
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      width:fit-content;
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(255,255,255,.08);
+      border:1px solid var(--stroke);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 30px rgba(0,0,0,.25);
+      font-size:13px;
+      color:var(--muted);
+    }
+    .dot{
+      width:10px;height:10px;border-radius:50%;
+      background: linear-gradient(135deg, var(--orange), var(--yellow));
+      box-shadow: 0 0 0 4px rgba(255,138,0,.12);
+    }
+
+    h1{
+      margin:0;
+      font-size:28px;
+      line-height:1.15;
+      letter-spacing:.2px;
+    }
+    .subtitle{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.45;
+      max-width:80ch;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap:14px;
+    }
+
+    .card{
+      grid-column: span 12;
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, var(--card), var(--card2));
+      border:1px solid var(--stroke);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+
+    .card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(520px 220px at 20% 0%, rgba(255,138,0,.16), transparent 60%),
+        radial-gradient(520px 220px at 80% 0%, rgba(0,0,0,.18), transparent 60%),
+        radial-gradient(520px 260px at 50% 110%, rgba(58,160,255,.08), transparent 60%);
+      pointer-events:none;
+    }
+
+    .card-head{
+      position:relative;
+      padding:16px 18px 14px;
+      border-bottom:1px solid rgba(255,255,255,.10);
+      background:rgba(0,0,0,.10);
+      backdrop-filter: blur(10px);
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+
+    .meta{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:flex-end;
+    }
+
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:7px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
+      color:var(--muted);
+      font-size:12px;
+      white-space:nowrap;
+    }
+    .chip b{color:var(--text); font-weight:800}
+    .ico{width:10px;height:10px;border-radius:50%;}
+    .ico.orange{background:rgba(255,138,0,.95)}
+    .ico.black{background:rgba(0,0,0,.75)}
+    .ico.blue{background:rgba(58,160,255,.85)}
+
+    .card-body{position:relative;padding:18px;}
+
+    .teams{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap:14px;
+      align-items:stretch;
+    }
+
+    .team{
+      grid-column: span 12;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.05);
+      padding:16px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .team.orange::before{
+      content:"";
+      position:absolute;
+      inset:-60px -80px auto auto;
+      width:320px;height:320px;
+      background: radial-gradient(circle at 30% 30%, rgba(255,138,0,.30), transparent 55%);
+      transform: rotate(18deg);
+      pointer-events:none;
+    }
+    .team.black::before{
+      content:"";
+      position:absolute;
+      inset:-60px -80px auto auto;
+      width:320px;height:320px;
+      background: radial-gradient(circle at 30% 30%, rgba(0,0,0,.35), transparent 55%);
+      transform: rotate(18deg);
+      pointer-events:none;
+    }
+
+    @media (min-width: 900px){
+      .team{grid-column: span 6;}
+    }
+
+    .teamHeader{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom:12px;
+      flex-wrap:wrap;
+    }
+
+    .teamTitle{
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    .teamTitle h2{
+      margin:0;
+      font-size:14px;
+      text-transform:uppercase;
+      letter-spacing:.35px;
+      color:var(--muted);
+    }
+
+    .emblem{
+      width:44px;height:44px;
+      border-radius:14px;
+      display:grid;
+      place-items:center;
+      border:1px solid rgba(255,255,255,.14);
+      box-shadow: 0 10px 30px rgba(0,0,0,.25);
+      font-size:18px;
+      background:rgba(255,255,255,.06);
+      backdrop-filter: blur(8px);
+    }
+    .orange .emblem{background:rgba(255,138,0,.10); border-color: rgba(255,138,0,.25)}
+    .black .emblem{background:rgba(0,0,0,.12); border-color: rgba(255,255,255,.12)}
+
+    ol{
+      margin:0;
+      padding:10px 18px 0 34px;
+      line-height:1.75;
+    }
+    li{
+      margin:4px 0;
+      color:rgba(255,255,255,.90);
+      font-weight:650;
+    }
+
+    .captain{
+      color:#fff2c0;
+      font-weight:800;
+    }
+
+    footer{
+      margin-top:18px;
+      color:rgba(255,255,255,.55);
+      font-size:12px;
+      text-align:center;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="title">
+        <div class="badge"><span class="dot"></span> Perebas FC</div>
+        <h1>Times - Março 2026</h1>
+        <p class="subtitle">
+          Escalação dos times fixos do mês.
+        </p>
+      </div>
+    </header>
+
+    <section class="grid">
+      <article class="card">
+        <div class="card-head">
+          <div>
+            <div style="font-weight:800; font-size:18px; color:rgba(255,255,255,.86);">
+              Objetivo: manter a base do mês e fortalecer o entrosamento entre os jogadores.
+            </div>
+          </div>
+
+          <div class="meta" aria-label="Resumo">
+            <span class="chip"><span class="ico black"></span> <b>Time Preto:</b> 9</span>
+            <span class="chip"><span class="ico orange"></span> <b>Time Laranja:</b> 9</span>
+            <span class="chip"><span class="ico blue"></span> <b>Total:</b> 18 jogadores</span>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <div class="teams">
+            <section class="team black" aria-label="Time Preto">
+              <div class="teamHeader">
+                <div class="teamTitle">
+                  <div class="emblem" aria-hidden="true">⚫</div>
+                  <div>
+                    <h2>Time Preto</h2>
+                  </div>
+                </div>
+              </div>
+
+              <ol>
+                <li><span class="captain">Jean (Capitão)</span></li>
+                <li>Everton</li>
+                <li>Chico</li>
+                <li>Elias</li>
+                <li>Leone</li>
+                <li>Cleberson</li>
+                <li>Derval</li>
+                <li>Rogério</li>
+                <li>Domingos</li>
+              </ol>
+            </section>
+
+            <section class="team orange" aria-label="Time Laranja">
+              <div class="teamHeader">
+                <div class="teamTitle">
+                  <div class="emblem" aria-hidden="true">🟠</div>
+                  <div>
+                    <h2>Time Laranja</h2>
+                  </div>
+                </div>
+              </div>
+              <ol>
+                <li><span class="captain">Henrique (Capitão)</span></li>
+                <li>Alemão</li>
+                <li>Daniel</li>
+                <li>Tácio</li>
+                <li>Kistt</li>
+                <li>Darci</li>
+                <li>Alex</li>
+                <li>Pavesi</li>
+                <li>Gabriel</li>
+              </ol>
+            </section>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <footer>
+      Atualizado com base no ciclo de Março/2026.
+    </footer>
+  </div>
+</body>
+</html>
+

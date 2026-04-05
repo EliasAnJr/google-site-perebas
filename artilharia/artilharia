@@ -1,0 +1,886 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Copa Perebas FC - Artilharia</title>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;600;700;800&display=swap");
+
+    :root{
+      --bg1:#b6f000;
+      --bg2:#b7f500;
+      --bg3:#a5df0b;
+      --card:rgba(6,18,14,.66);
+      --card2:rgba(5,14,11,.54);
+      --stroke:rgba(215,255,160,.26);
+      --text:rgba(248,255,241,.96);
+      --muted:rgba(221,241,194,.78);
+
+      --lime:#b7f400;
+      --mint:#9fe35c;
+      --amber:#ffe29a;
+      --orange:#d98c3d;
+      --blue:#7cd687;
+
+      --shadow: 0 20px 52px rgba(11,26,14,.45);
+      --radius: 20px;
+    }
+
+    *{box-sizing:border-box}
+
+    body{
+      margin:0;
+      font-family:"Manrope", "Segoe UI", sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(900px 560px at 82% -12%, rgba(255,255,255,.18), transparent 62%),
+        radial-gradient(760px 500px at -18% 102%, rgba(125,173,42,.20), transparent 58%),
+        linear-gradient(180deg, var(--bg1), var(--bg2) 56%, var(--bg3));
+      min-height:100vh;
+      padding:30px 14px 64px;
+      position:relative;
+      overflow-x:hidden;
+    }
+
+    .wrap{
+      max-width:1160px;
+      margin:0 auto;
+      position:relative;
+      z-index:1;
+    }
+
+    header{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:16px;
+      margin-bottom:20px;
+      flex-wrap:wrap;
+    }
+
+    .title{display:flex;flex-direction:column;gap:10px;max-width:82ch;}
+
+    .headline{
+      display:flex;
+      align-items:flex-end;
+      gap:12px;
+      width:fit-content;
+    }
+
+    .title-ball{
+      display:inline-grid;
+      place-items:center;
+      width:54px;
+      height:54px;
+      font-size:40px;
+      line-height:1;
+      transform-origin:center bottom;
+      filter:drop-shadow(0 7px 4px rgba(16,34,15,.28));
+      animation:pingPongBounce 1.05s cubic-bezier(.38,.05,.2,1) infinite;
+      will-change:transform;
+    }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      width:fit-content;
+      padding:8px 13px;
+      border-radius:999px;
+      border:1px solid var(--stroke);
+      background:rgba(255,255,255,.08);
+      font-size:12px;
+      color:var(--muted);
+      letter-spacing:.35px;
+      text-transform:uppercase;
+    }
+
+    .dot{
+      width:10px;
+      height:10px;
+      border-radius:50%;
+      background:conic-gradient(from 210deg, var(--mint), var(--amber), var(--lime), var(--mint));
+      box-shadow:0 0 0 4px rgba(76,201,240,.15);
+    }
+
+    h1{
+      margin:0;
+      font-family:"Bebas Neue", sans-serif;
+      font-size:48px;
+      letter-spacing:1.2px;
+      line-height:1;
+      text-transform:uppercase;
+      text-wrap:balance;
+      color:#10220f;
+      text-shadow:0 2px 0 rgba(255,255,255,.18);
+    }
+
+    @keyframes pingPongBounce{
+      0%, 100%{transform:translateY(0) scale(1.04,.92)}
+      14%{transform:translateY(-26px) scale(.94,1.08)}
+      28%{transform:translateY(0) scale(1.07,.88)}
+      40%{transform:translateY(-14px) scale(.98,1.02)}
+      52%{transform:translateY(0) scale(1.04,.92)}
+      62%{transform:translateY(-7px) scale(1,1)}
+      72%{transform:translateY(0) scale(1.02,.95)}
+    }
+
+    .subtitle{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.55;
+      max-width:72ch;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(12,1fr);
+      gap:14px;
+    }
+
+    .card{
+      grid-column:span 12;
+      border-radius:22px;
+      background:linear-gradient(180deg, var(--card), var(--card2));
+      border:1px solid var(--stroke);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      position:relative;
+      opacity:0;
+      transform:translateY(12px);
+      animation:slideIn .55s ease forwards;
+    }
+
+    .card:nth-of-type(2){animation-delay:.08s}
+    .card:nth-of-type(3){animation-delay:.16s}
+    .card:nth-of-type(4){animation-delay:.24s}
+    .card:nth-of-type(5){animation-delay:.32s}
+
+    .card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(420px 170px at 20% 0%, rgba(255,214,111,.10), transparent 60%),
+        radial-gradient(420px 180px at 80% 0%, rgba(159,227,92,.10), transparent 60%);
+      pointer-events:none;
+    }
+
+    .card-inner{position:relative;padding:16px;display:flex;flex-direction:column;gap:12px}
+
+    .card-top{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:flex-start}
+
+    .label{display:flex;align-items:center;gap:10px}
+
+    .icon{
+      width:44px;
+      height:44px;
+      border-radius:14px;
+      display:grid;
+      place-items:center;
+      border:1px solid rgba(255,255,255,.15);
+      background:rgba(255,255,255,.06);
+      box-shadow:0 10px 30px rgba(0,0,0,.25);
+      font-size:18px;
+    }
+
+    .icon-hattrick{
+      width:58px;
+      font-size:14px;
+      line-height:1;
+      letter-spacing:-4px;
+      white-space:nowrap;
+    }
+
+    .label h2{margin:0;font-size:13px;text-transform:uppercase;letter-spacing:.4px;color:var(--muted)}
+    .label .titleText{margin-top:2px;font-size:18px;font-weight:800;letter-spacing:.2px}
+
+    .chips{display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:flex-end}
+
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:7px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.18);
+      background:rgba(255,255,255,.07);
+      font-size:12px;
+      color:var(--muted);
+      white-space:nowrap;
+    }
+
+    .chip b{color:var(--text);font-weight:800}
+
+    .dotMini{width:10px;height:10px;border-radius:50%}
+    .dotMini.lime{background:var(--lime)}
+    .dotMini.amber{background:var(--amber)}
+    .dotMini.orange{background:var(--orange)}
+    .dotMini.mint{background:var(--mint)}
+    .dotMini.blue{background:var(--blue)}
+    .dotMini.black{background:#0e1220;box-shadow:inset 0 0 0 1px rgba(255,255,255,.35)}
+
+    .content{
+      border-top:1px solid rgba(255,255,255,.12);
+      padding-top:12px;
+      display:grid;
+      gap:10px;
+      color:rgba(255,255,255,.89);
+      line-height:1.52;
+    }
+
+    .table-wrap{
+      overflow-x:auto;
+      border:1px solid rgba(255,255,255,.14);
+      border-radius:14px;
+      background:rgba(255,255,255,.03);
+    }
+
+    table{width:100%;border-collapse:collapse;min-width:760px}
+
+    .ranking-table{
+      width:100%;
+      min-width:540px;
+      table-layout:fixed;
+    }
+
+    .ranking-card .content{
+      border-top:1px solid rgba(255,255,255,.10);
+      padding-top:10px;
+      display:grid;
+      gap:10px;
+      color:rgba(255,255,255,.88);
+      line-height:1.5;
+    }
+
+    .ranking-card .table-wrap{
+      border:1px solid rgba(255,255,255,.12);
+    }
+
+    .ranking-table thead th{
+      text-align:left;
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.3px;
+      color:var(--muted);
+      padding:10px 10px;
+      background:rgba(0,0,0,.16);
+      border-bottom:1px solid rgba(255,255,255,.12);
+      white-space:nowrap;
+    }
+
+    .ranking-table tbody td{
+      padding:10px 10px;
+      border-bottom:1px solid rgba(255,255,255,.08);
+      font-size:14px;
+      white-space:nowrap;
+    }
+
+    .ranking-table tbody tr:hover{
+      background:rgba(255,255,255,.04);
+    }
+
+    .ranking-table tbody tr.podium{
+      background:rgba(255,209,102,.10);
+    }
+
+    .ranking-card .rank{
+      display:inline-grid;
+      place-items:center;
+      width:26px;
+      height:26px;
+      border-radius:8px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
+      font-weight:800;
+      font-size:12px;
+    }
+
+    .ranking-card .rank.top{
+      border-color:rgba(255,209,102,.55);
+      background:rgba(255,209,102,.16);
+      color:#ffe6a6;
+    }
+
+    .ranking-card .score{
+      font-weight:900;
+      font-size:16px;
+      letter-spacing:.2px;
+    }
+
+    .ranking-table th:nth-child(1),
+    .ranking-table td:nth-child(1),
+    .ranking-table th:nth-child(3),
+    .ranking-table td:nth-child(3),
+    .ranking-table th:nth-child(4),
+    .ranking-table td:nth-child(4),
+    .ranking-table th:nth-child(5),
+    .ranking-table td:nth-child(5){
+      text-align:center;
+    }
+
+    .ranking-table th:nth-child(2),
+    .ranking-table td:nth-child(2){
+      text-align:left;
+    }
+
+    .ranking-table td.score{
+      text-align:center;
+    }
+
+    thead th{
+      text-align:left;
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.35px;
+      color:var(--muted);
+      padding:11px 10px;
+      background:rgba(0,0,0,.18);
+      border-bottom:1px solid rgba(255,255,255,.12);
+      white-space:nowrap;
+    }
+
+    tbody td{
+      padding:10px 10px;
+      border-bottom:1px solid rgba(255,255,255,.08);
+      font-size:14px;
+      white-space:nowrap;
+    }
+
+    tbody tr:hover{background:rgba(255,255,255,.045)}
+
+    tbody tr.podium{background:rgba(255,209,102,.11)}
+
+    .rank{
+      display:inline-grid;
+      place-items:center;
+      width:26px;
+      height:26px;
+      border-radius:8px;
+      border:1px solid rgba(255,255,255,.16);
+      background:rgba(255,255,255,.08);
+      font-weight:800;
+      font-size:12px;
+    }
+
+    .rank.top{
+      border-color:rgba(255,209,102,.55);
+      background:rgba(255,209,102,.18);
+      color:#ffe7a8;
+    }
+
+    .score{font-weight:900;font-size:16px;letter-spacing:.2px}
+    .muted{color:var(--muted)}
+
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-width:40px;
+      padding:3px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.18);
+      font-size:12px;
+      font-weight:800;
+      color:var(--text);
+      background:rgba(255,255,255,.08);
+    }
+
+    .pill.ok{border-color:rgba(65,234,212,.45);background:rgba(65,234,212,.12);color:#dbfffb}
+    .pill.warn{border-color:rgba(255,140,66,.45);background:rgba(255,140,66,.14);color:#ffe5d4}
+
+    .insight-list{
+      list-style:none;
+      margin:0;
+      padding:0;
+      display:grid;
+      gap:8px;
+    }
+
+    .insight-list li{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:10px;
+      border:1px solid rgba(255,255,255,.13);
+      border-radius:12px;
+      background:rgba(255,255,255,.05);
+      padding:10px;
+      font-size:14px;
+    }
+
+    .small{color:var(--muted);font-size:12px;line-height:1.5}
+
+    .team{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      border-radius:999px;
+      padding:4px 8px;
+      border:1px solid rgba(255,255,255,.16);
+      font-size:12px;
+      font-weight:700;
+    }
+
+    .team.orange{background:rgba(255,140,66,.2);border-color:rgba(255,140,66,.45)}
+    .team.black{background:rgba(14,18,28,.58);border-color:rgba(255,255,255,.28)}
+
+    @keyframes slideIn{
+      from{opacity:0;transform:translateY(12px)}
+      to{opacity:1;transform:translateY(0)}
+    }
+
+    @media (min-width: 860px){
+      .card.span8{grid-column:span 8}
+      .card.span4{grid-column:span 4}
+      .card.span6{grid-column:span 6}
+      .card.span12{grid-column:span 12}
+    }
+
+    @media (max-width: 700px){
+      .headline{gap:8px}
+      .title-ball{
+        width:42px;
+        height:42px;
+        font-size:30px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      .title-ball{animation:none}
+    }
+
+    footer{
+      margin-top:20px;
+      color:rgba(18,32,14,.72);
+      font-size:12px;
+      font-weight:600;
+      text-align:center;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="title">
+        <div class="headline">
+          <h1>Artilharia perebas 2026</h1>
+          <span class="title-ball" aria-hidden="true">⚽</span>
+        </div>
+      </div>
+
+    </header>
+
+    <main>
+      <section class="grid">
+        <article class="card span8 ranking-card">
+          <div class="card-inner">
+            <div class="card-top">
+              <div class="label">
+                <div class="icon">⚽</div>
+                <div>
+                  <div class="titleText">Ranking de Artilheiros</div>
+                </div>
+              </div>
+              <div class="chips">
+                <span class="chip"><span class="dotMini lime"></span> <b>Critério 1:</b> mais gols</span>
+                <span class="chip"><span class="dotMini blue"></span> <b>Critério 2:</b> maior media</span>
+                <span class="chip"><span class="dotMini amber"></span> <b>Critério 3:</b> nome A-Z</span>
+              </div>
+            </div>
+
+            <div class="content">
+              <div class="table-wrap" aria-label="Artilharia individual">
+                <table class="ranking-table">
+                  <colgroup>
+                    <col style="width:48px" />
+                    <col style="width:132px" />
+                    <col />
+                    <col />
+                    <col />
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th>Pos</th>
+                      <th>Jogador</th>
+                      <th>Gols</th>
+                      <th>Jogos</th>
+                      <th>Média/Jogo</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="podium">
+                      <td><span class="rank top">1</span></td>
+                      <td>HENRIQUE</td>
+                      <td class="score">19</td>
+                      <td>8</td>
+                      <td>2.38</td>
+                    </tr>
+                    <tr class="podium">
+                      <td><span class="rank top">2</span></td>
+                      <td>CHICO</td>
+                      <td class="score">17</td>
+                      <td>8</td>
+                      <td>2.13</td>
+                    </tr>
+                    <tr class="podium">
+                      <td><span class="rank top">3</span></td>
+                      <td>LEONE</td>
+                      <td class="score">16</td>
+                      <td>9</td>
+                      <td>1.78</td>
+                    </tr>
+                    <tr>
+                      <td><span class="rank">4</span></td>
+                      <td>DERVAL</td>
+                      <td class="score">12</td>
+                      <td>4</td>
+                      <td>3.00</td>
+                    </tr>
+                    <tr>
+                      <td><span class="rank">5</span></td>
+                      <td>CLEBERSON</td>
+                      <td class="score">12</td>
+                      <td>9</td>
+                      <td>1.33</td>
+                    </tr>
+                    <tr>
+                      <td><span class="rank">6</span></td>
+                      <td>JEAN</td>
+                      <td class="score">11</td>
+                      <td>9</td>
+                      <td>1.22</td>
+                    </tr>
+                    <tr>
+                      <td><span class="rank">7</span></td>
+                      <td>DANIEL</td>
+                      <td class="score">9</td>
+                      <td>8</td>
+                      <td>1.13</td>
+                    </tr>
+                    <tr>
+                      <td><span class="rank">8</span></td>
+                      <td>KISTT</td>
+                      <td class="score">9</td>
+                      <td>8</td>
+                      <td>1.13</td>
+                    </tr>
+                    <tr>
+                      <td><span class="rank">9</span></td>
+                      <td>ELIAS</td>
+                      <td class="score">8</td>
+                      <td>9</td>
+                      <td>0.89</td>
+                    </tr>
+                    <tr>
+                      <td><span class="rank">10</span></td>
+                      <td>PAVESI</td>
+                      <td class="score">7</td>
+                      <td>2</td>
+                      <td>3.50</td>
+                    </tr>
+                    <tr>
+                      <td><span class="rank">11</span></td>
+                      <td>ALEX</td>
+                      <td class="score">6</td>
+                      <td>5</td>
+                      <td>1.20</td>
+                    </tr>
+                    <tr>
+                      <td><span class="rank">12</span></td>
+                      <td>TÁCIO</td>
+                      <td class="score">6</td>
+                      <td>6</td>
+                      <td>1.00</td>
+                    </tr>
+                    <tr>
+                      <td><span class="rank">13</span></td>
+                      <td>ROGÉRIO</td>
+                      <td class="score">5</td>
+                      <td>4</td>
+                      <td>1.25</td>
+                    </tr>
+                    <tr>
+                      <td><span class="rank">14</span></td>
+                      <td>DARCI</td>
+                      <td class="score">5</td>
+                      <td>6</td>
+                      <td>0.83</td>
+                    </tr>
+                    <tr>
+                      <td><span class="rank">15</span></td>
+                      <td>DOMINGOS</td>
+                      <td class="score">4</td>
+                      <td>4</td>
+                      <td>1.00</td>
+                    </tr>
+                    <tr>
+                      <td><span class="rank">16</span></td>
+                      <td>EVERTON</td>
+                      <td class="score">4</td>
+                      <td>7</td>
+                      <td>0.57</td>
+                    </tr>
+                    <tr>
+                      <td><span class="rank">17</span></td>
+                      <td>GABRIEL</td>
+                      <td class="score">3</td>
+                      <td>5</td>
+                      <td>0.60</td>
+                    </tr>
+                    <tr>
+                      <td><span class="rank">18</span></td>
+                      <td>ALEMÃO</td>
+                      <td class="score">1</td>
+                      <td>4</td>
+                      <td>0.25</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card span6">
+          <div class="card-inner">
+            <div class="card-top">
+              <div class="label">
+                <div class="icon">🧮</div>
+                <div>
+                  <h2>Resumo por Time</h2>
+                </div>
+              </div>
+              <div class="chips">
+                <span class="chip"><span class="dotMini black"></span> <b>Preto:</b> <span id="chip-preto-gols">78</span> gols</span>
+                <span class="chip"><span class="dotMini orange"></span> <b>Laranja:</b> <span id="chip-laranja-gols">84</span> gols</span>
+              </div>
+            </div>
+
+            <div class="content">
+              <div class="table-wrap" aria-label="Artilharia por time">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Time</th>
+                      <th>Gols Feitos</th>
+                      <th>Gols Sofridos</th>
+                      <th>Saldo</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><span class="team black"><span class="dotMini black"></span>Preto</span></td>
+                      <td class="score">78</td>
+                      <td>84</td>
+                      <td>-6</td>
+                    </tr>
+                    <tr>
+                      <td><span class="team orange"><span class="dotMini orange"></span>Laranja</span></td>
+                      <td class="score">84</td>
+                      <td>78</td>
+                      <td>6</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card span6">
+          <div class="card-inner">
+            <div class="card-top">
+              <div class="label">
+                <div class="icon">📊</div>
+                <div>
+                  <h2>Radar da Temporada</h2>
+                  <div class="titleText">Indicadores</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="content">
+              <ul class="insight-list">
+                <li><span>Maior goleada</span><strong id="insight-goleada">07/02/2026 - 7 x 15</strong></li>
+                <li><span>Hat-tricks da temporada</span><strong id="insight-hat">21</strong></li>
+                <li><span>Média de gols por jogo</span><strong id="insight-media">18.00</strong></li>
+                <li><span>Total de gols na temporada</span><strong id="insight-total-gols">162</strong></li>
+              </ul>
+
+            </div>
+          </div>
+        </article>
+
+        <article class="card span12">
+          <div class="card-inner">
+            <div class="card-top">
+              <div class="label">
+                <div class="icon icon-hattrick">⚽⚽⚽</div>
+                <div>
+                  <h2>Hat-tricks da Temporada</h2>
+                  <div class="titleText">Data, Jogador e Time</div>
+                </div>
+              </div>
+              <div class="chips">
+                <span class="chip"><span class="dotMini amber"></span> <b>Regra:</b> 3 ou mais gols no jogo</span>
+              </div>
+            </div>
+
+            <div class="content">
+              <div class="table-wrap" aria-label="Hat-tricks da temporada">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Data</th>
+                      <th>Jogador</th>
+                      <th>Time</th>
+                      <th>Gols</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>07/02/2026</td>
+                      <td>DERVAL</td>
+                      <td><span class="team orange"><span class="dotMini orange"></span>Time Laranja</span></td>
+                      <td class="score">5</td>
+                    </tr>
+                    <tr>
+                      <td>07/02/2026</td>
+                      <td>KISTT</td>
+                      <td><span class="team orange"><span class="dotMini orange"></span>Time Laranja</span></td>
+                      <td class="score">3</td>
+                    </tr>
+                    <tr>
+                      <td>07/02/2026</td>
+                      <td>ROGÉRIO</td>
+                      <td><span class="team orange"><span class="dotMini orange"></span>Time Laranja</span></td>
+                      <td class="score">3</td>
+                    </tr>
+                    <tr>
+                      <td>14/02/2026</td>
+                      <td>CLEBERSON</td>
+                      <td><span class="team orange"><span class="dotMini orange"></span>Time Laranja</span></td>
+                      <td class="score">3</td>
+                    </tr>
+                    <tr>
+                      <td>14/02/2026</td>
+                      <td>ELIAS</td>
+                      <td><span class="team black"><span class="dotMini black"></span>Time Preto</span></td>
+                      <td class="score">3</td>
+                    </tr>
+                    <tr>
+                      <td>21/02/2026</td>
+                      <td>CHICO</td>
+                      <td><span class="team orange"><span class="dotMini orange"></span>Time Laranja</span></td>
+                      <td class="score">4</td>
+                    </tr>
+                    <tr>
+                      <td>21/02/2026</td>
+                      <td>DERVAL</td>
+                      <td><span class="team orange"><span class="dotMini orange"></span>Time Laranja</span></td>
+                      <td class="score">4</td>
+                    </tr>
+                    <tr>
+                      <td>21/02/2026</td>
+                      <td>HENRIQUE</td>
+                      <td><span class="team black"><span class="dotMini black"></span>Time Preto</span></td>
+                      <td class="score">3</td>
+                    </tr>
+                    <tr>
+                      <td>21/02/2026</td>
+                      <td>KISTT</td>
+                      <td><span class="team black"><span class="dotMini black"></span>Time Preto</span></td>
+                      <td class="score">3</td>
+                    </tr>
+                    <tr>
+                      <td>28/02/2026</td>
+                      <td>TÁCIO</td>
+                      <td><span class="team black"><span class="dotMini black"></span>Time Preto</span></td>
+                      <td class="score">3</td>
+                    </tr>
+                    <tr>
+                      <td>07/03/2026</td>
+                      <td>LEONE</td>
+                      <td><span class="team black"><span class="dotMini black"></span>Time Preto</span></td>
+                      <td class="score">3</td>
+                    </tr>
+                    <tr>
+                      <td>14/03/2026</td>
+                      <td>CHICO</td>
+                      <td><span class="team black"><span class="dotMini black"></span>Time Preto</span></td>
+                      <td class="score">3</td>
+                    </tr>
+                    <tr>
+                      <td>14/03/2026</td>
+                      <td>LEONE</td>
+                      <td><span class="team black"><span class="dotMini black"></span>Time Preto</span></td>
+                      <td class="score">3</td>
+                    </tr>
+                    <tr>
+                      <td>21/03/2026</td>
+                      <td>CHICO</td>
+                      <td><span class="team black"><span class="dotMini black"></span>Time Preto</span></td>
+                      <td class="score">3</td>
+                    </tr>
+                    <tr>
+                      <td>21/03/2026</td>
+                      <td>LEONE</td>
+                      <td><span class="team black"><span class="dotMini black"></span>Time Preto</span></td>
+                      <td class="score">3</td>
+                    </tr>
+                    <tr>
+                      <td>28/03/2026</td>
+                      <td>PAVESI</td>
+                      <td><span class="team orange"><span class="dotMini orange"></span>Time Laranja</span></td>
+                      <td class="score">5</td>
+                    </tr>
+                    <tr>
+                      <td>28/03/2026</td>
+                      <td>HENRIQUE</td>
+                      <td><span class="team orange"><span class="dotMini orange"></span>Time Laranja</span></td>
+                      <td class="score">3</td>
+                    </tr>
+                    <tr>
+                      <td>28/03/2026</td>
+                      <td>CLEBERSON</td>
+                      <td><span class="team black"><span class="dotMini black"></span>Time Preto</span></td>
+                      <td class="score">3</td>
+                    </tr>
+                    <tr>
+                      <td>04/04/2026</td>
+                      <td>HENRIQUE</td>
+                      <td><span class="team orange"><span class="dotMini orange"></span>Time Laranja</span></td>
+                      <td class="score">8</td>
+                    </tr>
+                    <tr>
+                      <td>04/04/2026</td>
+                      <td>JEAN</td>
+                      <td><span class="team orange"><span class="dotMini orange"></span>Time Laranja</span></td>
+                      <td class="score">3</td>
+                    </tr>
+                    <tr>
+                      <td>04/04/2026</td>
+                      <td>CHICO</td>
+                      <td><span class="team black"><span class="dotMini black"></span>Time Preto</span></td>
+                      <td class="score">3</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </section>
+    </main>
+
+    <footer>
+      Feito para acompanhar a artilharia dos jogadores. Atualização rodada a rodada.
+      <div class="update-stamp">Ultima atualizacao automatica: jogo de 04/04/2026.</div>
+    </footer>
+  </div>
+</body>
+</html>

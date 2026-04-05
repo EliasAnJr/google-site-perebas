@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Presenças (Abril/2026)</title>
+  <style>
+    :root{
+      --bg1:#0b1020;
+      --bg2:#0f1b3a;
+      --card:rgba(255,255,255,.08);
+      --card2:rgba(255,255,255,.06);
+      --stroke:rgba(255,255,255,.14);
+      --text:rgba(255,255,255,.92);
+      --muted:rgba(255,255,255,.7);
+      --green:#1fe58f;
+      --red:#ff5d6c;
+      --yellow:#ffd166;
+      --shadow: 0 20px 60px rgba(0,0,0,.45);
+      --radius: 18px;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background:
+        radial-gradient(900px 500px at 20% 10%, rgba(31,229,143,.20), transparent 55%),
+        radial-gradient(800px 500px at 85% 15%, rgba(255,93,108,.18), transparent 55%),
+        radial-gradient(900px 650px at 50% 95%, rgba(255,209,102,.14), transparent 55%),
+        linear-gradient(180deg, var(--bg1), var(--bg2));
+      min-height:100vh;
+      padding:28px 14px 60px;
+    }
+
+    .wrap{
+      max-width:1100px;
+      margin:0 auto;
+    }
+
+    header{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:16px;
+      margin-bottom:18px;
+    }
+
+    .title{
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+    }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      width:fit-content;
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(255,255,255,.08);
+      border:1px solid var(--stroke);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 30px rgba(0,0,0,.25);
+      font-size:13px;
+      color:var(--muted);
+    }
+    .dot{
+      width:10px;height:10px;border-radius:50%;
+      background: linear-gradient(135deg, var(--green), #3aa0ff);
+      box-shadow: 0 0 0 4px rgba(31,229,143,.12);
+    }
+
+    h1{
+      margin:0;
+      font-size:28px;
+      line-height:1.15;
+      letter-spacing:.2px;
+    }
+    .subtitle{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.45;
+      max-width:70ch;
+    }
+
+    .legend{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:flex-end;
+      margin-top:6px;
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 10px;
+      border-radius:999px;
+      background:rgba(255,255,255,.07);
+      border:1px solid var(--stroke);
+      font-size:12px;
+      color:var(--muted);
+      white-space:nowrap;
+    }
+    .pill i{
+      display:inline-block;
+      width:10px;height:10px;border-radius:3px;
+    }
+    .pill .p{background:rgba(31,229,143,.85)}
+    .pill .a{background:rgba(255,93,108,.85)}
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap:14px;
+    }
+
+    .card{
+      grid-column: span 12;
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, var(--card), var(--card2));
+      border:1px solid var(--stroke);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+
+    .card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(400px 180px at 20% 0%, rgba(31,229,143,.12), transparent 60%),
+        radial-gradient(360px 170px at 80% 0%, rgba(255,93,108,.10), transparent 60%);
+      pointer-events:none;
+    }
+
+    .card-head{
+      position:relative;
+      padding:16px 18px 14px;
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:14px;
+      border-bottom:1px solid rgba(255,255,255,.10);
+      background:rgba(0,0,0,.10);
+      backdrop-filter: blur(10px);
+    }
+
+    .when{
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+    }
+    .when strong{
+      font-size:16px;
+      letter-spacing:.2px;
+    }
+    .meta{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      color:var(--muted);
+      font-size:12px;
+    }
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
+    }
+    .chip b{color:var(--text); font-weight:700}
+    .chip .ico{
+      width:10px;height:10px;border-radius:50%;
+    }
+    .ico.green{background:rgba(31,229,143,.85)}
+    .ico.red{background:rgba(255,93,108,.85)}
+
+    .card-body{
+      position:relative;
+      padding:16px 18px 18px;
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap:14px;
+    }
+
+    .col{
+      grid-column: span 12;
+      border-radius: 14px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.05);
+      overflow:hidden;
+    }
+
+    @media (min-width: 860px){
+      .col.present{grid-column: span 8;}
+      .col.absent{grid-column: span 4;}
+      .card{grid-column: span 6;}
+    }
+
+    .col h3{
+      margin:0;
+      padding:12px 12px 10px;
+      font-size:13px;
+      letter-spacing:.3px;
+      text-transform:uppercase;
+      color:var(--muted);
+      border-bottom:1px solid rgba(255,255,255,.10);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+    }
+    .count{
+      font-size:12px;
+      padding:4px 8px;
+      border-radius:999px;
+      background:rgba(255,255,255,.07);
+      border:1px solid rgba(255,255,255,.12);
+      color:var(--text);
+    }
+
+    ol, ul{
+      margin:0;
+      padding:12px 18px 16px 34px;
+      line-height:1.6;
+    }
+    ul{padding-left:22px}
+    li{
+      margin:4px 0;
+      color:rgba(255,255,255,.9);
+    }
+
+    .presence-list{
+      list-style:none;
+      margin:8px 0 0;
+      padding:0;
+      display:grid;
+      gap:8px;
+    }
+    .presence-list li{
+      margin:0;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:10px;
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:12px;
+      background:rgba(255,255,255,.04);
+      padding:9px 10px;
+    }
+    .bonus{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-width:34px;
+      padding:3px 8px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      font-size:12px;
+      font-weight:800;
+      color:var(--muted);
+      background:rgba(255,255,255,.06);
+    }
+
+    .small{
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.45;
+    }
+
+    footer{
+      margin-top:18px;
+      color:rgba(255,255,255,.55);
+      font-size:12px;
+      text-align:center;
+    }
+    .update-stamp{
+      margin-top:6px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="title">
+        <div class="badge"><span class="dot"></span> Presenças nos jogos</div>
+        <h1>Relatório de Presença</h1>
+        <p class="subtitle">
+          Lista organizada por jogo com <b>presentes</b> e <b>ausentes</b> do ciclo de abril.
+        </p>
+      </div>
+
+      <div class="legend" aria-label="Legenda">
+        <span class="pill"><i class="p"></i> Presentes</span>
+        <span class="pill"><i class="a"></i> Ausentes</span>
+      </div>
+    </header>
+
+    <section class="grid">
+      <article class="card">
+        <div class="card-head">
+          <div class="when">
+            <strong>Jogo do dia 04/04/2026</strong>
+            <div class="meta">
+              <span class="chip"><span class="ico green"></span> <b>Presentes:</b> 12</span>
+              <span class="chip"><span class="ico red"></span> <b>Ausentes:</b> 6</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <div class="col present">
+            <h3>Presentes <span class="count">12</span></h3>
+            <ol>
+              <li>ALEX</li>
+              <li>CHICO</li>
+              <li>DANIEL</li>
+              <li>DARCI</li>
+              <li>DERVAL</li>
+              <li>DOMINGOS</li>
+              <li>ELIAS</li>
+              <li>GABRIEL</li>
+              <li>HENRIQUE</li>
+              <li>JEAN</li>
+              <li>KISTT</li>
+              <li>LEONE</li>
+            </ol>
+          </div>
+
+          <div class="col absent">
+            <h3>Ausentes <span class="count">6</span></h3>
+            <ul>
+              <li>ALEMÃO</li>
+              <li>CLEBERSON</li>
+              <li>EVERTON</li>
+              <li>PAVESI</li>
+              <li>ROGÉRIO</li>
+              <li>TÁCIO</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <div class="when">
+            <strong>Resumo de Presenças - Abril/2026</strong>
+            <div class="meta">
+              <span class="chip"><span class="ico green"></span> <b>Jogadores fixos:</b> 18</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <div class="col">
+            <h3>Faixas de presença <span class="count">mês completo</span></h3>
+            <div style="padding:12px 12px 16px;">
+              <div class="small" style="margin-top:12px;">1 jogo:</div>
+              <ul class="presence-list">
+                <li><span>ALEX</span><span class="bonus">1J</span></li>
+                <li><span>CHICO</span><span class="bonus">1J</span></li>
+                <li><span>DANIEL</span><span class="bonus">1J</span></li>
+                <li><span>DARCI</span><span class="bonus">1J</span></li>
+                <li><span>DERVAL</span><span class="bonus">1J</span></li>
+                <li><span>DOMINGOS</span><span class="bonus">1J</span></li>
+                <li><span>ELIAS</span><span class="bonus">1J</span></li>
+                <li><span>GABRIEL</span><span class="bonus">1J</span></li>
+                <li><span>HENRIQUE</span><span class="bonus">1J</span></li>
+                <li><span>JEAN</span><span class="bonus">1J</span></li>
+                <li><span>KISTT</span><span class="bonus">1J</span></li>
+                <li><span>LEONE</span><span class="bonus">1J</span></li>
+              </ul>
+
+              <div class="small" style="margin-top:12px;">0 jogos:</div>
+              <ul class="presence-list">
+                <li><span>ALEMÃO</span><span class="bonus">0J</span></li>
+                <li><span>CLEBERSON</span><span class="bonus">0J</span></li>
+                <li><span>EVERTON</span><span class="bonus">0J</span></li>
+                <li><span>PAVESI</span><span class="bonus">0J</span></li>
+                <li><span>ROGÉRIO</span><span class="bonus">0J</span></li>
+                <li><span>TÁCIO</span><span class="bonus">0J</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <footer>
+      Feito para organizar a resenha com responsabilidade - Abril/2026
+      <div class="update-stamp">Ultima atualizacao automatica: jogo de 04/04/2026.</div>
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-br"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Copa Perebas FC | Dashboard da Artilharia 2026</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@700;800;900&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-dim": "#0a0f12",
+              "inverse-primary": "#4d6800",
+              "surface-container-highest": "#20272b",
+              "primary-fixed": "#c3ff22",
+              "tertiary-fixed": "#00e3fd",
+              "on-background": "#e7ebf0",
+              "primary-fixed-dim": "#b6f000",
+              "error-container": "#b92902",
+              "secondary-fixed": "#ffd709",
+              "surface-tint": "#c3ff22",
+              "surface": "#0a0f12",
+              "on-secondary-fixed": "#453900",
+              "on-secondary-container": "#fff7e6",
+              "primary": "#c3ff22",
+              "on-surface-variant": "#a7acb0",
+              "on-primary-fixed": "#374b00",
+              "tertiary-fixed-dim": "#00d4ec",
+              "tertiary-container": "#00e3fd",
+              "surface-container-high": "#1a2025",
+              "on-primary-container": "#3f5600",
+              "background": "#0a0f12",
+              "surface-container": "#141a1e",
+              "error": "#ff7351",
+              "on-error": "#450900",
+              "inverse-on-surface": "#515659",
+              "surface-bright": "#252d32",
+              "on-tertiary": "#005762",
+              "on-tertiary-container": "#004d57",
+              "outline": "#71767a",
+              "error-dim": "#d53d18",
+              "secondary-container": "#705d00",
+              "secondary-fixed-dim": "#efc900",
+              "secondary-dim": "#efc900",
+              "on-primary": "#465f00",
+              "outline-variant": "#44494c",
+              "surface-container-low": "#0f1417",
+              "primary-dim": "#b6f000",
+              "on-error-container": "#ffd2c8",
+              "secondary": "#ffd709",
+              "on-surface": "#e7ebf0",
+              "tertiary-dim": "#00d4ec",
+              "on-secondary": "#5b4b00",
+              "inverse-surface": "#f6fafe",
+              "surface-variant": "#20272b",
+              "tertiary": "#81ecff",
+              "on-tertiary-fixed-variant": "#005762",
+              "surface-container-lowest": "#000000",
+              "on-tertiary-fixed": "#003840",
+              "primary-container": "#b6f000",
+              "on-secondary-fixed-variant": "#665500",
+              "on-primary-fixed-variant": "#4e6a00"
+            },
+            fontFamily: {
+              "headline": ["Epilogue"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .glass-card {
+        background: rgba(32, 39, 43, 0.4);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+      }
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .athletic-tracking { letter-spacing: -0.04em; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary selection:text-on-primary">
+<!-- Sidebar Navigation -->
+<aside class="hidden lg:flex flex-col h-screen w-64 fixed left-0 top-0 bg-[#0a0f12]/40 backdrop-blur-xl border-r border-[#44494c]/15 z-50">
+<div class="p-6">
+<h1 class="text-lg font-extrabold text-[#c3ff22] font-headline italic uppercase tracking-tighter">Copa Perebas</h1>
+<p class="text-[10px] text-on-surface-variant font-bold tracking-widest uppercase mt-1">The Kinetic Arena</p>
+</div>
+<nav class="flex-1 mt-4 space-y-1">
+<a class="flex items-center gap-4 text-[#a7acb0] px-4 py-3 mx-2 hover:bg-[#44494c]/20 hover:text-[#e7ebf0] transition-all font-headline font-bold uppercase text-sm tracking-widest translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="sports_soccer">sports_soccer</span>
+                Artilharia
+            </a>
+<a class="flex items-center gap-4 bg-[#c3ff22] text-[#465f00] rounded-lg px-4 py-3 mx-2 font-headline font-bold uppercase text-sm tracking-widest" href="#">
+<span class="material-symbols-outlined" data-icon="leaderboard" style="font-variation-settings: 'FILL' 1;">leaderboard</span>
+                Tabela
+            </a>
+<a class="flex items-center gap-4 text-[#a7acb0] px-4 py-3 mx-2 hover:bg-[#44494c]/20 hover:text-[#e7ebf0] transition-all font-headline font-bold uppercase text-sm tracking-widest translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="groups">groups</span>
+                Times
+            </a>
+<a class="flex items-center gap-4 text-[#a7acb0] px-4 py-3 mx-2 hover:bg-[#44494c]/20 hover:text-[#e7ebf0] transition-all font-headline font-bold uppercase text-sm tracking-widest translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+                Configurações
+            </a>
+</nav>
+<div class="p-4 mt-auto mb-6">
+<div class="bg-primary-container p-4 rounded-xl flex items-center justify-between group cursor-pointer">
+<span class="text-on-primary-container font-headline font-bold text-xs uppercase italic">Match Day Live</span>
+<span class="material-symbols-outlined text-on-primary-container text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+</div>
+</aside>
+<main class="lg:ml-64 min-h-screen flex flex-col">
+<!-- Top Navbar -->
+<header class="flex justify-between items-center w-full px-6 py-4 sticky top-0 z-50 bg-[#0a0f12] border-b border-[#44494c]/15 shadow-[0_20px_40px_rgba(0,0,0,0.4)]">
+<div class="flex items-center gap-4">
+<span class="text-2xl font-black italic text-[#c3ff22] font-headline tracking-tighter uppercase">Copa Perebas FC</span>
+<span class="hidden md:inline-flex items-center px-3 py-1 rounded-full bg-surface-container-highest border border-outline-variant/30 text-[10px] font-black uppercase tracking-widest text-primary">
+<span class="w-1.5 h-1.5 rounded-full bg-primary mr-2 animate-pulse"></span>
+                    Temporada 2026
+                </span>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden md:flex gap-6 font-headline font-extrabold tracking-tighter uppercase text-sm">
+<a class="text-[#c3ff22] border-b-2 border-[#c3ff22] pb-1" href="#">Fev + Mar/2026</a>
+</div>
+<div class="flex items-center gap-4 text-on-surface-variant">
+<button class="material-symbols-outlined hover:text-[#c3ff22] transition-colors scale-95 active:scale-90" data-icon="notifications">notifications</button>
+<button class="material-symbols-outlined hover:text-[#c3ff22] transition-colors scale-95 active:scale-90" data-icon="settings">settings</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-primary/20 bg-surface-container-high">
+<img class="w-full h-full object-cover" data-alt="professional male athlete portrait with sharp lighting and dark athletic apparel background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIHqcpnhikKAzZVEc6P5ZG_yHH-g14K_sw8jx6CuRpr487MGPXM8BsKddifJQDWX0i5I1J2TYhSXY6h9-EJ71d69Pv742Tp2EQ152pVrCTUAn5IfWrK-Ot_NZZ5tLDPHoYW9JWlL6HAgqposscQGL1Xwp9465gbLq-Bb7Ju4QwrA1URmQ8kpy4C75eQSmVIuE-GbYV6leBADX3xmtQd1o1pMs1hUpl7ATPoFhP7kr-mMtVodrSjukhRY82gHJ8rETOt26UnxEMSuiv"/>
+</div>
+</div>
+</div>
+</header>
+<section class="p-6 md:p-8 max-w-7xl mx-auto w-full space-y-8">
+<!-- Hero Stats Bento Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<div class="glass-card p-6 rounded-xl border border-outline-variant/10 group hover:border-primary/30 transition-all">
+<p class="text-[10px] font-bold uppercase tracking-[0.2em] text-on-surface-variant">Total de Gols</p>
+<div class="flex items-end justify-between mt-2">
+<h2 class="text-4xl font-headline font-extrabold athletic-tracking text-primary">139</h2>
+<span class="material-symbols-outlined text-primary/30 text-4xl mb-1" data-icon="sports_soccer">sports_soccer</span>
+</div>
+</div>
+<div class="glass-card p-6 rounded-xl border border-outline-variant/10 group hover:border-primary/30 transition-all">
+<p class="text-[10px] font-bold uppercase tracking-[0.2em] text-on-surface-variant">Média por Jogo</p>
+<div class="flex items-end justify-between mt-2">
+<h2 class="text-4xl font-headline font-extrabold athletic-tracking text-on-surface">17.38</h2>
+<span class="material-symbols-outlined text-on-surface-variant/30 text-4xl mb-1" data-icon="analytics">analytics</span>
+</div>
+</div>
+<div class="glass-card p-6 rounded-xl border border-outline-variant/10 group hover:border-primary/30 transition-all">
+<p class="text-[10px] font-bold uppercase tracking-[0.2em] text-on-surface-variant">Hat-tricks</p>
+<div class="flex items-end justify-between mt-2">
+<h2 class="text-4xl font-headline font-extrabold athletic-tracking text-secondary">18</h2>
+<span class="material-symbols-outlined text-secondary/30 text-4xl mb-1" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<div class="glass-card p-6 rounded-xl border border-outline-variant/10 group hover:border-primary/30 transition-all">
+<p class="text-[10px] font-bold uppercase tracking-[0.2em] text-on-surface-variant">Jogos Disputados</p>
+<div class="flex items-end justify-between mt-2">
+<h2 class="text-4xl font-headline font-extrabold athletic-tracking text-error">8</h2>
+<span class="material-symbols-outlined text-error/30 text-4xl mb-1" data-icon="calendar_month">calendar_month</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Ranking Section -->
+<div class="lg:col-span-8 space-y-6">
+<div class="flex items-center justify-between">
+<h3 class="font-headline font-extrabold text-2xl uppercase italic tracking-tighter">Ranking de Artilheiros</h3>
+<button class="text-xs font-bold uppercase tracking-widest text-primary flex items-center gap-2 hover:opacity-80 transition-opacity">
+                            View Full List
+                            <span class="material-symbols-outlined text-sm" data-icon="open_in_new">open_in_new</span>
+</button>
+</div>
+<!-- Top 3 Podium Cards -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<!-- 1st Place -->
+<div class="relative overflow-hidden p-1 rounded-xl bg-gradient-to-br from-secondary via-secondary-fixed-dim to-secondary-dim">
+<div class="bg-surface-container-high p-5 rounded-[0.6rem] flex flex-col items-center text-center">
+<div class="absolute top-3 right-3">
+<span class="material-symbols-outlined text-secondary" data-icon="military_tech" style="font-variation-settings: 'FILL' 1;">military_tech</span>
+</div>
+<div class="w-16 h-16 rounded-full border-2 border-secondary p-1 mb-3">
+<img class="w-full h-full rounded-full object-cover" data-alt="close-up portrait of a determined male soccer player with dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC37LR2NKMDyQWuUg91wpzd_mYV5z8fMbZUmIkBJIedBXLVMVm5mAtj7vCnW98CgPlwP-2QrSGcyCKF9yQOOMEh6wpo37vecf3VnybTpFy1-FE43RX7Vp1_XNlIPK7D1ehG8xgLZ5I4uD2jQEvRCIcvrvbc4YkHiOfr_nZcMM8OX_zL0d87-eoN9-X1xf5QWKOBX61QyTEE0iQWghrBy3NhxbcIwN6fTRYuC-etZZwau8bFBn04jYzkcMaiB90SIdLhFAe9nBop65oE"/>
+</div>
+<h4 class="font-headline font-black uppercase text-lg">Leone</h4>
+<p class="text-secondary font-headline font-black text-2xl">15 Gols</p>
+<span class="text-[10px] text-on-surface-variant font-bold uppercase tracking-[0.2em] mt-1">8 jogos • média 1.88</span>
+</div>
+</div>
+<!-- 2nd Place -->
+<div class="p-1 rounded-xl bg-surface-container-lowest border border-outline-variant/30">
+<div class="bg-surface-container-low p-5 rounded-[0.6rem] flex flex-col items-center text-center">
+<div class="w-16 h-16 rounded-full border-2 border-on-surface-variant/30 p-1 mb-3">
+<img class="w-full h-full rounded-full object-cover" data-alt="athletic male with short hair looking confidently ahead, cinematic dark studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDY9RjjONdrBzwmGMgrdrYxYDgTTKp9xVk2KJizZy6jrnvkA4nr5UOB5U2ODH3T2JtPXHY7_BedlCNs9BXi5bbdefh2U8zdgSG2qNv1KXJ_asnDiVg_TkdWS4ZDvEP2fjk6jLhRaNtL50ExF2OKtG4jaZDMsgu9gOV8oyBW_ilP6oNuTrywOJ7U76vfKeBjO7daadJ9Uxkqs7a28-qClk1HuiGnHqzVqzpM1ADF8BE6Xedv-m297hnBPUQXBACBbwB2rxHCcwVM8TrD"/>
+</div>
+<h4 class="font-headline font-black uppercase text-lg">Chico</h4>
+<p class="text-on-surface font-headline font-black text-2xl">14 Gols</p>
+<span class="text-[10px] text-on-surface-variant font-bold uppercase tracking-[0.2em] mt-1">7 jogos • média 2.00</span>
+</div>
+</div>
+<!-- 3rd Place -->
+<div class="p-1 rounded-xl bg-surface-container-lowest border border-outline-variant/30">
+<div class="bg-surface-container-low p-5 rounded-[0.6rem] flex flex-col items-center text-center">
+<div class="w-16 h-16 rounded-full border-2 border-on-secondary-fixed-variant/30 p-1 mb-3">
+<img class="w-full h-full rounded-full object-cover" data-alt="portrait of a focused soccer player in athletic gear with dramatic side lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHTRYC8Ovds7ilUPQq7PRCJ3xSXH5MuL78M7KKHFHYMMPT1bx2YUsCp1R_-dZlSfSMx0MdjMum-NQQ8H7zWfBysz5RdozNNdk0A7enYhe4EG98CFrlwNslE3fOzdjh2Vih64kZKRGr-BHulCHeRofuSbzCinoD9MMT7-SRqbiyjBbRTMR5vn1kj-Ajv4-HZGG1mv0eH3bPsnaLsPRRKczTPor0_yJ_5UKjGyyhmZTTQOXDgWU_EomZfqL5s9BiV5ZShzvJJSwtNa2v"/>
+</div>
+<h4 class="font-headline font-black uppercase text-lg">Cleberson</h4>
+<p class="text-on-surface font-headline font-black text-2xl">12 Gols</p>
+<span class="text-[10px] text-on-surface-variant font-bold uppercase tracking-[0.2em] mt-1">8 jogos • média 1.50</span>
+</div>
+</div>
+</div>
+<!-- Extended Table Mockup -->
+<div class="overflow-hidden rounded-xl border border-outline-variant/10">
+<div class="bg-surface-container p-4 grid grid-cols-12 text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">
+<div class="col-span-1">#</div>
+<div class="col-span-5">Jogador</div>
+<div class="col-span-2">Jogos</div>
+<div class="col-span-2">Média</div>
+<div class="col-span-2 text-right">Gols</div>
+</div>
+<div class="divide-y divide-outline-variant/5">
+<div class="bg-surface-container-low/50 p-4 grid grid-cols-12 items-center">
+<div class="col-span-1 text-on-surface-variant font-bold">04</div>
+<div class="col-span-5 font-bold">Henrique</div>
+<div class="col-span-2 text-sm text-on-surface-variant">7</div>
+<div class="col-span-2 text-sm text-on-surface-variant">1.57</div>
+<div class="col-span-2 text-right font-headline font-bold text-primary">11</div>
+</div>
+<div class="bg-surface p-4 grid grid-cols-12 items-center">
+<div class="col-span-1 text-on-surface-variant font-bold">05</div>
+<div class="col-span-5 font-bold">Derval</div>
+<div class="col-span-2 text-sm text-on-surface-variant">3</div>
+<div class="col-span-2 text-sm text-on-surface-variant">3.33</div>
+<div class="col-span-2 text-right font-headline font-bold text-primary">10</div>
+</div>
+<div class="bg-surface-container-low/50 p-4 grid grid-cols-12 items-center">
+<div class="col-span-1 text-on-surface-variant font-bold">06</div>
+<div class="col-span-5 font-bold">Kistt</div>
+<div class="col-span-2 text-sm text-on-surface-variant">7</div>
+<div class="col-span-2 text-sm text-on-surface-variant">1.29</div>
+<div class="col-span-2 text-right font-headline font-bold text-primary">09</div>
+</div>
+<div class="bg-surface p-4 grid grid-cols-12 items-center">
+<div class="col-span-1 text-on-surface-variant font-bold">07</div>
+<div class="col-span-5 font-bold">Daniel</div>
+<div class="col-span-2 text-sm text-on-surface-variant">7</div>
+<div class="col-span-2 text-sm text-on-surface-variant">1.14</div>
+<div class="col-span-2 text-right font-headline font-bold text-primary">08</div>
+</div>
+<div class="bg-surface-container-low/50 p-4 grid grid-cols-12 items-center">
+<div class="col-span-1 text-on-surface-variant font-bold">08</div>
+<div class="col-span-5 font-bold">Jean</div>
+<div class="col-span-2 text-sm text-on-surface-variant">8</div>
+<div class="col-span-2 text-sm text-on-surface-variant">1.00</div>
+<div class="col-span-2 text-right font-headline font-bold text-primary">08</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Side Panel -->
+<div class="lg:col-span-4 space-y-8">
+<!-- Team Comparison -->
+<div class="glass-card p-6 rounded-xl border border-outline-variant/10">
+<h3 class="font-headline font-extrabold text-lg uppercase italic tracking-tighter mb-6">Resumo por Time</h3>
+<div class="space-y-6">
+<div>
+<div class="flex justify-between items-end mb-2">
+<span class="text-sm font-bold uppercase tracking-widest">Preto FC</span>
+<span class="font-headline font-bold text-xl text-primary">70</span>
+</div>
+<div class="h-3 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full shadow-[0_0_15px_rgba(195,255,34,0.4)]" style="width: 50.4%"></div>
+</div>
+<p class="text-[11px] text-on-surface-variant mt-2">50,4% do total • 69 sofridos • saldo +1</p>
+</div>
+<div>
+<div class="flex justify-between items-end mb-2">
+<span class="text-sm font-bold uppercase tracking-widest">Laranja FC</span>
+<span class="font-headline font-bold text-xl text-on-surface">69</span>
+</div>
+<div class="h-3 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-secondary rounded-full shadow-[0_0_15px_rgba(255,215,9,0.3)]" style="width: 49.6%"></div>
+</div>
+<p class="text-[11px] text-on-surface-variant mt-2">49,6% do total • 70 sofridos • saldo -1</p>
+</div>
+</div>
+<div class="mt-8 pt-6 border-t border-outline-variant/10 text-center">
+<p class="text-[10px] text-on-surface-variant uppercase font-bold tracking-widest">Total consolidado</p>
+<p class="text-3xl font-headline font-black italic mt-1">139</p>
+<p class="text-xs text-on-surface-variant mt-1">8 jogos somando fevereiro e março</p>
+</div>
+</div>
+<!-- Latest Hat-tricks -->
+<div class="space-y-4">
+<h3 class="font-headline font-extrabold text-lg uppercase italic tracking-tighter">Últimos Hat-tricks</h3>
+<div class="space-y-3">
+<div class="glass-card p-4 rounded-xl border border-outline-variant/10 flex items-center gap-4 group cursor-pointer hover:bg-surface-bright/20 transition-all">
+<div class="w-10 h-10 rounded-lg bg-primary-container/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between">
+<h5 class="font-bold text-sm">Pavesi</h5>
+<span class="text-[10px] text-on-surface-variant font-bold">28/03/2026</span>
+</div>
+<p class="text-xs text-on-surface-variant">Time Laranja • 5 gols no jogo</p>
+</div>
+</div>
+<div class="glass-card p-4 rounded-xl border border-outline-variant/10 flex items-center gap-4 group cursor-pointer hover:bg-surface-bright/20 transition-all">
+<div class="w-10 h-10 rounded-lg bg-primary-container/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between">
+<h5 class="font-bold text-sm">Henrique</h5>
+<span class="text-[10px] text-on-surface-variant font-bold">28/03/2026</span>
+</div>
+<p class="text-xs text-on-surface-variant">Time Laranja • 3 gols no jogo</p>
+</div>
+</div>
+<div class="glass-card p-4 rounded-xl border border-outline-variant/10 flex items-center gap-4 group cursor-pointer hover:bg-surface-bright/20 transition-all">
+<div class="w-10 h-10 rounded-lg bg-primary-container/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between">
+<h5 class="font-bold text-sm">Cleberson</h5>
+<span class="text-[10px] text-on-surface-variant font-bold">28/03/2026</span>
+</div>
+<p class="text-xs text-on-surface-variant">Time Preto • 3 gols no jogo</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="mt-auto w-full py-8 bg-[#0a0f12] border-t border-[#44494c]/15">
+<div class="flex flex-col md:flex-row justify-between items-center px-8 w-full max-w-7xl mx-auto space-y-4 md:space-y-0">
+<div class="flex flex-col items-center md:items-start">
+<span class="font-headline font-bold text-[#e7ebf0] tracking-tight">COPA PEREBAS FC</span>
+<span class="font-body text-xs text-[#a7acb0] mt-1">Dados consolidados dos ciclos de fevereiro e março de 2026. Última atualização: 28/03/2026.</span>
+</div>
+<div class="flex gap-6">
+<a class="font-body text-xs text-[#a7acb0] hover:text-[#e7ebf0] underline transition-colors" href="#">Privacy Policy</a>
+<a class="font-body text-xs text-[#a7acb0] hover:text-[#e7ebf0] underline transition-colors" href="#">Terms of Service</a>
+<a class="font-body text-xs text-[#a7acb0] hover:text-[#e7ebf0] underline transition-colors" href="#">Tournament Rules</a>
+</div>
+<div class="text-[#a7acb0] text-[10px] uppercase font-bold tracking-widest opacity-80">
+                    © 2026 Copa Perebas FC
+                </div>
+</div>
+</footer>
+</main>
+<!-- Mobile Bottom Navigation -->
+<nav class="lg:hidden fixed bottom-0 left-0 right-0 bg-surface-dim/80 backdrop-blur-xl border-t border-outline-variant/10 px-6 py-3 flex justify-between items-center z-50">
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Dash</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-on-surface-variant" href="#">
+<span class="material-symbols-outlined" data-icon="sports_soccer">sports_soccer</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Gols</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-on-surface-variant" href="#">
+<span class="material-symbols-outlined" data-icon="leaderboard">leaderboard</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Tabela</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-on-surface-variant" href="#">
+<span class="material-symbols-outlined" data-icon="groups">groups</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Times</span>
+</a>
+</nav>
+</body></html>
