@@ -257,6 +257,88 @@
     }
     .btn .arrow{opacity:.8}
 
+    .portal-grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap:12px;
+    }
+
+    .portal-card{
+      grid-column: span 12;
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:16px;
+      background:rgba(255,255,255,.04);
+      padding:14px;
+      display:grid;
+      gap:12px;
+    }
+
+    .portal-card h3{
+      margin:0;
+      font-size:14px;
+      text-transform:uppercase;
+      letter-spacing:.35px;
+      color:var(--muted);
+    }
+
+    .portal-links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+
+    .portal-links .btn{
+      background:rgba(255,255,255,.08);
+    }
+
+    .sectionTag{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      width:fit-content;
+      padding:7px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
+      color:var(--muted);
+      font-size:12px;
+    }
+
+    .cycle-grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap:12px;
+    }
+
+    .cycle-card{
+      grid-column: span 12;
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:16px;
+      background:rgba(255,255,255,.04);
+      padding:14px;
+      display:grid;
+      gap:10px;
+    }
+
+    .cycle-card h3{
+      margin:0;
+      font-size:18px;
+      letter-spacing:.25px;
+    }
+
+    .cycle-card p{
+      margin:0;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.5;
+    }
+
+    @media (min-width: 860px){
+      .portal-card.span4{grid-column: span 4;}
+      .portal-card.span6{grid-column: span 6;}
+      .cycle-card{grid-column: span 4;}
+    }
+
     @media (min-width: 860px){
       .card.span6{grid-column: span 6;}
       .card.span4{grid-column: span 4;}
@@ -285,6 +367,48 @@
 
     <main>
     <section class="grid">
+      <article class="card span12">
+        <div class="card-inner">
+          <div class="card-top">
+            <div class="label">
+              <div class="icon">🧭</div>
+              <div>
+                <h2>Portal de Navegação</h2>
+                <div class="titleText">Atalhos do GitHub Pages</div>
+              </div>
+            </div>
+            <div class="chips">
+              <span class="chip"><span class="dotMini blue"></span> <b>Publicação:</b> GitHub Pages</span>
+              <span class="chip"><span class="dotMini green"></span> <b>Formato:</b> rotas limpas</span>
+            </div>
+          </div>
+
+          <div class="content">
+            <div class="portal-grid">
+              <section class="portal-card span6">
+                <h3>Central</h3>
+                <div class="portal-links">
+                  <a class="btn" href="classificacao-jogadores/">Classificação 2026 <span class="arrow">↗</span></a>
+                  <a class="btn" href="artilharia/">Artilharia <span class="arrow">↗</span></a>
+                  <a class="btn" href="artilharia/dashboard/">Dashboard <span class="arrow">↗</span></a>
+                  <a class="btn" href="regras-votacao/">Regras da votação <span class="arrow">↗</span></a>
+                  <a class="btn" href="site-map/">Mapa do site <span class="arrow">↗</span></a>
+                </div>
+              </section>
+
+              <section class="portal-card span6">
+                <h3>Ciclo atual</h3>
+                <div class="portal-links">
+                  <a class="btn" href="abril/resultados/">Resultados de abril <span class="arrow">↗</span></a>
+                  <a class="btn" href="abril/times-fixos/">Times de abril <span class="arrow">↗</span></a>
+                  <a class="btn" href="abril/presenca/">Presenças de abril <span class="arrow">↗</span></a>
+                  <a class="btn" href="abril/destaque-do-mes/">Destaque de abril <span class="arrow">↗</span></a>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </article>
 
       <!-- Card: Jogos -->
       <article class="card span6">
@@ -313,6 +437,10 @@
               <div class="v">09:00 horas</div>
             </div>
             <div class="small">Chegar 15 min antes pra aquecer e não atrasar o jogo 👊⚽</div>
+            <div class="cta">
+              <a class="btn" href="abril/resultados/">Abrir resultados do ciclo <span class="arrow">↗</span></a>
+              <a class="btn" href="abril/presenca/">Ver presenças <span class="arrow">↗</span></a>
+            </div>
           </div>
 
         </div>
@@ -343,6 +471,9 @@
               <div class="k">Cidade</div>
               <div class="v">Blumenau/SC</div>
             </div>
+            <div class="cta">
+              <a class="btn" href="https://maps.google.com/?q=R.+Gen.+Os%C3%B3rio,+205,+Blumenau" target="_blank" rel="noreferrer">Abrir no mapa <span class="arrow">↗</span></a>
+            </div>
           </div>
 
         </div>
@@ -369,6 +500,10 @@
               <div class="v">Confira a escalação dos times fixos na página de Times - Mês📋</div>
             </div>
             <div class="small">Manter a base do mês e fortalecer o entrosamento entre os jogadores.</div>
+            <div class="cta">
+              <a class="btn" href="abril/times-fixos/">Times de abril <span class="arrow">↗</span></a>
+              <a class="btn" href="marco/times-fixos/">Times de março <span class="arrow">↗</span></a>
+            </div>
           </div>
         </div>
       </article>
@@ -393,6 +528,11 @@
               <div class="v">O Jogador do Mês é escolhido por votação entre os jogadores, considerando 100% de presenças nos jogos do mês, desempenho, espírito esportivo e contribuição para a equipe.</div>
             </div>
             <div class="small">Para mais detalhes, consulte a página do Jogador Destaque do Mês.</div>
+            <div class="cta">
+              <a class="btn" href="abril/destaque-do-mes/">Destaque de abril <span class="arrow">↗</span></a>
+              <a class="btn" href="marco/destaque-do-mes/">Destaque de março <span class="arrow">↗</span></a>
+            </div>
+          </div>
         </div>
       </article>
 
@@ -417,6 +557,68 @@
           <div class="content">
             <div class="row">
               <div class="v">Escolha 1 jogador, Avalie com justiça e espírito esportivo.</div>
+            </div>
+            <div class="cta">
+              <a class="btn" href="regras-votacao/">Abrir regras completas <span class="arrow">↗</span></a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="card span12">
+        <div class="card-inner">
+          <div class="card-top">
+            <div class="label">
+              <div class="icon">🗂️</div>
+              <div>
+                <h2>Ciclos de 2026</h2>
+                <div class="titleText">Acesso rápido por mês</div>
+              </div>
+            </div>
+            <div class="chips">
+              <span class="chip"><span class="dotMini yellow"></span> <b>Fev:</b> fechado</span>
+              <span class="chip"><span class="dotMini green"></span> <b>Mar:</b> fechado</span>
+              <span class="chip"><span class="dotMini blue"></span> <b>Abr:</b> em andamento</span>
+            </div>
+          </div>
+
+          <div class="content">
+            <div class="cycle-grid">
+              <section class="cycle-card">
+                <span class="sectionTag"><span class="dotMini yellow"></span> Fevereiro</span>
+                <h3>Fevereiro/2026</h3>
+                <p>Feche o ciclo de fevereiro com resultados, times, presença e destaque do mês.</p>
+                <div class="portal-links">
+                  <a class="btn" href="fevereiro/resultados/">Resultados <span class="arrow">↗</span></a>
+                  <a class="btn" href="fevereiro/times-fixos/">Times <span class="arrow">↗</span></a>
+                  <a class="btn" href="fevereiro/presenca/">Presença <span class="arrow">↗</span></a>
+                  <a class="btn" href="fevereiro/destaque-do-mes/">Destaque <span class="arrow">↗</span></a>
+                </div>
+              </section>
+
+              <section class="cycle-card">
+                <span class="sectionTag"><span class="dotMini green"></span> Março</span>
+                <h3>Março/2026</h3>
+                <p>Acompanhe o mês com os cards finais de classificação, presença, times e votação.</p>
+                <div class="portal-links">
+                  <a class="btn" href="marco/resultados/">Resultados <span class="arrow">↗</span></a>
+                  <a class="btn" href="marco/times-fixos/">Times <span class="arrow">↗</span></a>
+                  <a class="btn" href="marco/presenca/">Presença <span class="arrow">↗</span></a>
+                  <a class="btn" href="marco/destaque-do-mes/">Destaque <span class="arrow">↗</span></a>
+                </div>
+              </section>
+
+              <section class="cycle-card">
+                <span class="sectionTag"><span class="dotMini blue"></span> Abril</span>
+                <h3>Abril/2026</h3>
+                <p>Navegue pelas páginas já publicadas do ciclo atual sem sair da home.</p>
+                <div class="portal-links">
+                  <a class="btn" href="abril/resultados/">Resultados <span class="arrow">↗</span></a>
+                  <a class="btn" href="abril/times-fixos/">Times <span class="arrow">↗</span></a>
+                  <a class="btn" href="abril/presenca/">Presença <span class="arrow">↗</span></a>
+                  <a class="btn" href="abril/destaque-do-mes/">Destaque <span class="arrow">↗</span></a>
+                </div>
+              </section>
             </div>
           </div>
         </div>
