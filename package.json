@@ -1,0 +1,12 @@
+{
+  "name": "google-site-perebas",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Static site build and deploy pipeline for GitHub Pages.",
+  "scripts": {
+    "build:pages": "node scripts/build-pages-site.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
