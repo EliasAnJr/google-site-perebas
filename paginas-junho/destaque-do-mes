@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Jogador Destaque do Mês — Abril/2026</title>
+  <title>Jogador Destaque do Mês — Maio/2026</title>
   <style>
     :root{
       --bg1:#0b1020;
@@ -450,14 +450,14 @@
               Resultado da votação
             </div>
             <div style="margin-top:6px; color:var(--muted); font-size:12px;">
-              Abril/2026 • Patota Perebas FC
+              Maio/2026 • Patota Perebas FC
             </div>
           </div>
 
           <div class="meta" aria-label="Resumo">
-            <span class="chip"><span class="ico gold"></span> <b>Vencedor:</b> HENRIQUE</span>
-            <span class="chip"><span class="ico blue"></span> <b>Votos:</b> 5</span>
-            <span class="chip"><span class="ico green"></span> <b>Elegíveis:</b> 4</span>
+            <span class="chip"><span class="ico gold"></span> <b>Vencedor:</b> DERVAL</span>
+            <span class="chip"><span class="ico blue"></span> <b>Votos:</b> 8</span>
+            <span class="chip"><span class="ico green"></span> <b>Elegíveis:</b> 10</span>
           </div>
         </div>
 
@@ -468,8 +468,8 @@
               <div class="winner-top">
                 <div>
                   <h2><span class="title-star" aria-hidden="true">⭐</span>Destaque do mês</h2>
-                  <div class="name">HENRIQUE</div>
-                  <div class="votes"><span class="spark"></span> Total de votos: <span aria-label="votos">5</span></div>
+                  <div class="name">DERVAL</div>
+                  <div class="votes"><span class="spark"></span> Total de votos: <span aria-label="votos">8</span></div>
                 </div>
                 <div class="crown" aria-hidden="true">👑</div>
               </div>
@@ -519,16 +519,22 @@
 
             <!-- Eligible -->
             <aside class="side">
-              <h3>🏆 Elegíveis — Abril 2026</h3>
+              <h3>🏆 Elegíveis — Maio 2026</h3>
               <ul class="eligible">
+                <li><span>ALEX</span><span class="tag">Elegível</span></li>
                 <li><span>CHICO</span><span class="tag">Elegível</span></li>
-                <li class="winnerRow"><span>HENRIQUE</span><span class="tag">Vencedor</span></li>
+                <li class="winnerRow"><span>DERVAL</span><span class="tag">Vencedor</span></li>
+                <li><span>HENRIQUE</span><span class="tag">Elegível</span></li>
                 <li><span>JEAN</span><span class="tag">Elegível</span></li>
                 <li><span>LEONE</span><span class="tag">Elegível</span></li>
+                <li><span>CLEBERSON</span><span class="tag">Elegível</span></li>
+                <li><span>DARCI</span><span class="tag">Elegível</span></li>
+                <li><span>ALEMÃO</span><span class="tag">Elegível</span></li>
+                <li><span>TÁCIO</span><span class="tag">Elegível</span></li>
               </ul>
 
               <div style="margin-top:12px; color:var(--muted); font-size:12px;">
-                👉 Total: <b style="color:var(--text)">4</b> jogadores elegíveis
+                👉 Total: <b style="color:var(--text)">10</b> jogadores elegíveis
               </div>
             </aside>
           </div>
@@ -537,7 +543,7 @@
     </section>
 
     <footer>
-      Feito para celebrar a resenha ⚽ — Abril/2026
+      Feito para celebrar a resenha ⚽ — Maio/2026
     </footer>
   </div>
   <script>

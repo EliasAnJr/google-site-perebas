@@ -514,128 +514,142 @@
                     <tr class="podium">
                       <td><span class="rank top">1</span></td>
                       <td>HENRIQUE</td>
-                      <td class="score">19</td>
-                      <td>8</td>
-                      <td>2.38</td>
+                      <td class="score">42</td>
+                      <td>16</td>
+                      <td>2.63</td>
                     </tr>
                     <tr class="podium">
                       <td><span class="rank top">2</span></td>
-                      <td>CHICO</td>
-                      <td class="score">17</td>
-                      <td>8</td>
-                      <td>2.13</td>
+                      <td>DERVAL</td>
+                      <td class="score">40</td>
+                      <td>11</td>
+                      <td>3.64</td>
                     </tr>
                     <tr class="podium">
                       <td><span class="rank top">3</span></td>
-                      <td>LEONE</td>
-                      <td class="score">16</td>
-                      <td>9</td>
-                      <td>1.78</td>
+                      <td>CHICO</td>
+                      <td class="score">34</td>
+                      <td>16</td>
+                      <td>2.13</td>
                     </tr>
                     <tr>
                       <td><span class="rank">4</span></td>
-                      <td>DERVAL</td>
+                      <td>LEONE</td>
+                      <td class="score">30</td>
+                      <td>18</td>
+                      <td>1.67</td>
+                    </tr>
+                    <tr>
+                      <td><span class="rank">5</span></td>
+                      <td>JEAN</td>
+                      <td class="score">26</td>
+                      <td>18</td>
+                      <td>1.44</td>
+                    </tr>
+                    <tr>
+                      <td><span class="rank">6</span></td>
+                      <td>CLEBERSON</td>
+                      <td class="score">25</td>
+                      <td>17</td>
+                      <td>1.47</td>
+                    </tr>
+                    <tr>
+                      <td><span class="rank">7</span></td>
+                      <td>ALEX</td>
+                      <td class="score">21</td>
+                      <td>13</td>
+                      <td>1.62</td>
+                    </tr>
+                    <tr>
+                      <td><span class="rank">8</span></td>
+                      <td>KISTT</td>
+                      <td class="score">19</td>
+                      <td>14</td>
+                      <td>1.36</td>
+                    </tr>
+                    <tr>
+                      <td><span class="rank">9</span></td>
+                      <td>DANIEL</td>
+                      <td class="score">17</td>
+                      <td>11</td>
+                      <td>1.55</td>
+                    </tr>
+                    <tr>
+                      <td><span class="rank">10</span></td>
+                      <td>PAVESI</td>
                       <td class="score">12</td>
                       <td>4</td>
                       <td>3.00</td>
                     </tr>
                     <tr>
-                      <td><span class="rank">5</span></td>
-                      <td>CLEBERSON</td>
-                      <td class="score">12</td>
-                      <td>9</td>
-                      <td>1.33</td>
-                    </tr>
-                    <tr>
-                      <td><span class="rank">6</span></td>
-                      <td>JEAN</td>
-                      <td class="score">11</td>
-                      <td>9</td>
-                      <td>1.22</td>
-                    </tr>
-                    <tr>
-                      <td><span class="rank">7</span></td>
-                      <td>DANIEL</td>
-                      <td class="score">9</td>
-                      <td>8</td>
-                      <td>1.13</td>
-                    </tr>
-                    <tr>
-                      <td><span class="rank">8</span></td>
-                      <td>KISTT</td>
-                      <td class="score">9</td>
-                      <td>8</td>
-                      <td>1.13</td>
-                    </tr>
-                    <tr>
-                      <td><span class="rank">9</span></td>
-                      <td>ELIAS</td>
-                      <td class="score">8</td>
-                      <td>9</td>
-                      <td>0.89</td>
-                    </tr>
-                    <tr>
-                      <td><span class="rank">10</span></td>
-                      <td>PAVESI</td>
-                      <td class="score">7</td>
-                      <td>2</td>
-                      <td>3.50</td>
-                    </tr>
-                    <tr>
                       <td><span class="rank">11</span></td>
-                      <td>ALEX</td>
-                      <td class="score">6</td>
-                      <td>5</td>
-                      <td>1.20</td>
+                      <td>ELIAS</td>
+                      <td class="score">12</td>
+                      <td>11</td>
+                      <td>1.09</td>
                     </tr>
                     <tr>
                       <td><span class="rank">12</span></td>
-                      <td>TÁCIO</td>
-                      <td class="score">6</td>
-                      <td>6</td>
-                      <td>1.00</td>
+                      <td>DARCI</td>
+                      <td class="score">11</td>
+                      <td>13</td>
+                      <td>0.85</td>
                     </tr>
                     <tr>
                       <td><span class="rank">13</span></td>
                       <td>ROGÉRIO</td>
-                      <td class="score">5</td>
-                      <td>4</td>
-                      <td>1.25</td>
+                      <td class="score">10</td>
+                      <td>9</td>
+                      <td>1.11</td>
                     </tr>
                     <tr>
                       <td><span class="rank">14</span></td>
-                      <td>DARCI</td>
-                      <td class="score">5</td>
-                      <td>6</td>
-                      <td>0.83</td>
+                      <td>TÁCIO</td>
+                      <td class="score">10</td>
+                      <td>13</td>
+                      <td>0.77</td>
                     </tr>
                     <tr>
                       <td><span class="rank">15</span></td>
                       <td>DOMINGOS</td>
-                      <td class="score">4</td>
-                      <td>4</td>
+                      <td class="score">6</td>
+                      <td>6</td>
                       <td>1.00</td>
                     </tr>
                     <tr>
                       <td><span class="rank">16</span></td>
                       <td>EVERTON</td>
-                      <td class="score">4</td>
-                      <td>7</td>
-                      <td>0.57</td>
+                      <td class="score">6</td>
+                      <td>11</td>
+                      <td>0.55</td>
                     </tr>
                     <tr>
                       <td><span class="rank">17</span></td>
+                      <td>JEAN PIRES</td>
+                      <td class="score">5</td>
+                      <td>4</td>
+                      <td>1.25</td>
+                    </tr>
+                    <tr>
+                      <td><span class="rank">18</span></td>
                       <td>GABRIEL</td>
                       <td class="score">3</td>
                       <td>5</td>
                       <td>0.60</td>
                     </tr>
                     <tr>
-                      <td><span class="rank">18</span></td>
+                      <td><span class="rank">19</span></td>
                       <td>ALEMÃO</td>
-                      <td class="score">1</td>
-                      <td>4</td>
+                      <td class="score">3</td>
+                      <td>12</td>
                       <td>0.25</td>
+                    </tr>
+                    <tr>
+                      <td><span class="rank">20</span></td>
+                      <td>LUCAS</td>
+                      <td class="score">2</td>
+                      <td>3</td>
+                      <td>0.67</td>
                     </tr>
                   </tbody>
                 </table>
@@ -654,8 +668,8 @@
                 </div>
               </div>
               <div class="chips">
-                <span class="chip"><span class="dotMini black"></span> <b>Preto:</b> <span id="chip-preto-gols">78</span> gols</span>
-                <span class="chip"><span class="dotMini orange"></span> <b>Laranja:</b> <span id="chip-laranja-gols">84</span> gols</span>
+                <span class="chip"><span class="dotMini black"></span> <b>Preto:</b> <span id="chip-preto-gols">180</span> gols</span>
+                <span class="chip"><span class="dotMini orange"></span> <b>Laranja:</b> <span id="chip-laranja-gols">173</span> gols</span>
               </div>
             </div>
 
@@ -673,15 +687,15 @@
                   <tbody>
                     <tr>
                       <td><span class="team black"><span class="dotMini black"></span>Preto</span></td>
-                      <td class="score">78</td>
-                      <td>84</td>
-                      <td>-6</td>
+                      <td class="score">180</td>
+                      <td>173</td>
+                      <td>7</td>
                     </tr>
                     <tr>
                       <td><span class="team orange"><span class="dotMini orange"></span>Laranja</span></td>
-                      <td class="score">84</td>
-                      <td>78</td>
-                      <td>6</td>
+                      <td class="score">173</td>
+                      <td>180</td>
+                      <td>-7</td>
                     </tr>
                   </tbody>
                 </table>
@@ -704,10 +718,10 @@
 
             <div class="content">
               <ul class="insight-list">
-                <li><span>Maior goleada</span><strong id="insight-goleada">07/02/2026 - 7 x 15</strong></li>
-                <li><span>Hat-tricks da temporada</span><strong id="insight-hat">21</strong></li>
-                <li><span>Média de gols por jogo</span><strong id="insight-media">18.00</strong></li>
-                <li><span>Total de gols na temporada</span><strong id="insight-total-gols">162</strong></li>
+                <li><span>Maior goleada</span><strong id="insight-goleada">06/06/2026 - 20 x 8</strong></li>
+                <li><span>Hat-tricks da temporada</span><strong id="insight-hat">45</strong></li>
+                <li><span>Média de gols por jogo</span><strong id="insight-media">19.61</strong></li>
+                <li><span>Total de gols na temporada</span><strong id="insight-total-gols">353</strong></li>
               </ul>
 
             </div>
@@ -867,6 +881,150 @@
                       <td><span class="team black"><span class="dotMini black"></span>Time Preto</span></td>
                       <td class="score">3</td>
                     </tr>
+                    <tr>
+                      <td>11/04/2026</td>
+                      <td>HENRIQUE</td>
+                      <td><span class="team orange"><span class="dotMini orange"></span>Time Laranja</span></td>
+                      <td class="score">4</td>
+                    </tr>
+                    <tr>
+                      <td>11/04/2026</td>
+                      <td>LEONE</td>
+                      <td><span class="team orange"><span class="dotMini orange"></span>Time Laranja</span></td>
+                      <td class="score">4</td>
+                    </tr>
+                    <tr>
+                      <td>18/04/2026</td>
+                      <td>DERVAL</td>
+                      <td><span class="team orange"><span class="dotMini orange"></span>Time Laranja</span></td>
+                      <td class="score">4</td>
+                    </tr>
+                    <tr>
+                      <td>18/04/2026</td>
+                      <td>CHICO</td>
+                      <td><span class="team black"><span class="dotMini black"></span>Time Preto</span></td>
+                      <td class="score">4</td>
+                    </tr>
+                    <tr>
+                      <td>18/04/2026</td>
+                      <td>CLEBERSON</td>
+                      <td><span class="team orange"><span class="dotMini orange"></span>Time Laranja</span></td>
+                      <td class="score">3</td>
+                    </tr>
+                    <tr>
+                      <td>18/04/2026</td>
+                      <td>HENRIQUE</td>
+                      <td><span class="team orange"><span class="dotMini orange"></span>Time Laranja</span></td>
+                      <td class="score">3</td>
+                    </tr>
+                    <tr>
+                      <td>25/04/2026</td>
+                      <td>ALEX</td>
+                      <td><span class="team black"><span class="dotMini black"></span>Time Preto</span></td>
+                      <td class="score">3</td>
+                    </tr>
+                    <tr>
+                      <td>25/04/2026</td>
+                      <td>CHICO</td>
+                      <td><span class="team black"><span class="dotMini black"></span>Time Preto</span></td>
+                      <td class="score">3</td>
+                    </tr>
+                    <tr>
+                      <td>25/04/2026</td>
+                      <td>KISTT</td>
+                      <td><span class="team black"><span class="dotMini black"></span>Time Preto</span></td>
+                      <td class="score">3</td>
+                    </tr>
+                    <tr>
+                      <td>02/05/2026</td>
+                      <td>HENRIQUE</td>
+                      <td><span class="team orange"><span class="dotMini orange"></span>Time Laranja</span></td>
+                      <td class="score">4</td>
+                    </tr>
+                    <tr>
+                      <td>02/05/2026</td>
+                      <td>DANIEL</td>
+                      <td><span class="team black"><span class="dotMini black"></span>Time Preto</span></td>
+                      <td class="score">4</td>
+                    </tr>
+                    <tr>
+                      <td>02/05/2026</td>
+                      <td>PAVESI</td>
+                      <td><span class="team orange"><span class="dotMini orange"></span>Time Laranja</span></td>
+                      <td class="score">3</td>
+                    </tr>
+                    <tr>
+                      <td>02/05/2026</td>
+                      <td>DERVAL</td>
+                      <td><span class="team black"><span class="dotMini black"></span>Time Preto</span></td>
+                      <td class="score">3</td>
+                    </tr>
+                    <tr>
+                      <td>09/05/2026</td>
+                      <td>CHICO</td>
+                      <td><span class="team orange"><span class="dotMini orange"></span>Time Laranja</span></td>
+                      <td class="score">4</td>
+                    </tr>
+                    <tr>
+                      <td>16/05/2026</td>
+                      <td>HENRIQUE</td>
+                      <td><span class="team orange"><span class="dotMini orange"></span>Time Laranja</span></td>
+                      <td class="score">6</td>
+                    </tr>
+                    <tr>
+                      <td>16/05/2026</td>
+                      <td>CLEBERSON</td>
+                      <td><span class="team orange"><span class="dotMini orange"></span>Time Laranja</span></td>
+                      <td class="score">4</td>
+                    </tr>
+                    <tr>
+                      <td>16/05/2026</td>
+                      <td>DERVAL</td>
+                      <td><span class="team black"><span class="dotMini black"></span>Time Preto</span></td>
+                      <td class="score">3</td>
+                    </tr>
+                    <tr>
+                      <td>16/05/2026</td>
+                      <td>JEAN</td>
+                      <td><span class="team black"><span class="dotMini black"></span>Time Preto</span></td>
+                      <td class="score">3</td>
+                    </tr>
+                    <tr>
+                      <td>16/05/2026</td>
+                      <td>KISTT</td>
+                      <td><span class="team black"><span class="dotMini black"></span>Time Preto</span></td>
+                      <td class="score">3</td>
+                    </tr>
+                    <tr>
+                      <td>23/05/2026</td>
+                      <td>DERVAL</td>
+                      <td><span class="team black"><span class="dotMini black"></span>Time Preto</span></td>
+                      <td class="score">5</td>
+                    </tr>
+                    <tr>
+                      <td>30/05/2026</td>
+                      <td>ALEX</td>
+                      <td><span class="team black"><span class="dotMini black"></span>Time Preto</span></td>
+                      <td class="score">4</td>
+                    </tr>
+                    <tr>
+                      <td>06/06/2026</td>
+                      <td>DERVAL</td>
+                      <td><span class="team black"><span class="dotMini black"></span>Time Preto</span></td>
+                      <td class="score">8</td>
+                    </tr>
+                    <tr>
+                      <td>06/06/2026</td>
+                      <td>LEONE</td>
+                      <td><span class="team black"><span class="dotMini black"></span>Time Preto</span></td>
+                      <td class="score">5</td>
+                    </tr>
+                    <tr>
+                      <td>06/06/2026</td>
+                      <td>JEAN</td>
+                      <td><span class="team black"><span class="dotMini black"></span>Time Preto</span></td>
+                      <td class="score">3</td>
+                    </tr>
                   </tbody>
                 </table>
               </div>
@@ -879,7 +1037,7 @@
 
     <footer>
       Feito para acompanhar a artilharia dos jogadores. Atualização rodada a rodada.
-      <div class="update-stamp">Ultima atualizacao automatica: jogo de 04/04/2026.</div>
+      <div class="update-stamp">Ultima atualizacao: jogo de 06/06/2026.</div>
     </footer>
   </div>
 </body>

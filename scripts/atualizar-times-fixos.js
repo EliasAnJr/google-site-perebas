@@ -302,12 +302,25 @@ function parseYear(targetHtml) {
   return match ? match[1] : String(new Date().getFullYear());
 }
 
+function sortPlayersAlphabetically(players) {
+  return [...players].sort((a, b) => {
+    const byName = normalizeName(a.name).localeCompare(normalizeName(b.name), "pt-BR");
+    if (byName !== 0) return byName;
+    if (a.isCaptain !== b.isCaptain) return a.isCaptain ? 1 : -1;
+    return a.name.localeCompare(b.name, "pt-BR");
+  });
+}
+
+function formatPlayerDisplayName(name) {
+  return String(name || "").toLocaleUpperCase("pt-BR");
+}
+
 function renderTeamList(players) {
   return players
     .map((player) =>
       player.isCaptain
-        ? `                <li><span class="captain">${player.name} (Capitão)</span></li>`
-        : `                <li>${player.name}</li>`
+        ? `                <li><span class="captain">${formatPlayerDisplayName(player.name)} (Capitão)</span></li>`
+        : `                <li>${formatPlayerDisplayName(player.name)}</li>`
     )
     .join("\n");
 }
@@ -322,8 +335,8 @@ function replaceRequired(content, pattern, replacement, label) {
 function buildUpdatedHtml(targetHtml, data, monthLabel, year) {
   const titleMonthUpper = monthLabel.toUpperCase();
   const subtitle = "Escalação dos times fixos do mês.";
-  const blackList = renderTeamList(data.preto);
-  const orangeList = renderTeamList(data.laranja);
+  const blackList = renderTeamList(sortPlayersAlphabetically(data.preto));
+  const orangeList = renderTeamList(sortPlayersAlphabetically(data.laranja));
 
   let updated = targetHtml;
 
@@ -416,7 +429,9 @@ function saveWithBackup(filePath, content) {
 }
 
 function formatPreviewTeam(label, players) {
-  const names = players.map((player) => (player.isCaptain ? `${player.name} (Capitão)` : player.name));
+  const names = sortPlayersAlphabetically(players).map((player) =>
+    player.isCaptain ? `${formatPlayerDisplayName(player.name)} (Capitão)` : formatPlayerDisplayName(player.name)
+  );
   return `${label} (${players.length}): ${names.join(", ")}`;
 }
 

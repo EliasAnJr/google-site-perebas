@@ -126,7 +126,13 @@
       font-size:13px;
       line-height:1;
     }
-
+    .winner.draw{
+      border-color:rgba(255,255,255,.32);
+      background:rgba(255,255,255,.08);
+      color:var(--text);
+      box-shadow:none;
+      animation:none;
+    }
     @keyframes winnerPulse{
       0%,100%{
         transform:scale(1);
@@ -225,53 +231,55 @@
           <h1>Resultados</h1>
           <p>Acompanhe os resultados dos jogos do Perebas FC, com detalhes de cada partida e a pontuação dos jogadores.</p>
         </div>
-        <span class="badge">ABRIL/2026</span>
+        <span class="badge">MAIO/2026</span>
       </div>
 
       <section class="match">
-        <h2>Jogo do dia 04/04/2026</h2>
+        <h2>Jogo do dia 02/05/2026</h2>
         <div class="score">
           <div class="teamBox black">
             <span class="teamName">Time Preto</span>
-            <strong class="goals">8</strong>
+            <strong class="goals">12</strong>
           </div>
           <div class="versus">x</div>
           <div class="teamBox orange">
             <span class="teamName">Time Laranja</span>
-            <strong class="goals">15</strong>
+            <strong class="goals">11</strong>
           </div>
         </div>
 
-        <div class="winner">Vencedor: Time Laranja <span class="teamEmoji" aria-hidden="true">🟠</span></div>
+        <div class="winner">Vencedor: Time Preto <span class="teamEmoji" aria-hidden="true">⚫</span></div>
 
         <div class="cols">
           <article class="teamCard">
             <div class="teamTitle">
               <strong>Jogadores do Time Preto</strong>
-              <span class="tag">derrota</span>
+              <span class="tag">+3 por jogador</span>
             </div>
             <ul>
-              <li><span>Alex</span><span class="pts zero">0 ponto</span></li>
-              <li><span>Chico</span><span class="pts zero">0 ponto</span></li>
-              <li><span>Daniel</span><span class="pts zero">0 ponto</span></li>
-              <li><span>Domingos</span><span class="pts zero">0 ponto</span></li>
-              <li><span>Elias</span><span class="pts zero">0 ponto</span></li>
-              <li><span>Gabriel</span><span class="pts zero">0 ponto</span></li>
-              <li><span>Kistt</span><span class="pts zero">0 ponto</span></li>
+              <li><span>Alex</span><span class="pts">+3 pontos</span></li>
+              <li><span>Daniel</span><span class="pts">+3 pontos</span></li>
+              <li><span>Darci</span><span class="pts">+3 pontos</span></li>
+              <li><span>Derval</span><span class="pts">+3 pontos</span></li>
+              <li><span>Everton</span><span class="pts">+3 pontos</span></li>
+              <li><span>Jean</span><span class="pts">+3 pontos</span></li>
             </ul>
           </article>
 
           <article class="teamCard">
             <div class="teamTitle">
               <strong>Jogadores do Time Laranja</strong>
-              <span class="tag">+3 por jogador</span>
+              <span class="tag">derrota</span>
             </div>
             <ul>
-              <li><span>Darci</span><span class="pts">+3 pontos</span></li>
-              <li><span>Derval</span><span class="pts">+3 pontos</span></li>
-              <li><span>Henrique</span><span class="pts">+3 pontos</span></li>
-              <li><span>Jean</span><span class="pts">+3 pontos</span></li>
-              <li><span>Leone</span><span class="pts">+3 pontos</span></li>
+              <li><span>Alemao</span><span class="pts zero">0 ponto</span></li>
+              <li><span>Domingos</span><span class="pts zero">0 ponto</span></li>
+              <li><span>Cleberson</span><span class="pts zero">0 ponto</span></li>
+              <li><span>Chico</span><span class="pts zero">0 ponto</span></li>
+              <li><span>Henrique</span><span class="pts zero">0 ponto</span></li>
+              <li><span>Leone</span><span class="pts zero">0 ponto</span></li>
+              <li><span>Tacio</span><span class="pts zero">0 ponto</span></li>
+              <li><span>Pavesi</span><span class="pts zero">0 ponto</span></li>
             </ul>
           </article>
         </div>
@@ -279,11 +287,59 @@
 
 
       <section class="match">
-        <h2>Jogo do dia 11/04/2026</h2>
+        <h2>Jogo do dia 09/05/2026</h2>
         <div class="score">
           <div class="teamBox black">
             <span class="teamName">Time Preto</span>
-            <strong class="goals">8</strong>
+            <strong class="goals">7</strong>
+          </div>
+          <div class="versus">x</div>
+          <div class="teamBox orange">
+            <span class="teamName">Time Laranja</span>
+            <strong class="goals">7</strong>
+          </div>
+        </div>
+
+        <div class="winner draw">Empate: nao houve time vencedor</div>
+
+        <div class="cols">
+          <article class="teamCard">
+            <div class="teamTitle">
+              <strong>Jogadores do Time Preto</strong>
+              <span class="tag">+1 por jogador</span>
+            </div>
+            <ul>
+              <li><span>ALEX</span><span class="pts">+1 ponto</span></li>
+              <li><span>DARCI</span><span class="pts">+1 ponto</span></li>
+              <li><span>DERVAL</span><span class="pts">+1 ponto</span></li>
+              <li><span>EVERTON</span><span class="pts">+1 ponto</span></li>
+              <li><span>JEAN</span><span class="pts">+1 ponto</span></li>
+            </ul>
+          </article>
+
+          <article class="teamCard">
+            <div class="teamTitle">
+              <strong>Jogadores do Time Laranja</strong>
+              <span class="tag">+1 por jogador</span>
+            </div>
+            <ul>
+              <li><span>ALEMÃO</span><span class="pts">+1 ponto</span></li>
+              <li><span>CLEBERSON</span><span class="pts">+1 ponto</span></li>
+              <li><span>CHICO</span><span class="pts">+1 ponto</span></li>
+              <li><span>HENRIQUE</span><span class="pts">+1 ponto</span></li>
+              <li><span>LEONE</span><span class="pts">+1 ponto</span></li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+
+      <section class="match">
+        <h2>Jogo do dia 16/05/2026</h2>
+        <div class="score">
+          <div class="teamBox black">
+            <span class="teamName">Time Preto</span>
+            <strong class="goals">13</strong>
           </div>
           <div class="versus">x</div>
           <div class="teamBox orange">
@@ -301,12 +357,12 @@
               <span class="tag">derrota</span>
             </div>
             <ul>
-              <li><span>Alemao</span><span class="pts zero">0 ponto</span></li>
-              <li><span>Chico</span><span class="pts zero">0 ponto</span></li>
-              <li><span>Daniel</span><span class="pts zero">0 ponto</span></li>
-              <li><span>Elias</span><span class="pts zero">0 ponto</span></li>
-              <li><span>Kistt</span><span class="pts zero">0 ponto</span></li>
-              <li><span>Pavesi</span><span class="pts zero">0 ponto</span></li>
+              <li><span>ALEX</span><span class="pts zero">0 ponto</span></li>
+              <li><span>DARCI</span><span class="pts zero">0 ponto</span></li>
+              <li><span>DERVAL</span><span class="pts zero">0 ponto</span></li>
+              <li><span>JEAN</span><span class="pts zero">0 ponto</span></li>
+              <li><span>JEAN PIRES</span><span class="pts zero">0 ponto</span></li>
+              <li><span>KISTT</span><span class="pts zero">0 ponto</span></li>
             </ul>
           </article>
 
@@ -316,14 +372,13 @@
               <span class="tag">+3 por jogador</span>
             </div>
             <ul>
+              <li><span>ALEMÃO</span><span class="pts">+3 pontos</span></li>
               <li><span>Cleberson</span><span class="pts">+3 pontos</span></li>
-              <li><span>Derval</span><span class="pts">+3 pontos</span></li>
-              <li><span>Everton</span><span class="pts">+3 pontos</span></li>
-              <li><span>Henrique</span><span class="pts">+3 pontos</span></li>
-              <li><span>Jean</span><span class="pts">+3 pontos</span></li>
-              <li><span>Leone</span><span class="pts">+3 pontos</span></li>
-              <li><span>Tacio</span><span class="pts">+3 pontos</span></li>
-              <li><span>Rogerio</span><span class="pts">+3 pontos</span></li>
+              <li><span>CHICO</span><span class="pts">+3 pontos</span></li>
+              <li><span>HENRIQUE</span><span class="pts">+3 pontos</span></li>
+              <li><span>LEONE</span><span class="pts">+3 pontos</span></li>
+              <li><span>ROGÉRIO</span><span class="pts">+3 pontos</span></li>
+              <li><span>TÁCIO</span><span class="pts">+3 pontos</span></li>
             </ul>
           </article>
         </div>
@@ -331,65 +386,16 @@
 
 
       <section class="match">
-        <h2>Jogo do dia 18/04/2026</h2>
+        <h2>Jogo do dia 23/05/2026</h2>
         <div class="score">
           <div class="teamBox black">
             <span class="teamName">Time Preto</span>
-            <strong class="goals">9</strong>
+            <strong class="goals">8</strong>
           </div>
           <div class="versus">x</div>
           <div class="teamBox orange">
             <span class="teamName">Time Laranja</span>
-            <strong class="goals">13</strong>
-          </div>
-        </div>
-
-        <div class="winner">Vencedor: Time Laranja <span class="teamEmoji" aria-hidden="true">🟠</span></div>
-
-        <div class="cols">
-          <article class="teamCard">
-            <div class="teamTitle">
-              <strong>Jogadores do Time Preto</strong>
-              <span class="tag">derrota</span>
-            </div>
-            <ul>
-              <li><span>Alemao</span><span class="pts zero">0 ponto</span></li>
-              <li><span>Chico</span><span class="pts zero">0 ponto</span></li>
-              <li><span>Alex</span><span class="pts zero">0 ponto</span></li>
-            </ul>
-          </article>
-
-          <article class="teamCard">
-            <div class="teamTitle">
-              <strong>Jogadores do Time Laranja</strong>
-              <span class="tag">+3 por jogador</span>
-            </div>
-            <ul>
-              <li><span>Cleberson</span><span class="pts">+3 pontos</span></li>
-              <li><span>Derval</span><span class="pts">+3 pontos</span></li>
-              <li><span>Henrique</span><span class="pts">+3 pontos</span></li>
-              <li><span>Jean</span><span class="pts">+3 pontos</span></li>
-              <li><span>Leone</span><span class="pts">+3 pontos</span></li>
-              <li><span>Tacio</span><span class="pts">+3 pontos</span></li>
-              <li><span>Rogerio</span><span class="pts">+3 pontos</span></li>
-              <li><span>Darci</span><span class="pts">+3 pontos</span></li>
-            </ul>
-          </article>
-        </div>
-      </section>
-
-
-      <section class="match">
-        <h2>Jogo do dia 25/04/2026</h2>
-        <div class="score">
-          <div class="teamBox black">
-            <span class="teamName">Time Preto</span>
-            <strong class="goals">11</strong>
-          </div>
-          <div class="versus">x</div>
-          <div class="teamBox orange">
-            <span class="teamName">Time Laranja</span>
-            <strong class="goals">5</strong>
+            <strong class="goals">7</strong>
           </div>
         </div>
 
@@ -402,11 +408,12 @@
               <span class="tag">+3 por jogador</span>
             </div>
             <ul>
-              <li><span>Alemao</span><span class="pts">+3 pontos</span></li>
-              <li><span>Chico</span><span class="pts">+3 pontos</span></li>
-              <li><span>Kistt</span><span class="pts">+3 pontos</span></li>
-              <li><span>Alex</span><span class="pts">+3 pontos</span></li>
-              <li><span>Domingos</span><span class="pts">+3 pontos</span></li>
+              <li><span>ALEX</span><span class="pts">+3 pontos</span></li>
+              <li><span>DERVAL</span><span class="pts">+3 pontos</span></li>
+              <li><span>EVERTON</span><span class="pts">+3 pontos</span></li>
+              <li><span>JEAN</span><span class="pts">+3 pontos</span></li>
+              <li><span>JEAN PIRES</span><span class="pts">+3 pontos</span></li>
+              <li><span>KISTT</span><span class="pts">+3 pontos</span></li>
             </ul>
           </article>
 
@@ -416,12 +423,63 @@
               <span class="tag">derrota</span>
             </div>
             <ul>
-              <li><span>Cleberson</span><span class="pts zero">0 ponto</span></li>
-              <li><span>Darci</span><span class="pts zero">0 ponto</span></li>
-              <li><span>Jean</span><span class="pts zero">0 ponto</span></li>
-              <li><span>Leone</span><span class="pts zero">0 ponto</span></li>
-              <li><span>Henrique</span><span class="pts zero">0 ponto</span></li>
-              <li><span>Tacio</span><span class="pts zero">0 ponto</span></li>
+              <li><span>CHICO</span><span class="pts zero">0 ponto</span></li>
+              <li><span>HENRIQUE</span><span class="pts zero">0 ponto</span></li>
+              <li><span>LEONE</span><span class="pts zero">0 ponto</span></li>
+              <li><span>LUCAS</span><span class="pts zero">0 ponto</span></li>
+              <li><span>TÁCIO</span><span class="pts zero">0 ponto</span></li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+
+      <section class="match">
+        <h2>Jogo do dia 30/05/2026</h2>
+        <div class="score">
+          <div class="teamBox black">
+            <span class="teamName">Time Preto</span>
+            <strong class="goals">14</strong>
+          </div>
+          <div class="versus">x</div>
+          <div class="teamBox orange">
+            <span class="teamName">Time Laranja</span>
+            <strong class="goals">10</strong>
+          </div>
+        </div>
+
+        <div class="winner">Vencedor: Time Preto <span class="teamEmoji" aria-hidden="true">⚫</span></div>
+
+        <div class="cols">
+          <article class="teamCard">
+            <div class="teamTitle">
+              <strong>Jogadores do Time Preto</strong>
+              <span class="tag">+3 por jogador</span>
+            </div>
+            <ul>
+              <li><span>ALEX</span><span class="pts">+3 pontos</span></li>
+              <li><span>DERVAL</span><span class="pts">+3 pontos</span></li>
+              <li><span>DARCI</span><span class="pts">+3 pontos</span></li>
+              <li><span>JEAN</span><span class="pts">+3 pontos</span></li>
+              <li><span>JEAN PIRES</span><span class="pts">+3 pontos</span></li>
+              <li><span>KISTT</span><span class="pts">+3 pontos</span></li>
+            </ul>
+          </article>
+
+          <article class="teamCard">
+            <div class="teamTitle">
+              <strong>Jogadores do Time Laranja</strong>
+              <span class="tag">derrota</span>
+            </div>
+            <ul>
+              <li><span>ALEMÃO</span><span class="pts zero">0 ponto</span></li>
+              <li><span>CHICO</span><span class="pts zero">0 ponto</span></li>
+              <li><span>CLEBERSON</span><span class="pts zero">0 ponto</span></li>
+              <li><span>HENRIQUE</span><span class="pts zero">0 ponto</span></li>
+              <li><span>LEONE</span><span class="pts zero">0 ponto</span></li>
+              <li><span>LUCAS</span><span class="pts zero">0 ponto</span></li>
+              <li><span>ROGÉRIO</span><span class="pts zero">0 ponto</span></li>
+              <li><span>TÁCIO</span><span class="pts zero">0 ponto</span></li>
             </ul>
           </article>
         </div>

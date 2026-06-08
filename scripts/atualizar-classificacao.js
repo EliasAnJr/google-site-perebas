@@ -9,23 +9,21 @@ const DEFAULT_PROJECT_ROOT = path.resolve(__dirname, "..");
  * Faz o parse dos argumentos da linha de comando (process.argv).
  *
  * Suporta os formatos --key value e --key=value.
- * Flags booleanas (--help, --forcar) sao reconhecidas diretamente.
+ * A flag booleana --help e reconhecida diretamente.
  *
  * @param {string[]} argv - Lista de tokens CLI (tipicamente process.argv.slice(2))
- * @returns {{ mes: string, modo: string, data: string, forcar: boolean,
+ * @returns {{ mes: string, modo: string, data: string,
  *             raiz: string, classificacao: string, base: string,
- *             resultados: string, help: boolean }} Objeto com todas as opcoes
+ *             help: boolean }} Objeto com todas as opcoes
  */
 function parseArgs(argv) {
   const args = {
     mes: "marco",
     modo: "preview",
     data: "",
-    forcar: false,
     raiz: DEFAULT_PROJECT_ROOT,
     classificacao: "pagina-home/classificacao-jogadores",
     base: "",
-    resultados: "",
     help: false,
   };
 
@@ -33,10 +31,6 @@ function parseArgs(argv) {
     const token = argv[i];
     if (token === "--help" || token === "-h") {
       args.help = true;
-      continue;
-    }
-    if (token === "--forcar") {
-      args.forcar = true;
       continue;
     }
     if (!token.startsWith("--")) {
@@ -72,10 +66,6 @@ function parseArgs(argv) {
         args.base = (value || "").trim();
         if (consumesNext) i += 1;
         break;
-      case "--resultados":
-        args.resultados = (value || "").trim();
-        if (consumesNext) i += 1;
-        break;
       default:
         break;
     }
@@ -99,11 +89,9 @@ function usage() {
     "  --mes           Pasta do mes (default: marco)",
     "  --data          Data do jogo no formato DD/MM/AAAA (default: ultimo jogo da base)",
     "  --modo          preview | apply (default: preview)",
-    "  --forcar        Permite aplicar mesmo quando a data ja existe em resultados",
     "  --raiz          Caminho raiz do projeto (default: pasta do projeto)",
     "  --classificacao Caminho relativo da classificacao",
     "  --base          Caminho relativo do arquivo base .txt",
-    "  --resultados    Caminho relativo do arquivo de resultados",
     "",
     "Comportamento:",
     "  - preview: calcula e mostra as mudancas sem salvar arquivos",
@@ -190,6 +178,7 @@ function canonicalizePlayerName(name) {
  *  - Prefixos numerados: "1- Joao", "2. Maria", "3) Pedro"
  *  - Sufixos de pontuacao: "+ 3 PONTOS", "+ 1 PONTO"
  *  - Cabecalhos de secao: "JOGADORES DO TIME ...", "RESULTADO", "PRESENTES:", "AUSENTES:"
+ *  - Marcadores de fechamento/metadados: "CICLO FINALIZADO", "CONFERENCIA", "STATUS"
  *  - Linhas de separador: "-----", "#####"
  *  - Espacos nao-separaveis (U+00A0)
  *
@@ -213,6 +202,10 @@ function cleanName(rawLine) {
   if (/^resultado/i.test(text)) return "";
   if (/^presentes:?$/i.test(text)) return "";
   if (/^ausentes:?$/i.test(text)) return "";
+  if (/^ciclo\s+finalizado$/i.test(text)) return "";
+  if (/^conferencia:?$/i.test(text)) return "";
+  if (/^status\s*:/i.test(text)) return "";
+  if (/^soma\s+time\s+/i.test(text)) return "";
 
   return text;
 }
@@ -375,7 +368,7 @@ function parseNumberedList(block, startRegex, endRegex) {
  *
  * Procura pelo cabecalho "JOGADORES DO TIME {team} NO Jogo do dia {date}"
  * e captura as linhas seguintes ate o proximo cabecalho de time, separador
- * "#####" ou fim do bloco.
+ * "#####", bloco de fechamento ("-----", "CICLO FINALIZADO") ou fim do bloco.
  *
  * @param {string} block  - Trecho de texto referente a um jogo (fatiado por parseGames)
  * @param {string} team   - Nome do time em maiusculas, ex: "PRETO" ou "LARANJA"
@@ -388,7 +381,7 @@ function parseTeamPlayers(block, team, date) {
       team +
       "\\s+NO\\s+Jogo\\s+do\\s+dia\\s+" +
       escapeRegExp(date) +
-      "([\\s\\S]*?)(?=JOGADORES\\s+DO\\s+TIME|#{5,}|Jogo\\s+do\\s+dia|$)",
+      "([\\s\\S]*?)(?=JOGADORES\\s+DO\\s+TIME|#{5,}|[-]{4,}|CICLO\\s+FINALIZADO|Jogo\\s+do\\s+dia|$)",
     "i"
   );
 
@@ -988,184 +981,6 @@ function renderTeamRows(rows) {
 }
 
 /**
- * Garante que o CSS de separacao visual entre dois blocos .match consecutivos
- * esteja presente no HTML de resultados.
- *
- *   .match + .match { margin-top:18px; padding-top:18px; border-top:... }
- *
- * Se ja existir, retorna o HTML sem alteracao (idempotente).
- * Caso contrario, injeta o bloco antes do @media ou antes de </style>.
- *
- * @param {string} resultsHtml - Conteudo HTML da pagina de resultados
- * @returns {string} HTML atualizado com o CSS de separador garantido
- */
-function ensureMatchSeparatorCss(resultsHtml) {
-  if (/\.match\s*\+\s*\.match\s*\{/.test(resultsHtml)) {
-    return resultsHtml;
-  }
-
-  const block = [
-    "    .match + .match{",
-    "      margin-top:18px;",
-    "      padding-top:18px;",
-    "      border-top:1px solid rgba(255,255,255,.14);",
-    "    }",
-    "",
-  ].join("\n");
-
-  if (/\n\s*@media \(min-width: 860px\)\{/.test(resultsHtml)) {
-    return resultsHtml.replace(/\n\s*@media \(min-width: 860px\)\{/, `\n\n${block}    @media (min-width: 860px){`);
-  }
-
-  return resultsHtml.replace(/<\/style>/i, `${block}</style>`);
-}
-
-/**
- * Garante que o CSS de estilo para empate (.winner.draw) esteja presente
- * no HTML de resultados.
- *
- *   .winner.draw { border-color:...; background:...; animation:none; }
- *
- * Necessario somente quando um jogo terminar em empate, para evitar que o
- * banner de vencedor exiba a animacao de pulso em um resultado sem ganhador.
- *
- * Se ja existir, retorna o HTML sem alteracao (idempotente).
- *
- * @param {string} resultsHtml - Conteudo HTML da pagina de resultados
- * @returns {string} HTML atualizado com o CSS de empate garantido
- */
-function ensureDrawCss(resultsHtml) {
-  if (/\.winner\.draw\s*\{/.test(resultsHtml)) {
-    return resultsHtml;
-  }
-
-  const drawCss = [
-    "    .winner.draw{",
-    "      border-color:rgba(255,255,255,.32);",
-    "      background:rgba(255,255,255,.08);",
-    "      color:var(--text);",
-    "      box-shadow:none;",
-    "      animation:none;",
-    "    }",
-    "",
-  ].join("\n");
-
-  if (/\n\s*@keyframes winnerPulse\{/.test(resultsHtml)) {
-    return resultsHtml.replace(/\n\s*@keyframes winnerPulse\{/, `\n${drawCss}    @keyframes winnerPulse{`);
-  }
-
-  return resultsHtml.replace(/<\/style>/i, `${drawCss}</style>`);
-}
-
-/**
- * Gera os itens <li> de jogadores para um time dentro de um bloco de resultado.
- *
- * Exibe o nome canonico do jogador (da tabela de classificacao, quando disponivel)
- * e um badge de pontos:
- *  - 0 pontos -> classe "pts zero"
- *  - 1 ponto  -> classe "pts" com texto "+1 ponto"
- *  - 3 pontos -> classe "pts" com texto "+3 pontos"
- *
- * @param {string[]} names                        - Nomes dos jogadores do time (do .txt)
- * @param {number}   pointsPerPlayer              - Pontos ganhos por cada jogador (0, 1 ou 3)
- * @param {Map<string, string>} nameByNormalized  - Mapa de chave normalizada -> nome canonico
- * @returns {string} HTML com todos os <li> concatenados por newline
- */
-function renderPlayerList(names, pointsPerPlayer, nameByNormalized) {
-  return names
-    .map((rawName) => {
-      const key = normalizeName(rawName);
-      const name = key && nameByNormalized.has(key) ? nameByNormalized.get(key) : rawName;
-
-      if (pointsPerPlayer === 0) {
-        return `              <li><span>${htmlEscape(name)}</span><span class="pts zero">0 ponto</span></li>`;
-      }
-
-      const text = pointsPerPlayer === 1 ? "+1 ponto" : "+3 pontos";
-      return `              <li><span>${htmlEscape(name)}</span><span class="pts">${text}</span></li>`;
-    })
-    .join("\n");
-}
-
-/**
- * Gera o markup HTML completo de uma <section class="match"> para um jogo.
- *
- * Inclui:
- *  - Cabecalho com a data
- *  - Placar do jogo (Time Preto x Time Laranja)
- *  - Banner de vencedor (ou empate com classe .draw)
- *  - Colunas com listas de jogadores de cada time e seus pontos
- *
- * @param {Object} game                           - Objeto de jogo retornado por parseGames()
- * @param {Map<string, string>} nameByNormalized  - Mapa de nome normalizado -> nome canonico
- * @returns {string} Markup HTML completo da secao de resultado do jogo
- */
-function renderMatchSection(game, nameByNormalized) {
-  let winnerBanner = "";
-  let tagPreto = "derrota";
-  let tagLaranja = "derrota";
-  let pontosPreto = 0;
-  let pontosLaranja = 0;
-
-  if (game.winner === "PRETO") {
-    winnerBanner = '<div class="winner">Vencedor: Time Preto <span class="teamEmoji" aria-hidden="true">⚫</span></div>';
-    tagPreto = "+3 por jogador";
-    pontosPreto = 3;
-  } else if (game.winner === "LARANJA") {
-    winnerBanner = '<div class="winner">Vencedor: Time Laranja <span class="teamEmoji" aria-hidden="true">🟠</span></div>';
-    tagLaranja = "+3 por jogador";
-    pontosLaranja = 3;
-  } else {
-    winnerBanner = '<div class="winner draw">Empate: nao houve time vencedor</div>';
-    tagPreto = "+1 por jogador";
-    tagLaranja = "+1 por jogador";
-    pontosPreto = 1;
-    pontosLaranja = 1;
-  }
-
-  return [
-    "      <section class=\"match\">",
-    `        <h2>Jogo do dia ${game.date}</h2>`,
-    "        <div class=\"score\">",
-    "          <div class=\"teamBox black\">",
-    "            <span class=\"teamName\">Time Preto</span>",
-    `            <strong class=\"goals\">${game.scorePreto}</strong>`,
-    "          </div>",
-    "          <div class=\"versus\">x</div>",
-    "          <div class=\"teamBox orange\">",
-    "            <span class=\"teamName\">Time Laranja</span>",
-    `            <strong class=\"goals\">${game.scoreLaranja}</strong>`,
-    "          </div>",
-    "        </div>",
-    "",
-    `        ${winnerBanner}`,
-    "",
-    "        <div class=\"cols\">",
-    "          <article class=\"teamCard\">",
-    "            <div class=\"teamTitle\">",
-    "              <strong>Jogadores do Time Preto</strong>",
-    `              <span class=\"tag\">${tagPreto}</span>`,
-    "            </div>",
-    "            <ul>",
-    renderPlayerList(game.playersPreto, pontosPreto, nameByNormalized),
-    "            </ul>",
-    "          </article>",
-    "",
-    "          <article class=\"teamCard\">",
-    "            <div class=\"teamTitle\">",
-    "              <strong>Jogadores do Time Laranja</strong>",
-    `              <span class=\"tag\">${tagLaranja}</span>`,
-    "            </div>",
-    "            <ul>",
-    renderPlayerList(game.playersLaranja, pontosLaranja, nameByNormalized),
-    "            </ul>",
-    "          </article>",
-    "        </div>",
-    "      </section>",
-  ].join("\n");
-}
-
-/**
  * Substitui o conteudo do <tbody> de uma tabela especifica no HTML,
  * identificada pelo aria-label do elemento <div class="table-wrap">.
  *
@@ -1271,7 +1086,7 @@ function updateClassificationHtml(classificationHtml, updatedPlayers, updatedTea
   html = replaceTbody(html, "Classificacao individual", renderPlayersRows(updatedPlayers, rounds), "                  ");
   html = replaceTbody(html, "Classificacao dos times", renderTeamRows(updatedTeams), "                  ");
 
-  const updateStamp = `<div class="update-stamp">Ultima atualizacao automatica: jogo de ${htmlEscape(updatedDate)}.</div>`;
+  const updateStamp = `<div class="update-stamp">Ultima atualizacao: jogo de ${htmlEscape(updatedDate)}.</div>`;
   if (/<div class="update-stamp">[\s\S]*?<\/div>/i.test(html)) {
     html = html.replace(/<div class="update-stamp">[\s\S]*?<\/div>/i, updateStamp);
   } else if (/<footer>[\s\S]*?<\/footer>/i.test(html)) {
@@ -1433,11 +1248,9 @@ function saveWithBackup(filePath, content) {
  * arquivo "Jogos-do-ciclo*.txt" (case-insensitive, ordem alfabetica)
  * dentro da pasta do mes.
  *
- * Se `--resultados` nao for informado, assume "paginas-{mes}/resultados".
- *
  * @param {Object} args - Objeto retornado por parseArgs()
  * @returns {{ root: string, monthDir: string, basePath: string,
- *             resultsPath: string, classificacaoPath: string }}
+ *             classificacaoPath: string }}
  * @throws {Error} Se a pasta do mes nao existir ou nenhum .txt for encontrado
  */
 function resolvePaths(args) {
@@ -1462,17 +1275,12 @@ function resolvePaths(args) {
     basePath = path.join(monthDir, candidates[0]);
   }
 
-  const resultsPath = args.resultados
-    ? path.resolve(root, args.resultados)
-    : path.join(monthDir, "resultados");
-
   const classificacaoPath = path.resolve(root, args.classificacao);
 
   return {
     root,
     monthDir,
     basePath,
-    resultsPath,
     classificacaoPath,
   };
 }
@@ -1482,22 +1290,16 @@ function resolvePaths(args) {
  *
  * Fluxo de execucao:
  *  1. Parse dos argumentos CLI
- *  2. Resolucao de caminhos (base, resultados, classificacao)
+ *  2. Resolucao de caminhos (base e classificacao)
  *  3. Leitura e parse do arquivo base (.txt)
  *  4. Selecao do jogo (por --data ou o ultimo jogo disponivel na base)
- *  5. Validacao: o jogo ja existe em resultados? (protecao contra duplicidade)
- *  6. Leitura da classificacao atual
- *  7. Calculo do delta de pontos/V/E/D para o jogo selecionado
- *  8. Calculo do bonus acumulado por mes fechado
- *  9. Atualizacao dos jogadores e times
- * 10. Renderizacao do HTML atualizado (classificacao e resultados)
- * 11. Modo preview: exibe o resumo e encerra sem gravar
- * 12. Modo apply: salva arquivos com backup e exibe confirmacao
- *
- * Protecoes de seguranca:
- *  - Se o jogo ja existe em resultados no modo apply, bloqueia a execucao
- *    (use --forcar para ignorar essa protecao)
- *  - Em modo preview com jogo ja existente, exibe aviso e nao simula incremento
+ *  5. Leitura da classificacao atual
+ *  6. Calculo do delta de pontos/V/E/D para o jogo selecionado
+ *  7. Calculo do bonus acumulado por mes fechado
+ *  8. Atualizacao dos jogadores e times
+ *  9. Renderizacao do HTML atualizado da classificacao
+ * 10. Modo preview: exibe o resumo e encerra sem gravar
+ * 11. Modo apply: salva arquivo com backup e exibe confirmacao
  */
 function main() {
   const args = parseArgs(process.argv.slice(2));
@@ -1513,7 +1315,6 @@ function main() {
 
   const paths = resolvePaths(args);
   if (!fs.existsSync(paths.basePath)) throw new Error(`Arquivo base nao encontrado: ${paths.basePath}`);
-  if (!fs.existsSync(paths.resultsPath)) throw new Error(`Arquivo resultados nao encontrado: ${paths.resultsPath}`);
   if (!fs.existsSync(paths.classificacaoPath)) throw new Error(`Arquivo classificacao nao encontrado: ${paths.classificacaoPath}`);
 
   const baseText = fs.readFileSync(paths.basePath, "utf8");
@@ -1545,42 +1346,14 @@ function main() {
   }
 
   const classificationHtml = fs.readFileSync(paths.classificacaoPath, "utf8");
-  const resultsHtmlOriginal = fs.readFileSync(paths.resultsPath, "utf8");
-
-  const matchExistsRegex = new RegExp(`<h2>\\s*Jogo do dia\\s*${escapeRegExp(selectedGame.date)}\\s*<\\/h2>`, "i");
-  const alreadyInResults = matchExistsRegex.test(resultsHtmlOriginal);
-
-  if (alreadyInResults && args.modo === "apply" && !args.forcar) {
-    throw new Error(
-      `A data ${selectedGame.date} ja existe em resultados. Use --forcar para aplicar mesmo assim e evitar bloqueio de seguranca.`
-    );
-  }
 
   const currentPlayers = parsePlayersTable(classificationHtml);
   const currentTeams = parseTeamsTable(classificationHtml);
-
-  if (alreadyInResults && args.modo === "preview" && !args.forcar) {
-    console.log("----------------------------------------");
-    console.log("Resumo da execucao");
-    console.log("----------------------------------------");
-    console.log(`Mes: ${args.mes}`);
-    console.log(`Data selecionada: ${selectedGame.date}`);
-    console.log(`Placar: Preto ${selectedGame.scorePreto} x ${selectedGame.scoreLaranja} Laranja`);
-    console.log(`Vencedor: ${selectedGame.winner}`);
-    const seasonMonthContexts = loadSeasonMonthContexts(paths.root, paths.basePath, selectedGame.date, baseText);
-    const seasonRounds = countSeasonRounds(seasonMonthContexts);
-    console.log(`Rodadas totais consideradas: ${seasonRounds}`);
-    console.log("Jogo ja presente em resultados: sim");
-    console.log("");
-    console.log("Preview seguro: nenhuma simulacao de incremento foi feita para evitar duplicidade.");
-    console.log("Use --forcar apenas se quiser recalcular/aplicar mesmo com data ja existente.");
-    return;
-  }
+  const knownByNormalized = new Map(currentPlayers.map((p) => [normalizeName(p.name), p.name]));
 
   const seasonMonthContexts = loadSeasonMonthContexts(paths.root, paths.basePath, selectedGame.date, baseText);
   const seasonRounds = countSeasonRounds(seasonMonthContexts);
   const bonusByName = buildAccumulatedBonusCount(seasonMonthContexts);
-  const knownByNormalized = new Map(currentPlayers.map((p) => [normalizeName(p.name), p.name]));
   const deltaByName = buildDeltaForGame(selectedGame);
 
   const unknownPlayers = [];
@@ -1601,27 +1374,6 @@ function main() {
     selectedGame.date
   );
 
-  let updatedResultsHtml = resultsHtmlOriginal;
-  if (!alreadyInResults) {
-    updatedResultsHtml = ensureMatchSeparatorCss(updatedResultsHtml);
-    if (selectedGame.winner === "EMPATE") {
-      updatedResultsHtml = ensureDrawCss(updatedResultsHtml);
-    }
-
-    const section = renderMatchSection(selectedGame, knownByNormalized);
-    const insertIndex = updatedResultsHtml.lastIndexOf("\n    </section>");
-    if (insertIndex < 0) {
-      throw new Error("Nao foi possivel encontrar o fechamento da secao principal de resultados.");
-    }
-
-    updatedResultsHtml =
-      updatedResultsHtml.slice(0, insertIndex) +
-      "\n\n" +
-      section +
-      "\n" +
-      updatedResultsHtml.slice(insertIndex);
-  }
-
   const previewTop = updatedPlayers.slice(0, 5);
 
   console.log("----------------------------------------");
@@ -1632,7 +1384,6 @@ function main() {
   console.log(`Placar: Preto ${selectedGame.scorePreto} x ${selectedGame.scoreLaranja} Laranja`);
   console.log(`Vencedor: ${selectedGame.winner}`);
   console.log(`Rodadas totais consideradas: ${seasonRounds}`);
-  console.log(`Jogo ja presente em resultados: ${alreadyInResults ? "sim" : "nao"}`);
   console.log("");
 
   console.log("Top 5 apos atualizacao:");
@@ -1648,29 +1399,17 @@ function main() {
 
   if (args.modo === "preview") {
     console.log("");
-    if (alreadyInResults && !args.forcar) {
-      console.log(
-        "Preview concluido. Em apply, a execucao sera bloqueada porque o jogo ja existe em resultados (use --forcar se necessario)."
-      );
-    } else {
-      console.log("Preview concluido. Nenhum arquivo foi alterado.");
-    }
+    console.log("Preview concluido. Nenhum arquivo foi alterado.");
     return;
   }
 
   const classResult = saveWithBackup(paths.classificacaoPath, updatedClassificationHtml);
-  const resultsResult = saveWithBackup(paths.resultsPath, updatedResultsHtml);
 
   console.log("");
-  console.log("Arquivos atualizados:");
+  console.log("Arquivo atualizado:");
   console.log(
     `- Classificacao: ${classResult.changed ? "alterada" : "sem alteracao"}${
       classResult.backupPath ? ` (backup: ${classResult.backupPath})` : ""
-    }`
-  );
-  console.log(
-    `- Resultados: ${resultsResult.changed ? "alterado" : "sem alteracao"}${
-      resultsResult.backupPath ? ` (backup: ${resultsResult.backupPath})` : ""
     }`
   );
 }

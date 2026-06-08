@@ -379,8 +379,8 @@
                 </div>
               </div>
               <div class="chips">
-                <span class="chip"><span class="dotMini blue"></span> <b>Rodadas:</b> 9</span>
-                <span class="chip"><span class="dotMini green"></span> <b>Jogadores:</b> 18</span>
+                <span class="chip"><span class="dotMini blue"></span> <b>Rodadas:</b> 18</span>
+                <span class="chip"><span class="dotMini green"></span> <b>Jogadores:</b> 20</span>
                 <span class="chip"><span class="dotMini yellow"></span> <b>Bonus:</b> +1 presenca</span>
               </div>
             </div>
@@ -405,199 +405,221 @@
                     <tr class="podium">
                       <td><span class="rank top">1</span></td>
                       <td>Jean</td>
-                      <td class="score">21</td>
-                      <td>9</td>
-                      <td>6</td>
-                      <td>1</td>
+                      <td class="score">42</td>
+                      <td>18</td>
+                      <td>12</td>
                       <td>2</td>
+                      <td>4</td>
                       <td>0</td>
-                      <td><span class="bonus on">+2</span></td>
+                      <td><span class="bonus on">+4</span></td>
                     </tr>
                     <tr class="podium">
                       <td><span class="rank top">2</span></td>
-                      <td>Cleberson</td>
-                      <td class="score">18</td>
-                      <td>8</td>
-                      <td>5</td>
-                      <td>1</td>
+                      <td>Leone</td>
+                      <td class="score">33</td>
+                      <td>18</td>
+                      <td>9</td>
                       <td>2</td>
-                      <td>1</td>
-                      <td><span class="bonus on">+2</span></td>
+                      <td>7</td>
+                      <td>0</td>
+                      <td><span class="bonus on">+4</span></td>
                     </tr>
                     <tr class="podium">
                       <td><span class="rank top">3</span></td>
-                      <td>Leone</td>
-                      <td class="score">18</td>
+                      <td>Derval</td>
+                      <td class="score">29</td>
+                      <td>12</td>
                       <td>9</td>
-                      <td>5</td>
-                      <td>1</td>
-                      <td>3</td>
-                      <td>0</td>
-                      <td><span class="bonus on">+2</span></td>
-                    </tr>
-                    <tr>
-                      <td><span class="rank">4</span></td>
-                      <td>Everton</td>
-                      <td class="score">17</td>
-                      <td>7</td>
-                      <td>5</td>
-                      <td>1</td>
                       <td>1</td>
                       <td>2</td>
+                      <td>6</td>
                       <td><span class="bonus on">+1</span></td>
                     </tr>
                     <tr>
-                      <td><span class="rank">5</span></td>
-                      <td>Chico</td>
-                      <td class="score">17</td>
+                      <td><span class="rank">4</span></td>
+                      <td>Cleberson</td>
+                      <td class="score">28</td>
+                      <td>16</td>
                       <td>8</td>
-                      <td>5</td>
-                      <td>1</td>
+                      <td>2</td>
+                      <td>6</td>
+                      <td>2</td>
+                      <td><span class="bonus on">+2</span></td>
+                    </tr>
+                    <tr>
+                      <td><span class="rank">5</span></td>
+                      <td>Everton</td>
+                      <td class="score">27</td>
+                      <td>11</td>
+                      <td>8</td>
                       <td>2</td>
                       <td>1</td>
+                      <td>7</td>
                       <td><span class="bonus on">+1</span></td>
                     </tr>
                     <tr>
                       <td><span class="rank">6</span></td>
-                      <td>Elias</td>
-                      <td class="score">15</td>
-                      <td>9</td>
-                      <td>4</td>
-                      <td>1</td>
-                      <td>4</td>
-                      <td>0</td>
-                      <td><span class="bonus on">+2</span></td>
+                      <td>Chico</td>
+                      <td class="score">26</td>
+                      <td>16</td>
+                      <td>7</td>
+                      <td>2</td>
+                      <td>7</td>
+                      <td>2</td>
+                      <td><span class="bonus on">+3</span></td>
                     </tr>
                     <tr>
                       <td><span class="rank">7</span></td>
                       <td>Kistt</td>
-                      <td class="score">11</td>
-                      <td>8</td>
-                      <td>3</td>
+                      <td class="score">23</td>
+                      <td>14</td>
+                      <td>7</td>
                       <td>1</td>
+                      <td>6</td>
                       <td>4</td>
-                      <td>1</td>
                       <td><span class="bonus on">+1</span></td>
                     </tr>
                     <tr>
                       <td><span class="rank">8</span></td>
                       <td>Darci</td>
-                      <td class="score">10</td>
+                      <td class="score">20</td>
+                      <td>13</td>
                       <td>6</td>
-                      <td>3</td>
-                      <td>1</td>
                       <td>2</td>
-                      <td>3</td>
+                      <td>5</td>
+                      <td>5</td>
                       <td><span class="bonus">0</span></td>
                     </tr>
                     <tr>
                       <td><span class="rank">9</span></td>
-                      <td>Rogerio</td>
-                      <td class="score">9</td>
-                      <td>4</td>
-                      <td>3</td>
-                      <td>0</td>
-                      <td>1</td>
+                      <td>Henrique</td>
+                      <td class="score">20</td>
+                      <td>16</td>
                       <td>5</td>
-                      <td><span class="bonus">0</span></td>
+                      <td>2</td>
+                      <td>9</td>
+                      <td>2</td>
+                      <td><span class="bonus on">+3</span></td>
                     </tr>
                     <tr>
                       <td><span class="rank">10</span></td>
-                      <td>Derval</td>
-                      <td class="score">9</td>
-                      <td>4</td>
-                      <td>3</td>
+                      <td>Rogerio</td>
+                      <td class="score">18</td>
+                      <td>9</td>
+                      <td>6</td>
                       <td>0</td>
-                      <td>1</td>
-                      <td>5</td>
+                      <td>3</td>
+                      <td>9</td>
                       <td><span class="bonus">0</span></td>
                     </tr>
                     <tr>
                       <td><span class="rank">11</span></td>
-                      <td>Daniel</td>
-                      <td class="score">8</td>
-                      <td>8</td>
-                      <td>2</td>
-                      <td>1</td>
+                      <td>Elias</td>
+                      <td class="score">18</td>
+                      <td>11</td>
                       <td>5</td>
                       <td>1</td>
-                      <td><span class="bonus on">+1</span></td>
+                      <td>5</td>
+                      <td>7</td>
+                      <td><span class="bonus on">+2</span></td>
                     </tr>
                     <tr>
                       <td><span class="rank">12</span></td>
-                      <td>Henrique</td>
-                      <td class="score">8</td>
-                      <td>8</td>
-                      <td>2</td>
-                      <td>1</td>
+                      <td>Alemao</td>
+                      <td class="score">17</td>
+                      <td>12</td>
                       <td>5</td>
-                      <td>1</td>
-                      <td><span class="bonus on">+1</span></td>
+                      <td>2</td>
+                      <td>5</td>
+                      <td>6</td>
+                      <td><span class="bonus">0</span></td>
                     </tr>
                     <tr>
                       <td><span class="rank">13</span></td>
-                      <td>Alemao</td>
-                      <td class="score">7</td>
+                      <td>Alex</td>
+                      <td class="score">14</td>
+                      <td>13</td>
                       <td>4</td>
-                      <td>2</td>
                       <td>1</td>
-                      <td>1</td>
+                      <td>8</td>
                       <td>5</td>
-                      <td><span class="bonus">0</span></td>
+                      <td><span class="bonus on">+1</span></td>
                     </tr>
                     <tr>
                       <td><span class="rank">14</span></td>
                       <td>Tacio</td>
-                      <td class="score">5</td>
-                      <td>6</td>
-                      <td>1</td>
-                      <td>1</td>
+                      <td class="score">14</td>
+                      <td>13</td>
                       <td>4</td>
-                      <td>3</td>
+                      <td>1</td>
+                      <td>8</td>
+                      <td>5</td>
                       <td><span class="bonus on">+1</span></td>
                     </tr>
                     <tr>
                       <td><span class="rank">15</span></td>
-                      <td>Pavesi</td>
-                      <td class="score">3</td>
-                      <td>2</td>
-                      <td>1</td>
-                      <td>0</td>
+                      <td>Daniel</td>
+                      <td class="score">11</td>
+                      <td>11</td>
+                      <td>3</td>
                       <td>1</td>
                       <td>7</td>
-                      <td><span class="bonus">0</span></td>
+                      <td>7</td>
+                      <td><span class="bonus on">+1</span></td>
                     </tr>
                     <tr>
                       <td><span class="rank">16</span></td>
+                      <td>Jean Pires</td>
+                      <td class="score">9</td>
+                      <td>4</td>
+                      <td>3</td>
+                      <td>0</td>
+                      <td>1</td>
+                      <td>14</td>
+                      <td><span class="bonus">0</span></td>
+                    </tr>
+                    <tr>
+                      <td><span class="rank">17</span></td>
                       <td>Domingos</td>
+                      <td class="score">6</td>
+                      <td>6</td>
+                      <td>2</td>
+                      <td>0</td>
+                      <td>4</td>
+                      <td>12</td>
+                      <td><span class="bonus">0</span></td>
+                    </tr>
+                    <tr>
+                      <td><span class="rank">18</span></td>
+                      <td>Lucas</td>
+                      <td class="score">3</td>
+                      <td>3</td>
+                      <td>1</td>
+                      <td>0</td>
+                      <td>2</td>
+                      <td>15</td>
+                      <td><span class="bonus">0</span></td>
+                    </tr>
+                    <tr>
+                      <td><span class="rank">19</span></td>
+                      <td>Pavesi</td>
                       <td class="score">3</td>
                       <td>4</td>
                       <td>1</td>
                       <td>0</td>
                       <td>3</td>
-                      <td>5</td>
+                      <td>14</td>
                       <td><span class="bonus">0</span></td>
                     </tr>
                     <tr>
-                      <td><span class="rank">17</span></td>
-                      <td>Alex</td>
-                      <td class="score">0</td>
-                      <td>5</td>
-                      <td>0</td>
-                      <td>0</td>
-                      <td>5</td>
-                      <td>4</td>
-                      <td><span class="bonus">0</span></td>
-                    </tr>
-                    <tr>
-                      <td><span class="rank">18</span></td>
+                      <td><span class="rank">20</span></td>
                       <td>Gabriel</td>
                       <td class="score">0</td>
                       <td>5</td>
                       <td>0</td>
                       <td>0</td>
                       <td>5</td>
-                      <td>4</td>
+                      <td>13</td>
                       <td><span class="bonus">0</span></td>
                     </tr>
                   </tbody>
@@ -641,8 +663,8 @@
                 </div>
               </div>
               <div class="chips">
-                <span class="chip"><span class="dotMini orange"></span> <b>Laranja:</b> 4V 1E 4D</span>
-                <span class="chip"><span class="dotMini black"></span> <b>Preto:</b> 4V 1E 4D</span>
+                <span class="chip"><span class="dotMini orange"></span> <b>Laranja:</b> 7V 2E 9D</span>
+                <span class="chip"><span class="dotMini black"></span> <b>Preto:</b> 9V 2E 7D</span>
               </div>
             </div>
 
@@ -664,23 +686,23 @@
                   <tbody>
                     <tr class="podium">
                       <td><span class="rank top">1</span></td>
-                      <td><span class="team orange"><span class="dotMini orange"></span>Laranja</span></td>
+                      <td><span class="team black"><span class="dotMini black"></span>Preto</span></td>
+                      <td>18</td>
+                      <td class="score">29</td>
                       <td>9</td>
-                      <td class="score">13</td>
-                      <td>4</td>
-                      <td>1</td>
-                      <td>4</td>
-                      <td>48.1%</td>
+                      <td>2</td>
+                      <td>7</td>
+                      <td>53.7%</td>
                     </tr>
                     <tr>
                       <td><span class="rank">2</span></td>
-                      <td><span class="team black"><span class="dotMini black"></span>Preto</span></td>
+                      <td><span class="team orange"><span class="dotMini orange"></span>Laranja</span></td>
+                      <td>18</td>
+                      <td class="score">23</td>
+                      <td>7</td>
+                      <td>2</td>
                       <td>9</td>
-                      <td class="score">13</td>
-                      <td>4</td>
-                      <td>1</td>
-                      <td>4</td>
-                      <td>48.1%</td>
+                      <td>42.6%</td>
                     </tr>
                   </tbody>
                 </table>
@@ -693,7 +715,7 @@
 
     <footer>
       Feito para acompanhar a classificacao individual dos jogadores.
-      <div class="update-stamp">Ultima atualizacao automatica: jogo de 04/04/2026.</div>
+      <div class="update-stamp">Ultima atualizacao: jogo de 06/06/2026.</div>
     </footer>
   </div>
 </body>

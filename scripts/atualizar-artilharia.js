@@ -11,6 +11,7 @@ function parseArgs(argv) {
     modo: "preview",
     data: "",
     forcar: false,
+    reaplicarExistente: false,
     raiz: DEFAULT_PROJECT_ROOT,
     artilharia: "artilharia/artilharia",
     base: "",
@@ -27,6 +28,11 @@ function parseArgs(argv) {
 
     if (token === "--forcar") {
       args.forcar = true;
+      continue;
+    }
+
+    if (token === "--reaplicar-existente") {
+      args.reaplicarExistente = true;
       continue;
     }
 
@@ -82,7 +88,9 @@ function usage() {
     "  --mes         Texto usado para escolher a base alvo do mes na autodeteccao",
     "  --data        Data limite no formato DD/MM/AAAA (default: ultimo jogo da base)",
     "  --modo        preview | apply (default: preview)",
-    "  --forcar      Permite aplicar mesmo com inconsistencias detectadas na base",
+    "  --forcar      Permite seguir mesmo com inconsistencias detectadas na base",
+    "  --reaplicar-existente",
+    "                 Permite reaplicar a mesma data quando o HTML ja estiver atualizado",
     "  --raiz        Caminho raiz do projeto (default: pasta do projeto)",
     "  --artilharia  Caminho relativo do HTML alvo (default: artilharia/artilharia)",
     "  --base        Caminho relativo da base alvo .txt da artilharia",
@@ -115,6 +123,11 @@ function htmlEscape(text) {
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#39;");
+}
+
+function extractUpdateStampDate(html) {
+  const match = String(html || "").match(/Ultima atualizacao:\s*jogo de\s*(\d{2}\/\d{2}\/\d{4})/i);
+  return match ? match[1] : "";
 }
 
 function toDateCode(brDate) {
@@ -921,7 +934,7 @@ function updateArtilhariaHtml(html, leaderboardRows, teamSummary, insights, hatT
   updated = replaceTagContentById(updated, "insight-media", insights.mediaGoals);
   updated = replaceTagContentById(updated, "insight-total-gols", String(insights.totalGoals));
 
-  const updateStamp = `<div class="update-stamp">Ultima atualizacao automatica: jogo de ${htmlEscape(updatedDate)}.</div>`;
+  const updateStamp = `<div class="update-stamp">Ultima atualizacao: jogo de ${htmlEscape(updatedDate)}.</div>`;
   if (/<div class="update-stamp">[\s\S]*?<\/div>/i.test(updated)) {
     updated = updated.replace(/<div class="update-stamp">[\s\S]*?<\/div>/i, updateStamp);
   } else if (/<footer>[\s\S]*?<\/footer>/i.test(updated)) {
@@ -1081,6 +1094,7 @@ function main() {
   }
 
   const artilhariaHtml = fs.readFileSync(paths.artilhariaPath, "utf8");
+  const currentStampDate = extractUpdateStampDate(artilhariaHtml);
   const currentPlayers =
     history.rosterNames.length > 0 ? buildCanonicalRowsFromRoster(history.rosterNames) : parsePlayersTable(artilhariaHtml);
   const strictRoster = history.rosterNames.length > 0;
@@ -1097,6 +1111,20 @@ function main() {
     hatTrickEvents,
     selectedGame.date
   );
+  const explicitDuplicateOverride = args.forcar && args.reaplicarExistente;
+  const alreadyUpdatedForDate = currentStampDate === selectedGame.date && updatedHtml === artilhariaHtml;
+
+  if (alreadyUpdatedForDate && args.reaplicarExistente && !args.forcar) {
+    throw new Error(
+      `A artilharia ja esta atualizada para ${selectedGame.date}. Para reaplicar a mesma data manualmente, use --forcar e --reaplicar-existente juntos.`
+    );
+  }
+
+  if (alreadyUpdatedForDate && args.modo === "apply" && !explicitDuplicateOverride) {
+    throw new Error(
+      `A artilharia ja esta atualizada para ${selectedGame.date} e nenhuma diferenca foi encontrada no HTML gerado. O apply foi bloqueado para evitar reaplicacao inutil. Se voce realmente quiser forcar a mesma data, use --forcar --reaplicar-existente.`
+    );
+  }
 
   console.log("----------------------------------------");
   console.log("Resumo da execucao");
@@ -1148,6 +1176,11 @@ function main() {
 
   if (args.modo === "preview") {
     console.log("");
+    if (alreadyUpdatedForDate && !explicitDuplicateOverride) {
+      console.log("Preview seguro: a pagina da artilharia ja esta atualizada para essa mesma data e o HTML gerado nao mudaria.");
+      console.log("Se voce realmente quiser simular/reaplicar a mesma data, use --forcar --reaplicar-existente.");
+      return;
+    }
     console.log("Preview concluido. Nenhum arquivo foi alterado.");
     return;
   }

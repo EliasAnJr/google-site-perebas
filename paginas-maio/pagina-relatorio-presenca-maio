@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Presenças (Abril/2026)</title>
+  <title>Presenças (Maio/2026)</title>
   <style>
     :root{
       --bg1:#0b1020;
@@ -295,7 +295,7 @@
         <div class="badge"><span class="dot"></span> Presenças nos jogos</div>
         <h1>Relatório de Presença</h1>
         <p class="subtitle">
-          Lista organizada por jogo com <b>presentes</b> e <b>ausentes</b> do ciclo de abril.
+          Lista organizada por jogo com <b>presentes</b> e <b>ausentes</b> do ciclo de maio.
         </p>
       </div>
 
@@ -309,54 +309,10 @@
       <article class="card">
         <div class="card-head">
           <div class="when">
-            <strong>Jogo do dia 04/04/2026</strong>
-            <div class="meta">
-              <span class="chip"><span class="ico green"></span> <b>Presentes:</b> 12</span>
-              <span class="chip"><span class="ico red"></span> <b>Ausentes:</b> 6</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="card-body">
-          <div class="col present">
-            <h3>Presentes <span class="count">12</span></h3>
-            <ol>
-              <li>ALEX</li>
-              <li>CHICO</li>
-              <li>DANIEL</li>
-              <li>DARCI</li>
-              <li>DERVAL</li>
-              <li>DOMINGOS</li>
-              <li>ELIAS</li>
-              <li>GABRIEL</li>
-              <li>HENRIQUE</li>
-              <li>JEAN</li>
-              <li>KISTT</li>
-              <li>LEONE</li>
-            </ol>
-          </div>
-
-          <div class="col absent">
-            <h3>Ausentes <span class="count">6</span></h3>
-            <ul>
-              <li>ALEMÃO</li>
-              <li>CLEBERSON</li>
-              <li>EVERTON</li>
-              <li>PAVESI</li>
-              <li>ROGÉRIO</li>
-              <li>TÁCIO</li>
-            </ul>
-          </div>
-        </div>
-      </article>
-
-      <article class="card">
-        <div class="card-head">
-          <div class="when">
-            <strong>Jogo do dia 11/04/2026</strong>
+            <strong>Jogo do dia 02/05/2026</strong>
             <div class="meta">
               <span class="chip"><span class="ico green"></span> <b>Presentes:</b> 14</span>
-              <span class="chip"><span class="ico red"></span> <b>Ausentes:</b> 4</span>
+              <span class="chip"><span class="ico red"></span> <b>Ausentes:</b> 3</span>
             </div>
           </div>
         </div>
@@ -365,30 +321,29 @@
           <div class="col present">
             <h3>Presentes <span class="count">14</span></h3>
             <ol>
+              <li>ALEX</li>
               <li>ALEMÃO</li>
               <li>CHICO</li>
               <li>CLEBERSON</li>
               <li>DANIEL</li>
+              <li>DARCI</li>
               <li>DERVAL</li>
-              <li>ELIAS</li>
+              <li>DOMINGOS</li>
               <li>EVERTON</li>
               <li>HENRIQUE</li>
               <li>JEAN</li>
-              <li>KISTT</li>
               <li>LEONE</li>
               <li>PAVESI</li>
-              <li>ROGÉRIO</li>
               <li>TÁCIO</li>
             </ol>
           </div>
 
           <div class="col absent">
-            <h3>Ausentes <span class="count">4</span></h3>
+            <h3>Ausentes <span class="count">3</span></h3>
             <ul>
-              <li>ALEX</li>
-              <li>DARCI</li>
-              <li>DOMINGOS</li>
-              <li>GABRIEL</li>
+              <li>ELIAS</li>
+              <li>KISTT</li>
+              <li>ROGÉRIO</li>
             </ul>
           </div>
         </div>
@@ -397,10 +352,97 @@
       <article class="card">
         <div class="card-head">
           <div class="when">
-            <strong>Jogo do dia 18/04/2026</strong>
+            <strong>Jogo do dia 09/05/2026</strong>
+            <div class="meta">
+              <span class="chip"><span class="ico green"></span> <b>Presentes:</b> 10</span>
+              <span class="chip"><span class="ico red"></span> <b>Ausentes:</b> 7</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <div class="col present">
+            <h3>Presentes <span class="count">10</span></h3>
+            <ol>
+              <li>ALEX</li>
+              <li>ALEMÃO</li>
+              <li>CHICO</li>
+              <li>CLEBERSON</li>
+              <li>DARCI</li>
+              <li>DERVAL</li>
+              <li>EVERTON</li>
+              <li>HENRIQUE</li>
+              <li>JEAN</li>
+              <li>LEONE</li>
+            </ol>
+          </div>
+
+          <div class="col absent">
+            <h3>Ausentes <span class="count">7</span></h3>
+            <ul>
+              <li>DANIEL</li>
+              <li>DOMINGOS</li>
+              <li>ELIAS</li>
+              <li>KISTT</li>
+              <li>PAVESI</li>
+              <li>ROGÉRIO</li>
+              <li>TÁCIO</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <div class="when">
+            <strong>Jogo do dia 16/05/2026</strong>
+            <div class="meta">
+              <span class="chip"><span class="ico green"></span> <b>Presentes:</b> 13</span>
+              <span class="chip"><span class="ico red"></span> <b>Ausentes:</b> 5</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <div class="col present">
+            <h3>Presentes <span class="count">13</span></h3>
+            <ol>
+              <li>ALEX</li>
+              <li>ALEMÃO</li>
+              <li>DERVAL</li>
+              <li>CHICO</li>
+              <li>CLEBERSON</li>
+              <li>DARCI</li>
+              <li>HENRIQUE</li>
+              <li>JEAN</li>
+              <li>JEAN PIRES</li>
+              <li>KISTT</li>
+              <li>LEONE</li>
+              <li>ROGÉRIO</li>
+              <li>TÁCIO</li>
+            </ol>
+          </div>
+
+          <div class="col absent">
+            <h3>Ausentes <span class="count">5</span></h3>
+            <ul>
+              <li>DANIEL</li>
+              <li>ELIAS</li>
+              <li>EVERTON</li>
+              <li>PAVESI</li>
+              <li>DOMINGOS</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <div class="when">
+            <strong>Jogo do dia 23/05/2026</strong>
             <div class="meta">
               <span class="chip"><span class="ico green"></span> <b>Presentes:</b> 11</span>
-              <span class="chip"><span class="ico red"></span> <b>Ausentes:</b> 7</span>
+              <span class="chip"><span class="ico red"></span> <b>Ausentes:</b> 8</span>
             </div>
           </div>
         </div>
@@ -409,30 +451,31 @@
           <div class="col present">
             <h3>Presentes <span class="count">11</span></h3>
             <ol>
-              <li>ALEMÃO</li>
-              <li>CHICO</li>
-              <li>CLEBERSON</li>
               <li>ALEX</li>
+              <li>CHICO</li>
               <li>DERVAL</li>
+              <li>EVERTON</li>
               <li>HENRIQUE</li>
               <li>JEAN</li>
+              <li>JEAN PIRES</li>
+              <li>KISTT</li>
               <li>LEONE</li>
-              <li>ROGÉRIO</li>
+              <li>LUCAS</li>
               <li>TÁCIO</li>
-              <li>DARCI</li>
             </ol>
           </div>
 
           <div class="col absent">
-            <h3>Ausentes <span class="count">7</span></h3>
+            <h3>Ausentes <span class="count">8</span></h3>
             <ul>
-              <li>PAVESI</li>
-              <li>EVERTON</li>
-              <li>DOMINGOS</li>
-              <li>GABRIEL</li>
-              <li>KISTT</li>
-              <li>ELIAS</li>
+              <li>ALEMÃO</li>
+              <li>CLEBERSON</li>
               <li>DANIEL</li>
+              <li>DARCI</li>
+              <li>ELIAS</li>
+              <li>PAVESI</li>
+              <li>ROGÉRIO</li>
+              <li>DOMINGOS</li>
             </ul>
           </div>
         </div>
@@ -441,42 +484,43 @@
       <article class="card">
         <div class="card-head">
           <div class="when">
-            <strong>Jogo do dia 25/04/2026</strong>
+            <strong>Jogo do dia 30/05/2026</strong>
             <div class="meta">
-              <span class="chip"><span class="ico green"></span> <b>Presentes:</b> 11</span>
-              <span class="chip"><span class="ico red"></span> <b>Ausentes:</b> 7</span>
+              <span class="chip"><span class="ico green"></span> <b>Presentes:</b> 14</span>
+              <span class="chip"><span class="ico red"></span> <b>Ausentes:</b> 5</span>
             </div>
           </div>
         </div>
 
         <div class="card-body">
           <div class="col present">
-            <h3>Presentes <span class="count">11</span></h3>
+            <h3>Presentes <span class="count">14</span></h3>
             <ol>
-              <li>ALEMÃO</li>
-              <li>CHICO</li>
-              <li>CLEBERSON</li>
               <li>ALEX</li>
-              <li>KISTT</li>
+              <li>CHICO</li>
+              <li>DERVAL</li>
+              <li>DARCI</li>
               <li>HENRIQUE</li>
               <li>JEAN</li>
+              <li>JEAN PIRES</li>
+              <li>KISTT</li>
               <li>LEONE</li>
+              <li>LUCAS</li>
               <li>TÁCIO</li>
-              <li>DARCI</li>
-              <li>DOMINGOS</li>
+              <li>CLEBERSON</li>
+              <li>ALEMÃO</li>
+              <li>ROGÉRIO</li>
             </ol>
           </div>
 
           <div class="col absent">
-            <h3>Ausentes <span class="count">7</span></h3>
+            <h3>Ausentes <span class="count">5</span></h3>
             <ul>
-              <li>PAVESI</li>
               <li>EVERTON</li>
-              <li>DERVAL</li>
-              <li>GABRIEL</li>
-              <li>ELIAS</li>
               <li>DANIEL</li>
-              <li>ROGÉRIO</li>
+              <li>ELIAS</li>
+              <li>PAVESI</li>
+              <li>DOMINGOS</li>
             </ul>
           </div>
         </div>
@@ -485,9 +529,9 @@
       <article class="card">
         <div class="card-head">
           <div class="when">
-            <strong>Resumo de Presenças - Abril/2026</strong>
+            <strong>Resumo de Presenças - Maio/2026</strong>
             <div class="meta">
-              <span class="chip"><span class="ico green"></span> <b>Jogadores fixos:</b> 18</span>
+              <span class="chip"><span class="ico green"></span> <b>Jogadores fixos:</b> 19</span>
             </div>
           </div>
         </div>
@@ -496,38 +540,47 @@
           <div class="col">
             <h3>Faixas de presença <span class="count">mês completo</span></h3>
             <div style="padding:12px 12px 16px;">
+              <div class="small" style="margin-top:12px;">5 jogos:</div>
+              <ul class="presence-list">
+                <li><span>ALEX</span><span class="bonus">5J</span></li>
+                <li><span>CHICO</span><span class="bonus">5J</span></li>
+                <li><span>DERVAL</span><span class="bonus">5J</span></li>
+                <li><span>HENRIQUE</span><span class="bonus">5J</span></li>
+                <li><span>JEAN</span><span class="bonus">5J</span></li>
+                <li><span>LEONE</span><span class="bonus">5J</span></li>
+              </ul>
+
               <div class="small" style="margin-top:12px;">4 jogos:</div>
               <ul class="presence-list">
-                <li><span>CHICO</span><span class="bonus">4J</span></li>
-                <li><span>HENRIQUE</span><span class="bonus">4J</span></li>
-                <li><span>JEAN</span><span class="bonus">4J</span></li>
-                <li><span>LEONE</span><span class="bonus">4J</span></li>
+                <li><span>CLEBERSON</span><span class="bonus">4J</span></li>
+                <li><span>DARCI</span><span class="bonus">4J</span></li>
+                <li><span>ALEMÃO</span><span class="bonus">4J</span></li>
+                <li><span>TÁCIO</span><span class="bonus">4J</span></li>
               </ul>
 
               <div class="small" style="margin-top:12px;">3 jogos:</div>
               <ul class="presence-list">
-                <li><span>ALEX</span><span class="bonus">3J</span></li>
-                <li><span>ALEMÃO</span><span class="bonus">3J</span></li>
-                <li><span>CLEBERSON</span><span class="bonus">3J</span></li>
-                <li><span>DARCI</span><span class="bonus">3J</span></li>
-                <li><span>DERVAL</span><span class="bonus">3J</span></li>
+                <li><span>EVERTON</span><span class="bonus">3J</span></li>
+                <li><span>JEAN PIRES</span><span class="bonus">3J</span></li>
                 <li><span>KISTT</span><span class="bonus">3J</span></li>
-                <li><span>TÁCIO</span><span class="bonus">3J</span></li>
               </ul>
 
               <div class="small" style="margin-top:12px;">2 jogos:</div>
               <ul class="presence-list">
-                <li><span>DANIEL</span><span class="bonus">2J</span></li>
-                <li><span>DOMINGOS</span><span class="bonus">2J</span></li>
-                <li><span>ELIAS</span><span class="bonus">2J</span></li>
+                <li><span>LUCAS</span><span class="bonus">2J</span></li>
                 <li><span>ROGÉRIO</span><span class="bonus">2J</span></li>
               </ul>
 
               <div class="small" style="margin-top:12px;">1 jogo:</div>
               <ul class="presence-list">
-                <li><span>EVERTON</span><span class="bonus">1J</span></li>
-                <li><span>GABRIEL</span><span class="bonus">1J</span></li>
+                <li><span>DANIEL</span><span class="bonus">1J</span></li>
+                <li><span>DOMINGOS</span><span class="bonus">1J</span></li>
                 <li><span>PAVESI</span><span class="bonus">1J</span></li>
+              </ul>
+
+              <div class="small" style="margin-top:12px;">0 jogos:</div>
+              <ul class="presence-list">
+                <li><span>ELIAS</span><span class="bonus">0J</span></li>
               </ul>
             </div>
           </div>
@@ -536,8 +589,8 @@
     </section>
 
     <footer>
-      Feito para organizar a resenha com responsabilidade - Abril/2026
-      <div class="update-stamp">Ultima atualizacao: jogo de 25/04/2026.</div>
+      Feito para organizar a resenha com responsabilidade - Maio/2026
+      <div class="update-stamp">Ultima atualizacao: jogo de 30/05/2026.</div>
     </footer>
   </div>
 </body>

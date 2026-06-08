@@ -795,7 +795,7 @@ ${summaryHtml}
 
     <footer>
       Feito para organizar a resenha com responsabilidade - ${htmlEscape(monthLabel)}/${htmlEscape(year)}
-      <div class="update-stamp">Ultima atualizacao automatica: jogo de ${htmlEscape(footerDate)}.</div>
+      <div class="update-stamp">Ultima atualizacao: jogo de ${htmlEscape(footerDate)}.</div>
     </footer>
   </div>
 </body>
